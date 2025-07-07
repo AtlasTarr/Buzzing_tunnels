@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://h10a844mah70"]
+
+[ext_resource type="Script" uid="uid://bqprsfmy7dp0v" path="res://misc/bullet.gd" id="1_47gqk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g11pd"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gn85b"]
+
+[node name="Bullet" type="RigidBody3D"]
+collision_layer = 0
+collision_mask = 3
+contact_monitor = true
+max_contacts_reported = 6
+script = ExtResource("1_47gqk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_g11pd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("SphereMesh_gn85b")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+collision_mask = 7
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

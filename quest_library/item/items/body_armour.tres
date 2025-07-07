@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Body_Item_data" load_steps=3 format=3 uid="uid://c1x35vg6blm4x"]
+
+[ext_resource type="Script" uid="uid://cw4be3yx2ch4u" path="res://quest_library/item/body_Item_data.gd" id="1_5p72n"]
+[ext_resource type="Texture2D" uid="uid://dqh1gcl8vndqx" path="res://quest_library/item/i fwew up.PNG" id="2_wcj8n"]
+
+[resource]
+script = ExtResource("1_5p72n")
+defence = 2.0
+added = false
+name = "body armour"
+description = "
+defence +10"
+stackable = false
+texture = ExtResource("2_wcj8n")

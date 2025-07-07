@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpdrswus56jxc"]
+
+[ext_resource type="Script" uid="uid://b6o4m08s0pnmx" path="res://quest_library/item/items/item scenes/gun_object.gd" id="1_eik6b"]
+[ext_resource type="Resource" uid="uid://cqaork61lfbqe" path="res://quest_library/item/items/test_gun.tres" id="2_esufi"]
+[ext_resource type="PackedScene" uid="uid://cqli8uorfaf5t" path="res://misc/spawner.tscn" id="2_s6xlo"]
+[ext_resource type="PackedScene" uid="uid://h10a844mah70" path="res://misc/bullet.tscn" id="4_4qdn2"]
+
+[node name="GunObject" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 7
+freeze = true
+script = ExtResource("1_eik6b")
+gun_data = ExtResource("2_esufi")
+
+[node name="collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.02731, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="collision"]
+
+[node name="Spawner" parent="collision" instance=ExtResource("2_s6xlo")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+scene_spawn = ExtResource("4_4qdn2")
+
+[node name="Timer" type="Timer" parent="collision"]
+one_shot = true
+
+[connection signal="timeout" from="collision/Timer" to="." method="_on_timer_timeout"]

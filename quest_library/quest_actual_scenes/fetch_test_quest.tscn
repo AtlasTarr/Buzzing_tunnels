@@ -1,0 +1,25 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1mf4kj5xhmfo"]
+
+[ext_resource type="PackedScene" uid="uid://gcfh6b6x2wm" path="res://quest_library/quest/quest.tscn" id="1_h1yi5"]
+[ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="2_bpb3a"]
+[ext_resource type="Resource" uid="uid://b8j8w0agymfoj" path="res://quest_library/item/items/test_consumable.tres" id="3_krxa0"]
+[ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="4_dfm7k"]
+[ext_resource type="PackedScene" uid="uid://ckrvw0jim3mr5" path="res://quest_library/quest/fetch_objective.tscn" id="5_68sh4"]
+[ext_resource type="Resource" uid="uid://c140k4valhklp" path="res://quest_library/item/items/fat_soldier.tres" id="6_ep3hn"]
+
+[sub_resource type="Resource" id="Resource_dnosr"]
+script = ExtResource("4_dfm7k")
+item_data = ExtResource("3_krxa0")
+quantity = 5
+
+[sub_resource type="Resource" id="Resource_u83jy"]
+script = ExtResource("2_bpb3a")
+slot_datas = Array[ExtResource("4_dfm7k")]([SubResource("Resource_dnosr")])
+
+[node name="fetch_test_quest" instance=ExtResource("1_h1yi5")]
+quest_name = "fetch_test_quest"
+description = "acquire fat solder"
+reward = SubResource("Resource_u83jy")
+
+[node name="fetch_objective" parent="objectives" index="0" instance=ExtResource("5_68sh4")]
+Item = ExtResource("6_ep3hn")

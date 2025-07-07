@@ -1,0 +1,52 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=15 format=3 uid="uid://bo23kj8a61rqo"]
+
+[ext_resource type="Script" uid="uid://2dvo687s7t66" path="res://quest_library/inventory/equip_body_data.gd" id="1_e4chv"]
+[ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="2_gacnt"]
+[ext_resource type="Script" uid="uid://krxnlt1ghj13" path="res://quest_library/inventory/equip_helmet_data.gd" id="3_e5yeo"]
+[ext_resource type="Script" uid="uid://dgpsi2468g2uv" path="res://quest_library/inventory/equip_weapon_data.gd" id="4_4ow3a"]
+[ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="5_2ln8w"]
+[ext_resource type="Resource" uid="uid://b8j8w0agymfoj" path="res://quest_library/item/items/test_consumable.tres" id="6_xvuaf"]
+[ext_resource type="Resource" uid="uid://dxlxohcqm575q" path="res://quest_library/item/items/test_ammo.tres" id="7_u0tj2"]
+[ext_resource type="Script" uid="uid://b4ir88sbnacgk" path="res://quest_library/save/PlayerDataResource.gd" id="8_qbhtf"]
+
+[sub_resource type="Resource" id="Resource_x2wpa"]
+script = ExtResource("1_e4chv")
+slot_datas = Array[ExtResource("2_gacnt")]([null])
+
+[sub_resource type="Resource" id="Resource_6opmy"]
+script = ExtResource("3_e5yeo")
+slot_datas = Array[ExtResource("2_gacnt")]([null])
+
+[sub_resource type="Resource" id="Resource_kxpe3"]
+script = ExtResource("4_4ow3a")
+slot_datas = Array[ExtResource("2_gacnt")]([null])
+
+[sub_resource type="Resource" id="Resource_ib8u5"]
+script = ExtResource("2_gacnt")
+item_data = ExtResource("6_xvuaf")
+quantity = 3
+
+[sub_resource type="Resource" id="Resource_xtthw"]
+script = ExtResource("2_gacnt")
+item_data = ExtResource("7_u0tj2")
+quantity = 40
+
+[sub_resource type="Resource" id="Resource_q0gln"]
+script = ExtResource("5_2ln8w")
+slot_datas = Array[ExtResource("2_gacnt")]([SubResource("Resource_ib8u5"), SubResource("Resource_xtthw"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[resource]
+script = ExtResource("8_qbhtf")
+inventory_data = SubResource("Resource_q0gln")
+equip_helmet_data = SubResource("Resource_6opmy")
+equip_body_data = SubResource("Resource_x2wpa")
+equip_weapon_data = SubResource("Resource_kxpe3")
+health = 16
+base_speed = 3.0
+run_speed = 5.0
+max_speed = Vector3(80, 100000, 80)
+air_speed = 3.0
+jump = 3.0
+rotation = Vector3(0, 0, 0)
+camera_rotation = Vector3(0, 0, 0)
+quest_value_list = {}

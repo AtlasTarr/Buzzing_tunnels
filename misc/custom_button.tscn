@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvv0dc0ukrr73"]
+
+[ext_resource type="FontFile" uid="uid://mkry26787gqh" path="res://fonts/Wronghome-Regular.ttf" id="1_jm7h2"]
+[ext_resource type="Texture2D" uid="uid://cwh5wlxjrhb1k" path="res://misc/buttone_.png" id="2_2irif"]
+[ext_resource type="Texture2D" uid="uid://dbx35f06f6lh0" path="res://misc/buttone_select.png" id="3_wx8n3"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5txi"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("2_2irif")
+texture_margin_left = 35.4549
+texture_margin_top = 28.6947
+texture_margin_right = 35.3465
+texture_margin_bottom = 28.9201
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(-0.321413, -0.185163, 38.1068, 31.4854)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7a4i"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("2_2irif")
+texture_margin_left = 35.0
+texture_margin_top = 29.0
+texture_margin_right = 35.0
+texture_margin_bottom = 29.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(-0.321, -0.185, 38.107, 31.485)
+modulate_color = Color(0.709804, 0.709804, 0.709804, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_80dn0"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("3_wx8n3")
+texture_margin_left = 35.0
+texture_margin_top = 29.0
+texture_margin_right = 35.0
+texture_margin_bottom = 29.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(-0.321, -0.185, 38.107, 31.485)
+modulate_color = Color(0.360784, 0.360784, 0.360784, 1)
+
+[node name="Button" type="Button" groups=["Button"]]
+offset_right = 28.0
+offset_bottom = 12.0
+scale = Vector2(1, 0.99587)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jm7h2")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_s5txi")
+theme_override_styles/hover = SubResource("StyleBoxTexture_t7a4i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_80dn0")
+text = "test"

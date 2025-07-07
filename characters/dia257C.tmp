@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://b428871wpkq62"]
+
+[ext_resource type="Script" path="res://characters/dialouge.gd" id="1_rtow2"]
+[ext_resource type="PackedScene" uid="uid://dr3t53tllf1iv" path="res://quest_library/quest examples/slay_test_quest.tscn" id="2_mqklj"]
+[ext_resource type="PackedScene" uid="uid://brj4lfbi78pgk" path="res://misc/trigger.tscn" id="3_nbsoo"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_d4t48"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ti8rw"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6uqnu"]
+
+[node name="dialouge holder" type="RigidBody3D" groups=["DialougeHolder", "static"]]
+axis_lock_angular_y = true
+physics_material_override = SubResource("PhysicsMaterial_d4t48")
+script = ExtResource("1_rtow2")
+dialouges = PackedStringArray("test1", "test2")
+quest_reference = ExtResource("2_mqklj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ti8rw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_6uqnu")
+
+[node name="trigger" parent="." instance=ExtResource("3_nbsoo")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0654718, 1.02487)
+
+[connection signal="interact" from="trigger" to="." method="_on_trigger_interact"]

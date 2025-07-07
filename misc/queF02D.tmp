@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b30jm0vqgnhfj"]
+
+[ext_resource type="Script" path="res://misc/quest_block.gd" id="1_igojq"]
+[ext_resource type="PackedScene" uid="uid://dx2qkwyr6xqxu" path="res://misc/subtitle_label.tscn" id="1_m05gh"]
+[ext_resource type="PackedScene" uid="uid://d4ck6gbtej86u" path="res://misc/block_text.tscn" id="2_6k460"]
+
+[node name="quest_block" type="Control" node_paths=PackedStringArray("subtitle_label", "block_text")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_igojq")
+subtitle_label = NodePath("Subtitle_label")
+block_text = NodePath("block_text")
+
+[node name="Subtitle_label" parent="." instance=ExtResource("1_m05gh")]
+layout_mode = 2
+offset_right = 48.895
+offset_bottom = 40.0
+autowrap_mode = 3
+
+[node name="block_text" parent="." instance=ExtResource("2_6k460")]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 48.895
+offset_bottom = 67.0

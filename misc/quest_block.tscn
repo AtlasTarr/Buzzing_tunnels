@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://d11np2q0771c0"]
+
+[ext_resource type="Script" uid="uid://b7caisshcpwg4" path="res://misc/quest_block.gd" id="1_igojq"]
+[ext_resource type="PackedScene" uid="uid://dx2qkwyr6xqxu" path="res://misc/subtitle_label.tscn" id="1_m05gh"]
+[ext_resource type="PackedScene" uid="uid://d4ck6gbtej86u" path="res://misc/block_text.tscn" id="2_6k460"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86mxj"]
+bg_color = Color(0.709804, 0.917647, 0.776471, 1)
+
+[node name="quest_block" type="PanelContainer" node_paths=PackedStringArray("subtitle_label", "block_text")]
+clip_contents = true
+custom_minimum_size = Vector2(576, 135.5)
+offset_right = 576.0
+offset_bottom = 62.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_86mxj")
+script = ExtResource("1_igojq")
+subtitle_label = NodePath("MarginContainer/VBoxContainer/Subtitle_label")
+block_text = NodePath("MarginContainer/VBoxContainer/block_text")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Subtitle_label" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_m05gh")]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.529412, 0.717647, 0.588235, 1)
+
+[node name="block_text" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_6k460")]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.529412, 0.717647, 0.588235, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2

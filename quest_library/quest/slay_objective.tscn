@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8w12rncfvre5"]
+
+[ext_resource type="Script" uid="uid://c3xgk4e50tpy8" path="res://quest_library/quest/slay_objective.gd" id="1_7b4dq"]
+
+[node name="slay_objective" type="Node"]
+script = ExtResource("1_7b4dq")

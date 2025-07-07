@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://gcfh6b6x2wm"]
+
+[ext_resource type="Script" uid="uid://d1geqmwahaypf" path="res://quest_library/quest/quest.gd" id="1_vh3oy"]
+
+[node name="quest" type="Node"]
+script = ExtResource("1_vh3oy")
+quest_name = "quest"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="objectives" type="Node" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

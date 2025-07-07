@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Consumable_Item_Data" load_steps=3 format=3 uid="uid://b8j8w0agymfoj"]
+
+[ext_resource type="Script" uid="uid://btcjqiwy8ti7f" path="res://quest_library/item/consumable_item_data.gd" id="1_5q5xg"]
+[ext_resource type="Texture2D" uid="uid://ccxx0njluaw2t" path="res://quest_library/item/unnamed.jpg" id="2_uimht"]
+
+[resource]
+script = ExtResource("1_5q5xg")
+heal_amount = 5.0
+name = "test_consumable"
+description = ""
+stackable = true
+texture = ExtResource("2_uimht")

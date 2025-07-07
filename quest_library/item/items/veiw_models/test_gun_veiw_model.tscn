@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dk8sxpp4glcnu"]
+
+[ext_resource type="Script" uid="uid://cculrh6hnu6dq" path="res://quest_library/item/items/veiw_models/veiw_model.gd" id="1_o78rp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0bmid"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fxe13"]
+
+[node name="VeiwModel" type="Node3D" node_paths=PackedStringArray("collision_shape", "mesh", "spawner_hint")]
+script = ExtResource("1_o78rp")
+collision_shape = NodePath("CollisionShape3D")
+mesh = NodePath("CollisionShape3D/MeshInstance3D")
+spawner_hint = NodePath("Node3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.824, 0, 0, 0)
+shape = SubResource("BoxShape3D_0bmid")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_fxe13")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.450675)

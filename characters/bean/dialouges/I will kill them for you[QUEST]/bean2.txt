@@ -1,0 +1,4 @@
+now|
+will you go find fat soldier for me?|[QUESTION]
+I will go find fat soldier for you[QUEST][OPTION]
+NO[OPTION]

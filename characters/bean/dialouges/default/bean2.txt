@@ -1,0 +1,4 @@
+....................|
+why do you keep talking to me?|[QUESTION]
+cuz you look weird[OPTION]
+idk[OPTION]

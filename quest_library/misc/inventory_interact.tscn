@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfwtyx6wee72l"]
+
+[ext_resource type="Script" uid="uid://loq1fyhufb56" path="res://quest_library/inventory/inventory_interface.gd" id="1_taj5a"]
+[ext_resource type="PackedScene" uid="uid://b3ek18ncyd08r" path="res://quest_library/inventory/inventory.tscn" id="2_xagch"]
+[ext_resource type="PackedScene" uid="uid://doa7ns4sftmj8" path="res://quest_library/inventory/slot.tscn" id="3_5s3hk"]
+[ext_resource type="PackedScene" uid="uid://bi5uvsjiulp7f" path="res://quest_library/misc/weapon_equip_inventory.tscn" id="3_n6ibm"]
+
+[node name="inventory_interface" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_taj5a")
+metadata/_edit_use_anchors_ = true
+
+[node name="player_inventory" parent="." instance=ExtResource("2_xagch")]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="helmet_equip_inventory" parent="." instance=ExtResource("2_xagch")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 240.0
+offset_right = 118.0
+offset_bottom = 280.0
+
+[node name="item_grid" parent="helmet_equip_inventory/MarginContainer" index="0"]
+columns = 3
+
+[node name="body_equip_inventory" parent="." instance=ExtResource("2_xagch")]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 320.0
+offset_right = 118.0
+offset_bottom = 360.0
+
+[node name="item_grid" parent="body_equip_inventory/MarginContainer" index="0"]
+columns = 3
+
+[node name="weapon_equip_inventory" parent="." instance=ExtResource("3_n6ibm")]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 240.0
+offset_right = 198.0
+offset_bottom = 280.0
+
+[node name="external_inventory" parent="." instance=ExtResource("2_xagch")]
+visible = false
+layout_mode = 0
+offset_left = 651.0
+offset_top = 12.0
+offset_right = 691.0
+offset_bottom = 52.0
+
+[node name="grabbed_slot" parent="." instance=ExtResource("3_5s3hk")]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[connection signal="gui_input" from="." to="." method="on_gui_input"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
+
+[editable path="helmet_equip_inventory"]
+[editable path="body_equip_inventory"]

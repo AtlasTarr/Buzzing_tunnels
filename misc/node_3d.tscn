@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnjdgy6k5lwat"]
+
+[ext_resource type="Script" uid="uid://4if8ruw5cp85" path="res://door.gd" id="1_pr6t4"]
+[ext_resource type="PackedScene" uid="uid://brj4lfbi78pgk" path="res://misc/trigger.tscn" id="2_8eewa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7hqn0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ad323"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_pr6t4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.02188, 0, 0, 0, 0.120369, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_7hqn0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+mesh = SubResource("BoxMesh_ad323")
+
+[node name="trigger" parent="." instance=ExtResource("2_8eewa")]
+
+[connection signal="interact" from="trigger" to="." method="_on_trigger_interact"]

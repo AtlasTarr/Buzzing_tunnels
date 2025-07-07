@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item_Data" load_steps=3 format=3 uid="uid://c140k4valhklp"]
+
+[ext_resource type="Script" uid="uid://biqlbcpxx10g3" path="res://quest_library/item/item_data.gd" id="1_mgpgm"]
+[ext_resource type="Texture2D" uid="uid://imb1ukukydn7" path="res://quest_library/item/pog.PNG" id="2_vk6h2"]
+
+[resource]
+script = ExtResource("1_mgpgm")
+name = "fat soldier"
+description = "
+HE'S COMING FOR YOU"
+stackable = false
+texture = ExtResource("2_vk6h2")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item_Data" load_steps=3 format=3 uid="uid://c0xjpljdawvxh"]
+
+[ext_resource type="Script" uid="uid://biqlbcpxx10g3" path="res://quest_library/item/item_data.gd" id="1_a3bid"]
+[ext_resource type="Texture2D" uid="uid://dgaba00fu0vts" path="res://quest_library/item/mr incredible.PNG" id="2_nihks"]
+
+[resource]
+script = ExtResource("1_a3bid")
+name = "mr incredible"
+description = "
+the one and only baby"
+stackable = false
+texture = ExtResource("2_nihks")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Ammo_Item_Data" load_steps=4 format=3 uid="uid://dxlxohcqm575q"]
+
+[ext_resource type="Script" uid="uid://di4yd2feef70w" path="res://quest_library/item/ammo_item_data.gd" id="1_us6ft"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6yenl"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2o5f5"]
+generate_mipmaps = false
+normalize = false
+noise = SubResource("FastNoiseLite_6yenl")
+
+[resource]
+script = ExtResource("1_us6ft")
+calliber = "test"
+name = "test ammo"
+description = "ammo for the test gun"
+stackable = true
+texture = SubResource("NoiseTexture2D_2o5f5")

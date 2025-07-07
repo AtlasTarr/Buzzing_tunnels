@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi5uvsjiulp7f"]
+
+[ext_resource type="Texture2D" uid="uid://c1fbwp68jfl4h" path="res://misc/bg.png" id="1_r3s4l"]
+[ext_resource type="Script" uid="uid://c2mf0s3m45052" path="res://quest_library/inventory/inventory.gd" id="2_si135"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_50458"]
+texture = ExtResource("1_r3s4l")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="inventory" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_50458")
+script = ExtResource("2_si135")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="item_grid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 6

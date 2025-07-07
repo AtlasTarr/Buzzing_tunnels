@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy006mou4x4fq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_56eil"]
+bg_color = Color(0.223529, 0.317647, 0.32549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bwa2v"]
+bg_color = Color(0.698039, 0, 0.266667, 1)
+
+[node name="health bits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 957.0
+offset_right = 1040.0
+offset_bottom = 27.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_56eil")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bwa2v")
+max_value = 4.0
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 867.0
+offset_right = 950.0
+offset_bottom = 27.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_56eil")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bwa2v")
+max_value = 4.0
+show_percentage = false
+
+[node name="ProgressBar3" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 777.0
+offset_right = 860.0
+offset_bottom = 27.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_56eil")
+theme_override_styles/fill = SubResource("StyleBoxFlat_bwa2v")
+max_value = 4.0
+show_percentage = false

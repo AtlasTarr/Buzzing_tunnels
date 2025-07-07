@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckrvw0jim3mr5"]
+
+[ext_resource type="Script" uid="uid://mh0bnqm7dff4" path="res://quest_library/quest/fetch_objective.gd" id="1_qyxc5"]
+
+[node name="fetch_objective" type="Node"]
+script = ExtResource("1_qyxc5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

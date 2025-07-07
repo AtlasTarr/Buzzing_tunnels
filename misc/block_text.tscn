@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d4ck6gbtej86u"]
+
+[node name="block_text" type="RichTextLabel"]
+custom_minimum_size = Vector2(576, 23.74)
+offset_right = 30.285
+offset_bottom = 23.74
+size_flags_vertical = 2
+text = "test"
+fit_content = true
+scroll_active = false

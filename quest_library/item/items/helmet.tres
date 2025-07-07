@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Helmet_Item_data" load_steps=3 format=3 uid="uid://w3nh4680j1o4"]
+
+[ext_resource type="Script" uid="uid://clmfl2td8j36v" path="res://quest_library/item/Helmet_Item_data.gd" id="1_u4v1x"]
+[ext_resource type="Texture2D" uid="uid://imb1ukukydn7" path="res://quest_library/item/pog.PNG" id="2_h0ol5"]
+
+[resource]
+script = ExtResource("1_u4v1x")
+defence = 2.0
+added = false
+name = "helmet"
+description = "
+defence +10"
+stackable = false
+texture = ExtResource("2_h0ol5")

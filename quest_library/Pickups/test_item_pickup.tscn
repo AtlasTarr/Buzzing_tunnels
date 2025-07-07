@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://iuv1bsukb86w"]
+
+[ext_resource type="Script" uid="uid://c8bydh25pksgo" path="res://quest_library/Pickups/test_item_pickup.gd" id="1_w22vu"]
+[ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="3_co2g7"]
+
+[sub_resource type="Resource" id="Resource_i7dmd"]
+script = ExtResource("3_co2g7")
+quantity = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_80f2r"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kvmck"]
+
+[node name="test_item_pickup" type="RigidBody3D" groups=["static"]]
+collision_layer = 4
+collision_mask = 3
+can_sleep = false
+script = ExtResource("1_w22vu")
+slot_data = SubResource("Resource_i7dmd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_80f2r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+skeleton = NodePath("../..")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+texture_filter = 0
+
+[node name="Area3D" type="Area3D" parent="."]
+physics_interpolation_mode = 2
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_kvmck")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="body_entered" from="Area3D" to="." method="body_check"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

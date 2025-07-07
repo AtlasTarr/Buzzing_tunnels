@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dx2qkwyr6xqxu"]
+
+[node name="Subtitle_label" type="RichTextLabel"]
+custom_minimum_size = Vector2(576, 25)
+layout_direction = 2
+offset_right = 576.0
+offset_bottom = 60.0
+size_flags_vertical = 3
+theme_override_constants/line_separation = 25
+theme_override_font_sizes/normal_font_size = 25
+text = "test"
+fit_content = true
+scroll_active = false

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ppko2yw7id37"]
+
+[ext_resource type="Script" uid="uid://cohmlex8y8pmt" path="res://quest_library/misc/hit_box.gd" id="1_rf46f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_slvce"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sx7xc"]
+albedo_color = Color(1, 0.117647, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_30lep"]
+material = SubResource("StandardMaterial3D_sx7xc")
+
+[node name="hit_box" type="Area3D"]
+collision_mask = 2
+script = ExtResource("1_rf46f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_slvce")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_30lep")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

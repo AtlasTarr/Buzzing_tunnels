@@ -1,0 +1,258 @@
+[gd_scene load_steps=52 format=3 uid="uid://dwgen54oq7eli"]
+
+[ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_8bpxh"]
+[ext_resource type="PackedScene" uid="uid://d0xb5raoo3mwn" path="res://misc/UI.tscn" id="3_83ttw"]
+[ext_resource type="PackedScene" uid="uid://dr3t53tllf1iv" path="res://quest_library/quest_actual_scenes/slay_test_quest.tscn" id="6_jlf8k"]
+[ext_resource type="PackedScene" uid="uid://d1mf4kj5xhmfo" path="res://quest_library/quest_actual_scenes/fetch_test_quest.tscn" id="7_35fcy"]
+[ext_resource type="PackedScene" uid="uid://282kqu43d0e4" path="res://quest_library/interactables/chest.tscn" id="7_mfx77"]
+[ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="8_vsl2g"]
+[ext_resource type="Resource" uid="uid://c140k4valhklp" path="res://quest_library/item/items/fat_soldier.tres" id="9_sc8jr"]
+[ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="10_d8hcf"]
+[ext_resource type="PackedScene" uid="uid://ccsvsjofwq2k6" path="res://quest_library/player/player_transfer.tscn" id="10_px7dy"]
+[ext_resource type="PackedScene" uid="uid://bdjuf6v2hsp63" path="res://characters/bean/bean.tscn" id="11_6vt4c"]
+[ext_resource type="Resource" uid="uid://w3nh4680j1o4" path="res://quest_library/item/items/helmet.tres" id="11_mkbgn"]
+[ext_resource type="Resource" uid="uid://c1x35vg6blm4x" path="res://quest_library/item/items/body_armour.tres" id="12_r0d8f"]
+[ext_resource type="AudioStream" uid="uid://dtbh4n28hdp8l" path="res://audio/Apartment_block_.wav" id="13_5yojm"]
+[ext_resource type="Resource" uid="uid://cqaork61lfbqe" path="res://quest_library/item/items/test_gun.tres" id="13_fp007"]
+[ext_resource type="Resource" uid="uid://dclwb4spifv4r" path="res://quest_library/item/items/test_item.tres" id="14_xy1vm"]
+[ext_resource type="Resource" uid="uid://c0xjpljdawvxh" path="res://quest_library/item/items/mr_incredible.tres" id="17_6yel5"]
+[ext_resource type="Resource" uid="uid://dxlxohcqm575q" path="res://quest_library/item/items/test_ammo.tres" id="17_7w7r3"]
+[ext_resource type="PackedScene" uid="uid://iuv1bsukb86w" path="res://quest_library/Pickups/test_item_pickup.tscn" id="18_fkk0k"]
+[ext_resource type="PackedScene" uid="uid://dypqgy42jwnyt" path="res://misc/level_transition_door.tscn" id="19_jlnkg"]
+[ext_resource type="PackedScene" uid="uid://b428871wpkq62" path="res://characters/dialouge_holder.tscn" id="19_t258i"]
+[ext_resource type="PackedScene" uid="uid://d20iy3kn6tq4e" path="res://levels/demo_hub_town_area.tscn" id="20_onyy4"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_syo6r"]
+vertices = PackedVector3Array(0.92, 0.0135075, -5.64, 0.92, 0.0135075, -5.48, 0.96, 0.0135075, -5.44, 9.93, 0.0135075, -9.93, -0.78, 0.0135075, -5.58, -0.78, 0.0135075, -5.5, 0.66, 0.0135075, -5.5, 0.67, 0.0135075, -5.66, 0.719999, 0.0135075, -5.7, 0.86, 0.0135075, -5.7, -0.820001, 0.0135075, -5.63, -0.98, 0.0135075, -5.64, -9.93, 0.0135075, -9.93, 0.96, 0.0135075, -5.3, 0.92, 0.0135075, -5.26, 0.91, 0.0135075, -3.09, 0.66, 0.0135075, -5.24, -0.78, 0.0135075, -5.24, -0.78, 0.0135075, -3.17, 0.66, 0.0135075, -3.11, 9.93, 0.0135075, 9.93, 0.86, 0.0135075, -3.05, 0.719999, 0.0135075, -3.05, -0.84, 0.0135075, -3.11, -0.98, 0.0135075, -3.11, -9.93, 0.0135075, 9.93, -1.05, 0.0135075, -5.44, -1.04, 0.0135075, -5.58, -1.04, 0.0135075, -3.17, -0.91, 0.273507, -5.4, -0.91, 0.273507, -5.34, -0.88, 0.273507, -5.36, 0.76, 0.273507, -5.38, 0.78, 0.273507, -5.34, 0.82, 0.273507, -5.36, 0.8, 0.273507, -5.4)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(9, 8, 3), PackedInt32Array(4, 10, 7), PackedInt32Array(7, 10, 8), PackedInt32Array(0, 9, 3), PackedInt32Array(10, 11, 8), PackedInt32Array(8, 11, 12), PackedInt32Array(8, 12, 3), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 3), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(22, 21, 20), PackedInt32Array(18, 19, 23), PackedInt32Array(23, 19, 22), PackedInt32Array(13, 2, 3), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(25, 22, 20), PackedInt32Array(27, 26, 12), PackedInt32Array(11, 27, 12), PackedInt32Array(12, 26, 28), PackedInt32Array(28, 24, 12), PackedInt32Array(12, 24, 25), PackedInt32Array(15, 3, 21), PackedInt32Array(21, 3, 20), PackedInt32Array(31, 30, 29), PackedInt32Array(35, 34, 32), PackedInt32Array(32, 34, 33)]
+sample_partition_type = 2
+cell_size = 0.01
+cell_height = 0.01
+agent_radius = 0.07
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1k5kx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t73q4"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_itomw"]
+seed = -51
+frequency = 0.098
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vaxr0"]
+noise = SubResource("FastNoiseLite_itomw")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wsktk"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6nixa"]
+noise = SubResource("FastNoiseLite_wsktk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qkc3"]
+albedo_color = Color(0, 0.376471, 0.101961, 1)
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_vaxr0")
+subsurf_scatter_texture = SubResource("NoiseTexture2D_6nixa")
+detail_normal = SubResource("NoiseTexture2D_t73q4")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_j3u7l"]
+material = SubResource("StandardMaterial3D_7qkc3")
+size = Vector2(20, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rpitc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_gd3tv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_41gr6"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_31k38"]
+sky_material = SubResource("ProceduralSkyMaterial_41gr6")
+
+[sub_resource type="Environment" id="Environment_8ok8i"]
+background_mode = 2
+sky = SubResource("Sky_31k38")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_v41q2"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6.94704, 0, -51.0419, 0, 0, 0, 0, 0, 0, 6.66516, 0, -51.0316, 0, 0, 0, 0, 0, 0, 6.6876, 0, -38.7189, 0, 0, 0, 0, 0, 0, -7.07704, 0, -38.6985, 0, 0, 0, 0, 0, 0, -6.94704, 0, -51.0419),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Resource" id="Resource_m6pi3"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("9_sc8jr")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_wsm51"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("11_mkbgn")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_bsq0o"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("12_r0d8f")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_0topd"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("13_fp007")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_2a1qt"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("14_xy1vm")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_wyvns"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("17_7w7r3")
+quantity = 20
+
+[sub_resource type="Resource" id="Resource_3syoq"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("17_6yel5")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_ualfp"]
+script = ExtResource("8_vsl2g")
+slot_datas = Array[ExtResource("10_d8hcf")]([SubResource("Resource_m6pi3"), SubResource("Resource_wsm51"), SubResource("Resource_bsq0o"), SubResource("Resource_0topd"), SubResource("Resource_2a1qt"), SubResource("Resource_wyvns"), SubResource("Resource_3syoq"), null, null, null])
+
+[sub_resource type="Resource" id="Resource_ssjab"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("17_7w7r3")
+quantity = 150
+
+[sub_resource type="Resource" id="Resource_4ybwr"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("13_fp007")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_b0jxc"]
+script = ExtResource("8_vsl2g")
+slot_datas = Array[ExtResource("10_d8hcf")]([SubResource("Resource_ssjab"), SubResource("Resource_4ybwr"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_ccegt"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("17_7w7r3")
+quantity = 100
+
+[sub_resource type="Resource" id="Resource_516u8"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("13_fp007")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_gxu3i"]
+script = ExtResource("8_vsl2g")
+slot_datas = Array[ExtResource("10_d8hcf")]([SubResource("Resource_ccegt"), SubResource("Resource_516u8"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_wwh18"]
+script = ExtResource("10_d8hcf")
+item_data = ExtResource("13_fp007")
+quantity = 1
+
+[node name="Node3D" type="Node3D" groups=["level"]]
+script = ExtResource("1_8bpxh")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_syo6r")
+
+[node name="floor" type="StaticBody3D" parent="NavigationRegion3D"]
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/floor"]
+shape = SubResource("WorldBoundaryShape3D_1k5kx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/floor"]
+mesh = SubResource("PlaneMesh_j3u7l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D"]
+transform = Transform3D(1.86657, 0, 0, 0, 0.51157, 0, 0, 0, 0.111885, -0.0455559, 0, -5.36634)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_rpitc")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D"]
+mesh = SubResource("BoxMesh_gd3tv")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="NavigationRegion3D"]
+transform = Transform3D(-1.09439e-07, 0, 0.112194, 0, 0.512985, 0, -2.50368, 0, -4.90417e-09, 0.787928, 0, -4.37498)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D2"]
+shape = SubResource("BoxShape3D_rpitc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D2"]
+transform = Transform3D(1, 0, -4.44089e-16, 0, 1, 0, -2.84217e-14, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_gd3tv")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="NavigationRegion3D"]
+transform = Transform3D(-1.03929e-07, 0, 0.111885, 0, 0.51157, 0, -2.37762, 0, -4.89063e-09, -0.906305, 0, -4.3745)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D3"]
+shape = SubResource("BoxShape3D_rpitc")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D3"]
+transform = Transform3D(1, 0, -4.44089e-16, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_gd3tv")
+metadata/_edit_lock_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8ok8i")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_5yojm")
+volume_db = -20.613
+
+[node name="UI" parent="." instance=ExtResource("3_83ttw")]
+
+[node name="bean" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("11_6vt4c")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17599, 41.3409, -45)
+patrol_path = NodePath("../patrol_paths/Path3D")
+quest_references = [ExtResource("6_jlf8k"), ExtResource("7_35fcy")]
+
+[node name="player" parent="." instance=ExtResource("10_px7dy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.00868, 0)
+
+[node name="patrol_paths" type="Node3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="patrol_paths"]
+curve = SubResource("Curve3D_v41q2")
+
+[node name="chest" parent="." instance=ExtResource("7_mfx77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3431, 0.785997, -32.6084)
+inventory = SubResource("Resource_ualfp")
+
+[node name="test_enemy" parent="." instance=ExtResource("19_t258i")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.99992, 15.8681)
+Name = "cube"
+inventory = SubResource("Resource_b0jxc")
+
+[node name="test_enemy2" parent="." instance=ExtResource("19_t258i")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.13724, 3.99992, 15.8681)
+Name = "cube"
+inventory = SubResource("Resource_gxu3i")
+
+[node name="test_item_pickup" parent="." instance=ExtResource("18_fkk0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83472, -38.8354)
+slot_data = SubResource("Resource_wwh18")
+
+[node name="level_transition_door" parent="." instance=ExtResource("19_jlnkg")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.77086, 1.27375, -43.0633)
+level = ExtResource("20_onyy4")
+
+[editable path="UI"]
+[editable path="UI/questlog"]
+[editable path="player"]

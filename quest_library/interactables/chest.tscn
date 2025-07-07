@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://282kqu43d0e4"]
+
+[ext_resource type="Script" uid="uid://ct1tl814vkt6y" path="res://quest_library/interactables/chest.gd" id="1_rx6r6"]
+[ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="2_ofvyv"]
+[ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="3_vsfjy"]
+
+[sub_resource type="Resource" id="Resource_epmtx"]
+script = ExtResource("2_ofvyv")
+slot_datas = Array[ExtResource("3_vsfjy")]([null])
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_spcjl"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_mlcqy"]
+albedo_color = Color(0.376471, 0.2, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0jn33"]
+material = SubResource("ORMMaterial3D_mlcqy")
+
+[node name="chest" type="RigidBody3D" node_paths=PackedStringArray("collision", "mesh") groups=["external_inventory", "static"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_rx6r6")
+collision = NodePath("CollisionShape3D")
+mesh = NodePath("MeshInstance3D")
+inventory = SubResource("Resource_epmtx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_spcjl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_0jn33")

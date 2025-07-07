@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buatwxlmtdf51"]
+
+[ext_resource type="Script" uid="uid://b2u6lus4cuk1q" path="res://quest_library/quest/input_objective.gd" id="1_3wvwl"]
+
+[node name="Input_objective" type="Node"]
+script = ExtResource("1_3wvwl")

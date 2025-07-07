@@ -1,0 +1,6 @@
+:)|
+you see those huys over there|
+they're mean|
+will you go kill them for me?|[QUESTION]
+I will kill them for you[OPTION][QUEST]
+NO[OPTION]

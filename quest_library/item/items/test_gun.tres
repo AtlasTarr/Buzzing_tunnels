@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Gun_Data" load_steps=4 format=3 uid="uid://cqaork61lfbqe"]
+
+[ext_resource type="Script" uid="uid://dku4gu70406cr" path="res://quest_library/item/gun_item_data.gd" id="1_p0d2h"]
+[ext_resource type="Texture2D" uid="uid://0ug30sy5h6on" path="res://quest_library/item/2024-08-14 22_03_38-Connections - The New York Times - Opera.png" id="2_784bp"]
+[ext_resource type="PackedScene" uid="uid://dk8sxpp4glcnu" path="res://quest_library/item/items/veiw_models/test_gun_veiw_model.tscn" id="3_h0l5g"]
+
+[resource]
+script = ExtResource("1_p0d2h")
+calliber = "test"
+damage = 25.0
+cycle_length = 10.0
+muzzle_velocity = 100.0
+mag_size = 10
+added = false
+veiw_model = ExtResource("3_h0l5g")
+current_ammo = 0
+name = "test_gun"
+description = "this is a test gun"
+stackable = false
+texture = ExtResource("2_784bp")

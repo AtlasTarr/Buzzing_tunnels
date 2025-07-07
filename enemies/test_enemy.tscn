@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmt02euv34a3l"]
+
+[ext_resource type="Script" uid="uid://bp2cbkxx76k3j" path="res://enemies/test_enemy.gd" id="1_yw458"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fhvgg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2jlfn"]
+
+[node name="test_enemy" type="Area3D" groups=["static"]]
+collision_mask = 2
+script = ExtResource("1_yw458")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fhvgg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_2jlfn")

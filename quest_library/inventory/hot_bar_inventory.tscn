@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://u7tm1xrg3032"]
+
+[ext_resource type="Texture2D" uid="uid://c1fbwp68jfl4h" path="res://misc/bg.png" id="1_16dbr"]
+[ext_resource type="Script" uid="uid://cc5pftomhfhpg" path="res://quest_library/inventory/hot_bar_inventory.gd" id="1_l3try"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q2lks"]
+texture = ExtResource("1_16dbr")
+
+[node name="Hot_bar_inventory" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_q2lks")
+script = ExtResource("1_l3try")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dypqgy42jwnyt"]
+
+[ext_resource type="Script" uid="uid://djlhd440obsw3" path="res://misc/level_transition_door.gd" id="1_ls8vs"]
+[ext_resource type="PackedScene" uid="uid://brj4lfbi78pgk" path="res://misc/trigger.tscn" id="2_1psl1"]
+[ext_resource type="Texture2D" uid="uid://bi5i8uh5tffj1" path="res://icon.svg" id="3_ix4wa"]
+
+[node name="level_transition_door" type="Node3D"]
+script = ExtResource("1_ls8vs")
+
+[node name="trigger" parent="." instance=ExtResource("2_1psl1")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.88082, 0, 0, 0, 1, 0, 0, 0)
+modulate = Color(0.826525, 0.408746, 5.77569e-07, 1)
+texture = ExtResource("3_ix4wa")

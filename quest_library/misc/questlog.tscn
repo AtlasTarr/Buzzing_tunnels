@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqs60fax5no7m"]
+
+[ext_resource type="Script" uid="uid://s8u1rpluvlyk" path="res://quest_library/misc/questlog.gd" id="1_g3g4x"]
+[ext_resource type="Texture2D" uid="uid://c1fbwp68jfl4h" path="res://misc/bg.png" id="2_mkn8s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f86s8"]
+texture = ExtResource("2_mkn8s")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3fpgn"]
+
+[node name="questlog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g3g4x")
+
+[node name="TextureRect" type="Panel" parent="."]
+z_index = -1
+clip_contents = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -609.0
+offset_top = -440.0
+offset_right = 609.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f86s8")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+clip_contents = true
+layout_mode = 2
+offset_right = 1218.0
+offset_bottom = 872.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+follow_focus = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3fpgn")
+
+[node name="GridContainer" type="GridContainer" parent="TextureRect/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 26
+theme_override_constants/v_separation = 50
+columns = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

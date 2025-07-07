@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item_Data" load_steps=3 format=3 uid="uid://dclwb4spifv4r"]
+
+[ext_resource type="Script" uid="uid://biqlbcpxx10g3" path="res://quest_library/item/item_data.gd" id="1_gw52h"]
+[ext_resource type="Texture2D" uid="uid://bi5i8uh5tffj1" path="res://icon.svg" id="2_wh0cw"]
+
+[resource]
+script = ExtResource("1_gw52h")
+name = "test_item"
+description = ""
+stackable = true
+texture = ExtResource("2_wh0cw")

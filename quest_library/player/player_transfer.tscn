@@ -1,0 +1,127 @@
+[gd_scene load_steps=19 format=3 uid="uid://ccsvsjofwq2k6"]
+
+[ext_resource type="Script" uid="uid://ybcsh43nrheh" path="res://quest_library/player/player_transfer.gd" id="1_dhpt7"]
+[ext_resource type="Resource" uid="uid://bo23kj8a61rqo" path="res://quest_library/player/player_stats.tres" id="2_kn42j"]
+[ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="3_ajvde"]
+[ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="3_xofl5"]
+[ext_resource type="Script" uid="uid://krxnlt1ghj13" path="res://quest_library/inventory/equip_helmet_data.gd" id="4_2kbyl"]
+[ext_resource type="Script" uid="uid://2dvo687s7t66" path="res://quest_library/inventory/equip_body_data.gd" id="5_tcj2c"]
+[ext_resource type="PackedScene" uid="uid://bqyyk4562x2po" path="res://quest_library/misc/look_target.tscn" id="6_clk7w"]
+[ext_resource type="Script" uid="uid://dgpsi2468g2uv" path="res://quest_library/inventory/equip_weapon_data.gd" id="7_tm100"]
+
+[sub_resource type="Resource" id="Resource_t5xeg"]
+script = ExtResource("4_2kbyl")
+slot_datas = Array[ExtResource("3_xofl5")]([null])
+
+[sub_resource type="Resource" id="Resource_dgrsf"]
+script = ExtResource("5_tcj2c")
+slot_datas = Array[ExtResource("3_xofl5")]([null])
+
+[sub_resource type="Resource" id="Resource_yxw3n"]
+script = ExtResource("7_tm100")
+slot_datas = Array[ExtResource("3_xofl5")]([null])
+
+[sub_resource type="Resource" id="Resource_4ivdq"]
+script = ExtResource("3_ajvde")
+slot_datas = Array[ExtResource("3_xofl5")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[sub_resource type="Resource" id="Resource_t4iyv"]
+script = ExtResource("4_2kbyl")
+slot_datas = Array[ExtResource("3_xofl5")]([null])
+
+[sub_resource type="Resource" id="Resource_adu3j"]
+script = ExtResource("5_tcj2c")
+slot_datas = Array[ExtResource("3_xofl5")]([null])
+
+[sub_resource type="Resource" id="Resource_ircls"]
+script = ExtResource("7_tm100")
+slot_datas = Array[ExtResource("3_xofl5")]([null])
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n4ek1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_phy4h"]
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_dusxs"]
+frustum_focal_length = 15.04
+frustum_near = 0.001
+
+[node name="player" type="CharacterBody3D" groups=["actor", "player"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_layer = 2
+safe_margin = 0.01
+script = ExtResource("1_dhpt7")
+_playerdata = ExtResource("2_kn42j")
+old_helmet_inventory = SubResource("Resource_t5xeg")
+old_body_inventory = SubResource("Resource_dgrsf")
+old_weapon_inventory = SubResource("Resource_yxw3n")
+inventory = SubResource("Resource_4ivdq")
+equip_helmet_data = SubResource("Resource_t4iyv")
+equip_body_data = SubResource("Resource_adu3j")
+equip_weapon_data = SubResource("Resource_ircls")
+
+[node name="look_target" parent="." instance=ExtResource("6_clk7w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0533988, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape3D_n4ek1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 2
+mesh = SubResource("CapsuleMesh_phy4h")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.553, -0.498)
+
+[node name="gun_container" type="Node3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.629326, -0.262489, -0.896693)
+
+[node name="Camera" type="Camera3D" parent="Pivot"]
+cull_mask = 3
+attributes = SubResource("CameraAttributesPhysical_dusxs")
+current = true
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Pivot/Camera"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="SubViewport" type="SubViewport" parent="Pivot/Camera/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Camera" type="Camera3D" parent="Pivot/Camera/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.552635, -0.509076)
+visible = false
+cull_mask = 1048572
+fov = 77.1708
+near = 0.001
+
+[node name="interact_ray" type="RayCast3D" parent="Pivot/Camera"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 5
+
+[node name="quest_container" type="Node" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.894118, 0.87451, 0.501961)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

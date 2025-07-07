@@ -1,0 +1,197 @@
+[gd_scene load_steps=16 format=3 uid="uid://d0xb5raoo3mwn"]
+
+[ext_resource type="Script" uid="uid://6scoxtqke5li" path="res://misc/UI.gd" id="1_1bvo6"]
+[ext_resource type="PackedScene" uid="uid://cy006mou4x4fq" path="res://quest_library/player/health_bits.tscn" id="1_ikj7r"]
+[ext_resource type="PackedScene" uid="uid://cfwtyx6wee72l" path="res://quest_library/misc/inventory_interact.tscn" id="2_drwsa"]
+[ext_resource type="PackedScene" uid="uid://u7tm1xrg3032" path="res://quest_library/inventory/hot_bar_inventory.tscn" id="3_33yx4"]
+[ext_resource type="PackedScene" uid="uid://dqs60fax5no7m" path="res://quest_library/misc/questlog.tscn" id="4_8ydw2"]
+[ext_resource type="Texture2D" uid="uid://0gv0nipcf0lh" path="res://misc/textbox.png" id="5_jtqya"]
+[ext_resource type="FontFile" uid="uid://mkry26787gqh" path="res://fonts/Wronghome-Regular.ttf" id="6_lv3qe"]
+[ext_resource type="FontFile" uid="uid://dwms1f3ce7l3" path="res://fonts/Bold-Regular.ttf" id="7_jut5c"]
+[ext_resource type="FontFile" uid="uid://c0u5hrye52s6a" path="res://fonts/Italics-Regular.ttf" id="8_v0kgt"]
+[ext_resource type="FontFile" uid="uid://b7yipnltairhb" path="res://fonts/BoldItalics-Regular.ttf" id="9_gw4hf"]
+[ext_resource type="PackedScene" uid="uid://dx2qkwyr6xqxu" path="res://misc/subtitle_label.tscn" id="11_wqmke"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jiufj"]
+texture = ExtResource("5_jtqya")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4e21k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iqn0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwffl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("text_box", "dialouge_ui", "choice_containerx2", "choice_container", "dialouge_holder_ui", "control_hints")]
+script = ExtResource("1_1bvo6")
+text_box = NodePath("Control/MarginContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer/RichTextLabel")
+dialouge_ui = NodePath("Control")
+choice_containerx2 = NodePath("Control/MarginContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer")
+choice_container = NodePath("Control/MarginContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/VBoxContainer")
+dialouge_holder_ui = NodePath("Control/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer/RichTextLabel")
+control_hints = NodePath("control_hints")
+
+[node name="health bits" parent="." instance=ExtResource("1_ikj7r")]
+offset_left = 829.0
+offset_right = 869.0
+
+[node name="inventory_interface" parent="." instance=ExtResource("2_drwsa")]
+
+[node name="Hot_bar_inventory" parent="." instance=ExtResource("3_33yx4")]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="questlog" parent="." instance=ExtResource("4_8ydw2")]
+visible = false
+
+[node name="@HScrollBar@19849" type="HScrollBar" parent="questlog/TextureRect/MarginContainer/ScrollContainer" index="1"]
+visible = false
+layout_mode = 2
+max_value = 10.0
+page = 10.0
+
+[node name="@VScrollBar@19850" type="VScrollBar" parent="questlog/TextureRect/MarginContainer/ScrollContainer" index="2"]
+visible = false
+layout_mode = 2
+max_value = 0.0
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="Panel" parent="Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -291.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_jiufj")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer3" type="Panel" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 52)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4e21k")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+offset_right = 1832.0
+offset_bottom = 50.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_lv3qe")
+theme_override_fonts/italics_font = ExtResource("8_v0kgt")
+theme_override_fonts/bold_italics_font = ExtResource("9_gw4hf")
+theme_override_fonts/bold_font = ExtResource("7_jut5c")
+theme_override_font_sizes/normal_font_size = 50
+text = "test"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
+clip_contents = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6iqn0")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/MarginContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer"]
+clip_contents = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_lv3qe")
+theme_override_fonts/italics_font = ExtResource("8_v0kgt")
+theme_override_fonts/bold_italics_font = ExtResource("9_gw4hf")
+theme_override_fonts/bold_font = ExtResource("7_jut5c")
+theme_override_font_sizes/normal_font_size = 30
+text = "test
+"
+fit_content = true
+scroll_active = false
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_iwffl")
+
+[node name="VBoxContainer" type="ScrollContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer/PanelContainer"]
+visible = false
+clip_contents = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+
+[node name="control_hints" type="PanelContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(576, 135.5)
+offset_left = 1316.0
+offset_top = 769.0
+offset_right = 1902.0
+offset_bottom = 1027.0
+scale = Vector2(0.982418, 1.08)
+
+[node name="MarginContainer" type="MarginContainer" parent="control_hints"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="control_hints/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Subtitle_label" parent="control_hints/MarginContainer/VBoxContainer" instance=ExtResource("11_wqmke")]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = -5
+theme_override_font_sizes/normal_font_size = 20
+text = "control hints:
+Interact/close- E
+Reload- R
+Quick item- Q
+Attack-  left click
+Move-  WASD
+UI interact-  left click
+quest journal-  J
+Sprint-  shift
+Save- F1
+Toggle hint- C"
+
+[editable path="questlog"]
