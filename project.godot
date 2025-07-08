@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="dialouge quest merge"
-run/main_scene="res://levels/world.tscn"
+config/name="Buzzing Tunnels"
+run/main_scene="uid://do5xd2dbuhupc"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/csg_c
 [file_customization]
 
 folder_colors={
+"res://3D assets/": "gray",
 "res://audio/": "pink",
 "res://characters/": "purple",
 "res://enemies/": "orange",

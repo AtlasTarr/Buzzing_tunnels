@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ccsvsjofwq2k6"]
+[gd_scene load_steps=18 format=3 uid="uid://ccsvsjofwq2k6"]
 
 [ext_resource type="Script" uid="uid://ybcsh43nrheh" path="res://quest_library/player/player_transfer.gd" id="1_dhpt7"]
 [ext_resource type="Resource" uid="uid://bo23kj8a61rqo" path="res://quest_library/player/player_stats.tres" id="2_kn42j"]
@@ -41,10 +41,6 @@ slot_datas = Array[ExtResource("3_xofl5")]([null])
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_phy4h"]
 
-[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_dusxs"]
-frustum_focal_length = 15.04
-frustum_near = 0.001
-
 [node name="player" type="CharacterBody3D" groups=["actor", "player"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 collision_layer = 2
@@ -78,8 +74,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.629326, -0.262489, -0.89669
 
 [node name="Camera" type="Camera3D" parent="Pivot"]
 cull_mask = 3
-attributes = SubResource("CameraAttributesPhysical_dusxs")
 current = true
+fov = 77.1708
+near = 0.001
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Pivot/Camera"]
 offset_right = 1920.0

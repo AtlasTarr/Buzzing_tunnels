@@ -2,6 +2,7 @@ extends DialougeHolder
 var state:int = 0
 
 signal toggle_inventory(external_inventory_owner)
+signal toggle_talk_anim
 
 
 const corpse = preload("res://quest_library/interactables/chest.tscn")
@@ -368,6 +369,7 @@ func _on_trigger_interact():
 				increment_dialouge_file(1)
 
 func end_dialouge():
+	emit_signal("toggle_talk_anim")
 	emit_signal("dialouge_toggle")
 	emit_signal("choice_update")
 	active = false
@@ -417,6 +419,8 @@ func check_quest_status():
 				$Timer2.start()
 
 func initialise_dialouge():
+	print("test")
+	emit_signal("toggle_talk_anim")
 	check_quest_status()
 	dialouges.clear()
 	var dialouges_resource: String  = "res://characters/"

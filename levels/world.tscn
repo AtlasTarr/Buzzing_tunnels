@@ -216,7 +216,6 @@ volume_db = -20.613
 [node name="UI" parent="." instance=ExtResource("3_83ttw")]
 
 [node name="bean" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("11_6vt4c")]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.17599, 41.3409, -45)
 patrol_path = NodePath("../patrol_paths/Path3D")
 quest_references = [ExtResource("6_jlf8k"), ExtResource("7_35fcy")]

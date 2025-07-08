@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dr0qt7nf06sq0"]
+
+[ext_resource type="Shader" uid="uid://csvpfu4vyqi8a" path="res://3D assets/Characters/Zero/Shader/Screen texture shader.tres" id="1_xad2i"]
+[ext_resource type="Texture2D" uid="uid://ci848vy0hhm6j" path="res://3D assets/Characters/Zero/Texture/Screen.png" id="2_dutcd"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1_xad2i")
+shader_parameter/Texture2DParameter = ExtResource("2_dutcd")

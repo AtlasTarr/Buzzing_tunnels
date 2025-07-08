@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://rbgbwd0ifbe"]
+
+[ext_resource type="PackedScene" uid="uid://ch1csnk5yhi6s" path="res://3D assets/Characters/Zero/Zero_Head.blend" id="1_al67f"]
+[ext_resource type="Script" uid="uid://b5cdd2t815ivv" path="res://3D assets/Characters/Zero/Model/zero_head.gd" id="2_1f5x1"]
+[ext_resource type="Material" uid="uid://dr0qt7nf06sq0" path="res://3D assets/Characters/Zero/Shader/Screen texture.tres" id="2_al67f"]
+[ext_resource type="Material" uid="uid://cf5dcn2i0cvro" path="res://3D assets/Characters/Zero/Shader/Case_material.tres" id="3_1f5x1"]
+
+[node name="Zero_Head" instance=ExtResource("1_al67f")]
+script = ExtResource("2_1f5x1")
+
+[node name="Cube" parent="." index="0"]
+material_override = ExtResource("3_1f5x1")
+
+[node name="Cube_001" parent="." index="1"]
+material_override = ExtResource("2_al67f")
+
+[node name="Timer" type="Timer" parent="." index="4"]
+wait_time = 0.2
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

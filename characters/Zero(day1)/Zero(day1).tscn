@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxcuwc1g2pei4"]
+
+[ext_resource type="Script" uid="uid://dkk3uwfryysa1" path="res://characters/dialouge.gd" id="1_6da0h"]
+[ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="2_6g8m7"]
+[ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="3_vk7vj"]
+[ext_resource type="PackedScene" uid="uid://brj4lfbi78pgk" path="res://misc/trigger.tscn" id="4_5n8rv"]
+[ext_resource type="PackedScene" uid="uid://rbgbwd0ifbe" path="res://3D assets/Characters/Zero/Model/zero_head.tscn" id="5_t377w"]
+
+[sub_resource type="Resource" id="Resource_2vvxl"]
+script = ExtResource("2_6g8m7")
+slot_datas = Array[ExtResource("3_vk7vj")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ti8rw"]
+radius = 0.443676
+height = 0.895013
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2e2hp"]
+
+[node name="Zero(day1)" type="CharacterBody3D" groups=["DialougeHolder", "actor", "external_inventory", "static"]]
+collision_mask = 3
+axis_lock_angular_y = true
+script = ExtResource("1_6da0h")
+Name = "Zero"
+inventory = SubResource("Resource_2vvxl")
+move_state = []
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ti8rw")
+
+[node name="trigger" parent="." groups=["DialougeHolder", "actor", "external_inventory", "static"] instance=ExtResource("4_5n8rv")]
+transform = Transform3D(3.75986, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0654718, 0.997662)
+disable_mode = 2
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+max_speed = 5.0
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Node3D2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.510564, 0.967066)
+
+[node name="Node3D3" type="Node3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="POI_area" type="Area3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="POI_area"]
+shape = SubResource("SphereShape3D_2e2hp")
+
+[node name="fear_timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="quest_checker" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Inventory_updater" type="Timer" parent="."]
+wait_time = 0.7
+autostart = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, -3.2303e-08, 0.929229, 0.369503, 8.12358e-08, 0.369503, -0.929229, 0.00440311, 0.632142, -0.936606)
+
+[node name="Zero_Head" parent="." instance=ExtResource("5_t377w")]
+transform = Transform3D(-1.11464e-08, 0, -0.255, 0, 0.255, 0, 0.255, 0, -1.11464e-08, 0, 0, 0)
+
+[connection signal="interact" from="trigger" to="." method="_on_trigger_interact"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="fear_timer" to="." method="_on_fear_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="quest_checker" to="." method="_on_quest_checker_timeout"]
+[connection signal="timeout" from="Inventory_updater" to="." method="_on_inventory_updater_timeout"]

@@ -131,35 +131,16 @@ func Move(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
 		if direction:
-			print("Inputing")
-			if velocity.abs() <= Vector3(speed,1000,speed):
-				velocity.x = (direction.x * speed)
-				velocity.z = (direction.z * speed)
-				velocity.normalized()
-				print("bellow max speed")
-			elif (velocity.abs() - Vector3(speed,1000,speed)) > Vector3(5, 1000, 5):
-				velocity.x = direction.x + (velocity.x  * 0.9)
-				velocity.z = direction.z + (velocity.z  * 0.9)
-				velocity.normalized()
-				print("above max speed")
-			print(velocity.abs())
-		else:
-			print("not inputing")
-			velocity.x = velocity.x - (velocity.x * delta) * speed
-			velocity.z = velocity.z - (velocity.z * delta) * speed
+			velocity.x = (direction.x * speed)
+			velocity.z = (direction.z * speed)
 			velocity.normalized()
-			print(velocity.abs())
+		else:
+			velocity.x = 0
+			velocity.z = 0
 	else:
+		velocity.x -= velocity.x * delta * mass
+		velocity.z -= velocity.z * delta * mass
 		velocity.y -= gravity * delta
-
-		if direction:
-			velocity.x = velocity.x + direction.x * (air_speed * delta)
-			velocity.z = velocity.z + direction.z * (air_speed * delta)
-			velocity.normalized()
-		else:
-			velocity.x = velocity.x - (velocity.x * delta)
-			velocity.z = velocity.z - (velocity.z * delta)
-			velocity.normalized()
 	move_and_slide()
 
 func interact():
@@ -287,12 +268,13 @@ func refresh_weapon():
 			if slot_data.item_data != null:
 				var slot_item = slot_data.item_data
 				if slot_item is Ammo_Item_Data:
-					if slot_item.calliber == gun.gun_data.calliber:
-						for amount in slot_data.quantity:
-							if slot_data.quantity != 0 && reload_amount < missing_ammo:
-								reload_amount +=1
-								inventory.use_slot_data(slot)
-						gun.reload(reload_amount)
+					if gun != null:
+						if slot_item.calliber == gun.gun_data.calliber:
+							for amount in slot_data.quantity:
+								if slot_data.quantity != 0 && reload_amount < missing_ammo:
+									reload_amount +=1
+									inventory.use_slot_data(slot)
+							gun.reload(reload_amount)
 
 func check_slot_datas():
 	for slot in inventory.slot_datas.size():

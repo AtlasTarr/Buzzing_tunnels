@@ -1,4 +1,5 @@
 extends Node3D
+class_name Level
 
 var paused = false
 
@@ -50,7 +51,6 @@ enum state {full, half, one_quarter, empty}
 @onready var health_bars_interface = $"UI/health bits"
 @onready var questlog = $UI/questlog
 @onready var questlog_containers = $UI/questlog/TextureRect/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/PanelContainer/GridContainer
-@onready var debug_label = $UI/Label
 
 
 func _ready():
