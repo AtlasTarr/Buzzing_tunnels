@@ -8,11 +8,13 @@ const pickup = preload("res://quest_library/Pickups/test_item_pickup.tscn")
 
 @export var slot_datas: Array[Slot_Data]
 
+
 func force_update():
 	inventory_updated.emit(self)
 
 func on_slot_clicked(index: int, button: int):
 	inventory_interact.emit(self, index, button)
+
 
 func grab_slot_data(Index: int) -> Slot_Data:
 	var slot_data = slot_datas[Index]
@@ -26,16 +28,19 @@ func grab_slot_data(Index: int) -> Slot_Data:
 
 func drop_slot_data(grabbed_slot_data: Slot_Data, Index: int) -> Slot_Data:
 	var slot_data = slot_datas[Index]
-	
+	var _slot_data: Slot_Data
 	var return_slot_data: Slot_Data
+	
 	if slot_data and slot_data.can_fully_merge_with(grabbed_slot_data):
-		slot_data.fully_merge_with(grabbed_slot_data)
+		_slot_data = slot_data.duplicate()
+		_slot_data.fully_merge_with(grabbed_slot_data)
 	else:
-		slot_datas[Index] = grabbed_slot_data
-		return_slot_data = slot_data
+			slot_datas[Index] = grabbed_slot_data
+			return_slot_data = slot_data
 	
 	inventory_updated.emit(self)
 	return return_slot_data
+
 
 func drop_single_slot_data(grabbed_slot_data: Slot_Data, Index: int) -> Slot_Data:
 	var slot_data = slot_datas[Index]

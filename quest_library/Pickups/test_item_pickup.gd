@@ -4,8 +4,10 @@ const object_scene = "res://quest_library/Pickups/test_item_pickup.tscn"
 
 var state: int = 0
 
+signal picked_up_signal
+
 @export var slot_data: Slot_Data 
-@export var spawned: bool = false
+@export var picked_up: bool = false
 
 @onready var sprite_3d = $Sprite3D
 @onready var mesh: MeshInstance3D = $CollisionShape3D/MeshInstance3D
@@ -13,6 +15,7 @@ var state: int = 0
 @onready var area_3d: Area3D = $Area3D
 @onready var pickup_area: CollisionShape3D = $Area3D/CollisionShape3D2
 
+@warning_ignore("untyped_declaration")
 func _ready():
 	if "veiw_model" in slot_data.item_data:
 		var veiw_model = slot_data.item_data.veiw_model.instantiate()
@@ -52,9 +55,21 @@ func _on_timer_timeout() -> void:
 				body_check(body)
 
 func body_check(body: Node3D) -> void:
-	if body.is_in_group("actor"):
-		body.inventory.pick_up_slot_data(slot_data)
-		state = 1
-		self.call_deferred("delete")
-		if body.has_method("better_gear_checker"):
-			body.better_gear_checker()
+	if not picked_up:
+		if body.is_in_group("actor"):
+			body.inventory.pick_up_slot_data(slot_data)
+			state = 1
+			self.call_deferred("delete")
+			if body.has_method("better_gear_checker"):
+				body.better_gear_checker()
+			if slot_data.item_data.quest_item:
+				if "quest_holder" in slot_data.item_data:
+					var NPCs = get_tree().get_nodes_in_group("DialougeHolder")
+					for NPC in NPCs:
+						print(NPC.name)
+						if NPC.name == slot_data.item_data.quest_holder:
+							print("test")
+							NPC.toggle_continue()
+							NPC.increment_dialouge_file(1)
+			picked_up = true
+			

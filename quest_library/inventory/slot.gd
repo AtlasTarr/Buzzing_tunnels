@@ -11,7 +11,7 @@ func set_slot_data(slot_data: Slot_Data):
 		texture_rect.texture = item_data.texture
 		tooltip_text = "item: %s\ndescription: %s" % [item_data.name, item_data.description]
 		quantity_update(slot_data)
-		if slot_data.updated.get_connections().size() < 2	:
+		if slot_data.updated.get_connections().size() < 1	:
 			slot_data.connect("updated", Callable(self, "quantity_update").bind(slot_data))
 
 func quantity_update(slot_data: Slot_Data):

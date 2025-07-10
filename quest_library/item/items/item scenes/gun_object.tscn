@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dpdrswus56jxc"]
 
 [ext_resource type="Script" uid="uid://b6o4m08s0pnmx" path="res://quest_library/item/items/item scenes/gun_object.gd" id="1_eik6b"]
-[ext_resource type="Resource" uid="uid://cqaork61lfbqe" path="res://quest_library/item/items/test_gun.tres" id="2_esufi"]
+[ext_resource type="Resource" uid="uid://cqaork61lfbqe" path="res://quest_library/item/items/item resources/test_gun.tres" id="2_esufi"]
 [ext_resource type="PackedScene" uid="uid://cqli8uorfaf5t" path="res://misc/spawner.tscn" id="2_s6xlo"]
 [ext_resource type="PackedScene" uid="uid://h10a844mah70" path="res://misc/bullet.tscn" id="4_4qdn2"]
 

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://brj4lfbi78pgk" path="res://misc/trigger.tscn" id="2_5yobx"]
 [ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="2_w3xx4"]
 [ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="3_i6y8x"]
-[ext_resource type="Resource" uid="uid://dxlxohcqm575q" path="res://quest_library/item/items/test_ammo.tres" id="4_2rvo2"]
+[ext_resource type="Resource" uid="uid://dxlxohcqm575q" path="res://quest_library/item/items/item resources/test_ammo.tres" id="4_2rvo2"]
 
 [sub_resource type="Resource" id="Resource_547u5"]
 script = ExtResource("3_i6y8x")

@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_2vvxl"]
 script = ExtResource("2_6g8m7")
-slot_datas = Array[ExtResource("3_vk7vj")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("3_vk7vj")]([])
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ti8rw"]
 radius = 0.443676
@@ -16,12 +16,13 @@ height = 0.895013
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2e2hp"]
 
-[node name="Zero(day1)" type="CharacterBody3D" groups=["DialougeHolder", "actor", "external_inventory", "static"]]
+[node name="Zero" type="CharacterBody3D" groups=["DialougeHolder", "actor", "external_inventory", "static"]]
 collision_mask = 3
 axis_lock_angular_y = true
 script = ExtResource("1_6da0h")
 Name = "Zero"
 inventory = SubResource("Resource_2vvxl")
+can_access_inventory = false
 move_state = []
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

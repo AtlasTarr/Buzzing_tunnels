@@ -90,6 +90,7 @@ func _ready():
 		file.close()
 	better_gear_checker()
 	death_state_checker(null)
+	print(current_dialouge_file)
 
 func _on_start_timer_timeout() -> void:
 	if current_weapon_data != null:
@@ -327,7 +328,7 @@ func death_state_checker(damage_source: Object) -> void:
 								self.process_mode = Node.PROCESS_MODE_DISABLED
 		visible = false
 		self.process_mode = Node.PROCESS_MODE_DISABLED
-		print("died")
+		print("%s died" % self.name)
 		if not body_spawned:
 			var body = corpse.instantiate()
 			body.name = "body of %s" % self.name
@@ -351,18 +352,32 @@ func patrol(delta):
 func answer():
 	answered = false
 
+func toggle_continue():
+	continue_on_interact = !continue_on_interact
+
 func _on_trigger_interact():
 	if not aggressive:
 		current_dialouge = clamp(current_dialouge, 0, dialouges.size() -1)
-		if active != true:
-			initialise_dialouge()
+		
 
+		if active != true and dialouges[current_dialouge] == "[HALT CONTINUE]":
+			continue_on_interact = false
+			increment_dialouge(1)
+			initialise_dialouge()
+		
+		elif active != true:
+			initialise_dialouge()
+		
 		if active == true and dialouges[current_dialouge] != "[END]" and answered == false:
 			set_dialouge()
 			increment_dialouge(1)
+		
 		elif answered == true:
 			set_dialouge()
 			owner.can_save = false
+		
+
+		
 		elif active == true and dialouges[current_dialouge] == "[END]":
 			end_dialouge()
 			if continue_on_interact == true:
@@ -419,7 +434,6 @@ func check_quest_status():
 				$Timer2.start()
 
 func initialise_dialouge():
-	print("test")
 	emit_signal("toggle_talk_anim")
 	check_quest_status()
 	dialouges.clear()
@@ -442,11 +456,12 @@ func initialise_dialouge():
 
 func increment_dialouge_file(value: int):
 	var dialouges_resource: String  = "res://characters/"
-	var file_dialouges_resource = ("".join([dialouges_resource, self.name, "/", "dialouges/", current_choice_tree, "/", self.name, var_to_str(current_dialouge_file + 1), ".txt"]))
+	var file_dialouges_resource = ("".join([dialouges_resource, self.name, "/", "dialouges/", current_choice_tree, "/", self.name, var_to_str(current_dialouge_file + value), ".txt"]))
 	if FileAccess.file_exists(file_dialouges_resource):
 		file = FileAccess.open(file_dialouges_resource, FileAccess.READ)
 		current_dialouge_file += value
 		file.close()
+	print("test")
 
 func set_dialouge():
 	owner.current_dialouge = dialouges[current_dialouge]

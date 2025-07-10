@@ -3,6 +3,8 @@ class_name Item_Data
 
 @export var name: String
 @export_multiline var description: String
+@export var quest_item: bool = false
+@export var quest_holder: String
 @export var stackable: bool = false
 @export var texture: Texture
 

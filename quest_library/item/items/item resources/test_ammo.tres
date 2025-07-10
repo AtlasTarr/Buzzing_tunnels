@@ -14,5 +14,7 @@ script = ExtResource("1_us6ft")
 calliber = "test"
 name = "test ammo"
 description = "ammo for the test gun"
+quest_item = false
+quest_holder = ""
 stackable = true
 texture = SubResource("NoiseTexture2D_2o5f5")

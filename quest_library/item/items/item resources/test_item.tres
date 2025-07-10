@@ -7,5 +7,7 @@
 script = ExtResource("1_gw52h")
 name = "test_item"
 description = ""
+quest_item = true
+quest_holder = "Zero"
 stackable = true
 texture = ExtResource("2_wh0cw")

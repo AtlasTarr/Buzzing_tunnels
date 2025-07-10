@@ -173,10 +173,10 @@ func _on_timer_timeout():
 	quest_list_load()
 
 func quest_list_update():
-	for quest in quest_container.get_children():
-		old_quest_value_list =  {quest.name: null}
-		if old_quest_value_list.has(quest.name):
-			quest_value_list = {quest.name : quest.state}
+	for _quest in quest_container.get_children():
+		old_quest_value_list =  {_quest.name: null}
+		if old_quest_value_list.has(_quest.name):
+			quest_value_list = {_quest.name : _quest.state}
 			old_quest_value_list.merge(quest_value_list, true)
 			_playerdata.quest_value_list.merge(quest_value_list, true)
 

@@ -157,7 +157,6 @@ func _ready():
 				else :
 					object.queue_free()
 	
-	@warning_ignore("unused_variable")
 	if UI.is_node_ready():
 		var choices = choice_container.get_children()
 		for child in children:
@@ -198,7 +197,7 @@ func _ready():
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.connect("toggle_inventory", toggle_player_details)
 
-@warning_ignore("unused_parameter")
+
 func _process(delta):
 	update_static_list()
 	save()
@@ -213,7 +212,6 @@ func _process(delta):
 	
 	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
 	for bit in health_bars_interface.get_children():
-		@warning_ignore("unused_variable")
 		var index = bit.get_index()
 		var current_health = playerdata.health % 4
 		var bit_1  = range(12, 16)
@@ -526,8 +524,12 @@ func dialouge_ui_toggle():
 	player.UI_active = !player.UI_active
 	dialouge_ui.visible = !dialouge_ui.visible
 
-func on_inventory_interface_drop_slot_data(slot_data):
+func on_inventory_interface_drop_slot_data(slot_data, all: bool):
 	var _pick_up = pickup.instantiate()
-	_pick_up.slot_data = slot_data
+	_pick_up.slot_data = slot_data.duplicate()
+	if all == false:
+		_pick_up.slot_data.quantity = 1
+	else:
+		pass
 	_pick_up.position = player.get_drop_direction()
 	add_child(_pick_up)

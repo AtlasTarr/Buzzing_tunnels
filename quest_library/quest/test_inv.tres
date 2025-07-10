@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Inventory_Data" load_steps=13 format=3 uid="uid://dih5ma8p0yicq"]
 
 [ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="1_x37xe"]
-[ext_resource type="Resource" uid="uid://c140k4valhklp" path="res://quest_library/item/items/fat_soldier.tres" id="2_5fa12"]
+[ext_resource type="Resource" uid="uid://c140k4valhklp" path="res://quest_library/item/items/item resources/fat_soldier.tres" id="2_5fa12"]
 [ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="3_3vx4b"]
-[ext_resource type="Resource" uid="uid://w3nh4680j1o4" path="res://quest_library/item/items/helmet.tres" id="4_1jb08"]
-[ext_resource type="Resource" uid="uid://dclwb4spifv4r" path="res://quest_library/item/items/test_item.tres" id="5_qvjq6"]
-[ext_resource type="Resource" uid="uid://b8j8w0agymfoj" path="res://quest_library/item/items/test_consumable.tres" id="6_dei6u"]
-[ext_resource type="Resource" uid="uid://c0xjpljdawvxh" path="res://quest_library/item/items/mr_incredible.tres" id="7_a0uoc"]
+[ext_resource type="Resource" uid="uid://w3nh4680j1o4" path="res://quest_library/item/items/item resources/helmet.tres" id="4_1jb08"]
+[ext_resource type="Resource" uid="uid://dclwb4spifv4r" path="res://quest_library/item/items/item resources/test_item.tres" id="5_qvjq6"]
+[ext_resource type="Resource" uid="uid://b8j8w0agymfoj" path="res://quest_library/item/items/item resources/test_consumable.tres" id="6_dei6u"]
+[ext_resource type="Resource" uid="uid://c0xjpljdawvxh" path="res://quest_library/item/items/item resources/mr_incredible.tres" id="7_a0uoc"]
 
 [sub_resource type="Resource" id="Resource_gy2i5"]
 script = ExtResource("3_3vx4b")

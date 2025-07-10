@@ -3,11 +3,11 @@
 [ext_resource type="Script" uid="uid://d1geqmwahaypf" path="res://quest_library/quest/quest.gd" id="1_injij"]
 [ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="2_46dx7"]
 [ext_resource type="PackedScene" uid="uid://c8w12rncfvre5" path="res://quest_library/quest/slay_objective.tscn" id="2_c4m0g"]
-[ext_resource type="Resource" uid="uid://c0xjpljdawvxh" path="res://quest_library/item/items/mr_incredible.tres" id="3_kl4rj"]
+[ext_resource type="Resource" uid="uid://c0xjpljdawvxh" path="res://quest_library/item/items/item resources/mr_incredible.tres" id="3_kl4rj"]
 [ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="4_dmdak"]
-[ext_resource type="Resource" uid="uid://w3nh4680j1o4" path="res://quest_library/item/items/helmet.tres" id="6_irxth"]
-[ext_resource type="Resource" uid="uid://c1x35vg6blm4x" path="res://quest_library/item/items/body_armour.tres" id="7_6ffiu"]
-[ext_resource type="Resource" uid="uid://b8j8w0agymfoj" path="res://quest_library/item/items/test_consumable.tres" id="8_q2c7g"]
+[ext_resource type="Resource" uid="uid://w3nh4680j1o4" path="res://quest_library/item/items/item resources/helmet.tres" id="6_irxth"]
+[ext_resource type="Resource" uid="uid://c1x35vg6blm4x" path="res://quest_library/item/items/item resources/body_armour.tres" id="7_6ffiu"]
+[ext_resource type="Resource" uid="uid://b8j8w0agymfoj" path="res://quest_library/item/items/item resources/test_consumable.tres" id="8_q2c7g"]
 
 [sub_resource type="Resource" id="Resource_tvli3"]
 script = ExtResource("4_dmdak")
