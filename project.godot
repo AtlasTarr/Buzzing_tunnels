@@ -35,6 +35,11 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/console/plugin.cfg", "res://addons/csg_converter/plugin.cfg", "res://addons/scenetomeshconverter/plugin.cfg")
