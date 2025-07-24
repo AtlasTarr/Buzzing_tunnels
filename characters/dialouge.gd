@@ -310,10 +310,15 @@ func damage(damage: float, source: Object):
 	if not source == null:
 		if "shot_by" in source:
 			death_state_checker(source.shot_by)
+			object_of_intrest = source.shot_by
+			move_state = 1
+			aggressive = true
 		else:
 			death_state_checker(source)
 	var temp_speed = health/100 * speed
+
 	speed = temp_speed
+	
 
 func death_state_checker(damage_source: Object) -> void:
 	if health <= 0:

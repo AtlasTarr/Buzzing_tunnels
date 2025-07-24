@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://do5xd2dbuhupc"]
+[gd_scene load_steps=14 format=3 uid="uid://do5xd2dbuhupc"]
 
 [ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_l7t4g"]
 [ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_05dsm"]
 [ext_resource type="PackedScene" uid="uid://ccsvsjofwq2k6" path="res://quest_library/player/player_transfer.tscn" id="3_su6lt"]
 [ext_resource type="PackedScene" uid="uid://d0xb5raoo3mwn" path="res://misc/UI.tscn" id="4_oa6d3"]
 [ext_resource type="PackedScene" uid="uid://dxcuwc1g2pei4" path="res://characters/Zero/Zero.tscn" id="5_oa6d3"]
+[ext_resource type="PackedScene" uid="uid://54syw6afa8lg" path="res://enemies/the_farmer.tscn" id="6_frhvw"]
 
 [sub_resource type="Resource" id="Resource_vyovo"]
 script = ExtResource("2_05dsm")
@@ -75,6 +76,10 @@ mesh = SubResource("BoxMesh_bm42f")
 
 [node name="Zero" parent="." instance=ExtResource("5_oa6d3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
+
+[node name="the_farmer" parent="." instance=ExtResource("6_frhvw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.098, 20.7512, -17.5711)
+walk_speed = 5.0
 
 [editable path="UI"]
 [editable path="UI/questlog"]

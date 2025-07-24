@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=15 format=3 uid="uid://bo23kj8a61rqo"]
+[gd_resource type="Resource" script_class="PlayerData" load_steps=19 format=3 uid="uid://bo23kj8a61rqo"]
 
 [ext_resource type="Script" uid="uid://2dvo687s7t66" path="res://quest_library/inventory/equip_body_data.gd" id="1_e4chv"]
 [ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="2_gacnt"]
@@ -7,7 +7,9 @@
 [ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="5_2ln8w"]
 [ext_resource type="Resource" uid="uid://b8j8w0agymfoj" path="res://quest_library/item/items/item resources/test_consumable.tres" id="6_e4chv"]
 [ext_resource type="Resource" uid="uid://dclwb4spifv4r" path="res://quest_library/item/items/item resources/test_item.tres" id="7_gacnt"]
+[ext_resource type="Resource" uid="uid://cqaork61lfbqe" path="res://quest_library/item/items/item resources/test_gun.tres" id="8_e5yeo"]
 [ext_resource type="Script" uid="uid://b4ir88sbnacgk" path="res://quest_library/save/PlayerDataResource.gd" id="8_qbhtf"]
+[ext_resource type="Resource" uid="uid://dxlxohcqm575q" path="res://quest_library/item/items/item resources/test_ammo.tres" id="9_4ow3a"]
 
 [sub_resource type="Resource" id="Resource_x2wpa"]
 script = ExtResource("1_e4chv")
@@ -32,9 +34,21 @@ item_data = ExtResource("7_gacnt")
 quantity = 1
 metadata/_custom_type_script = "uid://cmggf10ug5sb1"
 
+[sub_resource type="Resource" id="Resource_2ln8w"]
+script = ExtResource("2_gacnt")
+item_data = ExtResource("8_e5yeo")
+quantity = 1
+metadata/_custom_type_script = "uid://cmggf10ug5sb1"
+
+[sub_resource type="Resource" id="Resource_xvuaf"]
+script = ExtResource("2_gacnt")
+item_data = ExtResource("9_4ow3a")
+quantity = 40
+metadata/_custom_type_script = "uid://cmggf10ug5sb1"
+
 [sub_resource type="Resource" id="Resource_q0gln"]
 script = ExtResource("5_2ln8w")
-slot_datas = Array[ExtResource("2_gacnt")]([SubResource("Resource_ib8u5"), SubResource("Resource_e5yeo"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("2_gacnt")]([SubResource("Resource_ib8u5"), SubResource("Resource_e5yeo"), SubResource("Resource_2ln8w"), SubResource("Resource_xvuaf"), null, null, null, null, null, null, null, null, null, null, null, null, null, null])
 
 [resource]
 script = ExtResource("8_qbhtf")
