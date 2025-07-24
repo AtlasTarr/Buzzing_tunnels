@@ -229,6 +229,7 @@ func agression_controller(object_of_agreesion:Object):
 					move_state = 1
 					aggressive = true
 					can_access_inventory = false
+					speed = run_speed
 	else:
 		object_of_intrest = object_of_agreesion
 		if object_of_agreesion != null:
@@ -310,9 +311,6 @@ func damage(damage: float, source: Object):
 	if not source == null:
 		if "shot_by" in source:
 			death_state_checker(source.shot_by)
-			object_of_intrest = source.shot_by
-			move_state = 1
-			aggressive = true
 		else:
 			death_state_checker(source)
 	var temp_speed = health/100 * speed

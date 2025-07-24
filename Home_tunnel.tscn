@@ -1,14 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://do5xd2dbuhupc"]
+[gd_scene load_steps=19 format=3 uid="uid://do5xd2dbuhupc"]
 
-[ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_l7t4g"]
-[ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_05dsm"]
-[ext_resource type="PackedScene" uid="uid://ccsvsjofwq2k6" path="res://quest_library/player/player_transfer.tscn" id="3_su6lt"]
-[ext_resource type="PackedScene" uid="uid://d0xb5raoo3mwn" path="res://misc/UI.tscn" id="4_oa6d3"]
-[ext_resource type="PackedScene" uid="uid://dxcuwc1g2pei4" path="res://characters/Zero/Zero.tscn" id="5_oa6d3"]
-[ext_resource type="PackedScene" uid="uid://54syw6afa8lg" path="res://enemies/the_farmer.tscn" id="6_frhvw"]
+[ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_opnwc"]
+[ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_ltghj"]
+[ext_resource type="PackedScene" uid="uid://d0xb5raoo3mwn" path="res://misc/UI.tscn" id="3_wojne"]
+[ext_resource type="PackedScene" uid="uid://ccsvsjofwq2k6" path="res://quest_library/player/player_transfer.tscn" id="4_6kqfr"]
+[ext_resource type="PackedScene" uid="uid://dxcuwc1g2pei4" path="res://characters/Zero/Zero.tscn" id="5_gd7fn"]
+[ext_resource type="PackedScene" uid="uid://54syw6afa8lg" path="res://enemies/the_farmer.tscn" id="6_fxg0b"]
+[ext_resource type="PackedScene" uid="uid://iuv1bsukb86w" path="res://quest_library/Pickups/test_item_pickup.tscn" id="7_6kqfr"]
+[ext_resource type="Resource" uid="uid://cqaork61lfbqe" path="res://quest_library/item/items/item resources/test_gun.tres" id="8_gd7fn"]
+[ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="9_fxg0b"]
 
 [sub_resource type="Resource" id="Resource_vyovo"]
-script = ExtResource("2_05dsm")
+script = ExtResource("2_ltghj")
 static_list = {}
 player_location = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://dxki1qiqxw0l7"
@@ -29,13 +32,31 @@ glow_enabled = true
 [sub_resource type="NavigationMesh" id="NavigationMesh_oa6d3"]
 vertices = PackedVector3Array(-1.6515, -0.0374016, 2.9495, -0.401497, -0.0374016, 2.6995, -0.401497, -0.0374016, -86.5505, -103.151, -0.0374016, -86.5505, -103.151, -0.0374016, 4.1995, -1.6515, -0.0374016, 4.1995, 0.848503, -0.0374016, 2.9495, 103.099, -0.0374016, 4.1995, 103.099, -0.0374016, -86.5505, 0.848503, -0.0374016, 4.1995, -0.651497, 1.2126, 3.6995, -0.651497, 1.2126, 4.9495, -0.151497, 1.2126, 4.9495, -0.151497, 1.2126, 3.6995, -0.401497, -0.0374016, 86.4495, -0.401497, -0.0374016, 5.9495, -1.6515, -0.0374016, 5.6995, -103.151, -0.0374016, 86.4495, 0.848503, -0.0374016, 5.6995, 103.099, -0.0374016, 86.4495)
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(0, 5, 4), PackedInt32Array(1, 2, 6), PackedInt32Array(6, 2, 8), PackedInt32Array(6, 8, 7), PackedInt32Array(7, 9, 6), PackedInt32Array(13, 12, 10), PackedInt32Array(10, 12, 11), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 17), PackedInt32Array(16, 17, 4), PackedInt32Array(4, 5, 16), PackedInt32Array(15, 18, 14), PackedInt32Array(14, 18, 19), PackedInt32Array(19, 18, 7), PackedInt32Array(18, 9, 7)]
+sample_partition_type = 2
+cell_size = 0.01
+cell_height = 0.01
+agent_radius = 0.07
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_frhvw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bm42f"]
 
+[sub_resource type="Curve3D" id="Curve3D_frhvw"]
+closed = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.997, 0, -15.314, 0, 0, 0, 0, 0, 0, 9.856, 0, -10.455, 0, 0, 0, 0, 0, 0, 1.959, 0, -10.009, 0, 0, 0, 0, 0, 0, 1.781, 0, -15.13),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Resource" id="Resource_mv7bx"]
+script = ExtResource("9_fxg0b")
+item_data = ExtResource("8_gd7fn")
+quantity = 1
+metadata/_custom_type_script = "uid://cmggf10ug5sb1"
+
 [node name="HomeTunnel" type="Node3D" groups=["level"]]
-script = ExtResource("1_l7t4g")
+script = ExtResource("1_opnwc")
 leve_data = SubResource("Resource_vyovo")
 scene_name = "Home_tunnel.tres"
 metadata/_custom_type_script = "uid://c3gq1fnmvdiix"
@@ -47,9 +68,9 @@ environment = SubResource("Environment_v0yx3")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="UI" parent="." instance=ExtResource("4_oa6d3")]
+[node name="UI" parent="." instance=ExtResource("3_wojne")]
 
-[node name="player" parent="." instance=ExtResource("3_su6lt")]
+[node name="player" parent="." instance=ExtResource("4_6kqfr")]
 transform = Transform3D(-0.0414396, 0, 0.999141, 0, 1, 0, -0.999141, 0, -0.0414396, 1.89113, 2.0183, 3.77759)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
@@ -74,12 +95,24 @@ shape = SubResource("BoxShape3D_frhvw")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D2"]
 mesh = SubResource("BoxMesh_bm42f")
 
-[node name="Zero" parent="." instance=ExtResource("5_oa6d3")]
+[node name="Zero" parent="." instance=ExtResource("5_gd7fn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
+visible = false
 
-[node name="the_farmer" parent="." instance=ExtResource("6_frhvw")]
+[node name="the_farmer" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("6_fxg0b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.098, 20.7512, -17.5711)
 walk_speed = 5.0
+patrol_path = NodePath("../Paths/Path3D")
+
+[node name="Paths" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
+
+[node name="Path3D" type="Path3D" parent="Paths"]
+curve = SubResource("Curve3D_frhvw")
+
+[node name="test_item_pickup" parent="." instance=ExtResource("7_6kqfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.62688, 0.978117, -11.6773)
+slot_data = SubResource("Resource_mv7bx")
 
 [editable path="UI"]
 [editable path="UI/questlog"]

@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://cmggf10ug5sb1"
 [sub_resource type="Resource" id="Resource_xvuaf"]
 script = ExtResource("2_gacnt")
 item_data = ExtResource("9_4ow3a")
-quantity = 40
+quantity = 120
 metadata/_custom_type_script = "uid://cmggf10ug5sb1"
 
 [sub_resource type="Resource" id="Resource_q0gln"]
