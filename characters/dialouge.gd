@@ -1,4 +1,5 @@
 extends DialougeHolder
+class_name Dialouge
 var state:int = 0
 
 signal toggle_inventory(external_inventory_owner)

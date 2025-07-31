@@ -1,13 +1,14 @@
 [gd_scene load_steps=9 format=3 uid="uid://54syw6afa8lg"]
 
-[ext_resource type="Script" uid="uid://dkk3uwfryysa1" path="res://characters/dialouge.gd" id="1_x1ue7"]
+[ext_resource type="Script" uid="uid://bemlur5tyq0g6" path="res://enemies/the_farmer.gd" id="1_870pr"]
 [ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="2_037w4"]
 [ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="3_uc526"]
 [ext_resource type="PackedScene" uid="uid://brj4lfbi78pgk" path="res://misc/trigger.tscn" id="4_te6xw"]
 
-[sub_resource type="Resource" id="Resource_2vvxl"]
+[sub_resource type="Resource" id="Resource_pvldu"]
 script = ExtResource("2_037w4")
-slot_datas = Array[ExtResource("3_uc526")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+slot_datas = Array[ExtResource("3_uc526")]([null])
+metadata/_custom_type_script = "uid://bhm3yrdex0vjq"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ti8rw"]
 
@@ -15,16 +16,12 @@ slot_datas = Array[ExtResource("3_uc526")]([null, null, null, null, null, null, 
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2e2hp"]
 
-[node name="the_farmer" type="CharacterBody3D" groups=["DialougeHolder", "actor", "external_inventory", "static"]]
+[node name="the_farmer" type="CharacterBody3D" groups=["DialougeHolder", "actor", "enemy", "external_inventory", "static"]]
 collision_mask = 3
 axis_lock_angular_y = true
-script = ExtResource("1_x1ue7")
+script = ExtResource("1_870pr")
 Name = "the farmer"
-defence = 10.0
-walk_speed = 1.5
-run_speed = 15.4
-inventory = SubResource("Resource_2vvxl")
-move_state = []
+inventory = SubResource("Resource_pvldu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_ti8rw")
@@ -74,6 +71,8 @@ autostart = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.477066, 0)
+
+[node name="brain" type="Node" parent="."]
 
 [connection signal="interact" from="trigger" to="." method="_on_trigger_interact"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

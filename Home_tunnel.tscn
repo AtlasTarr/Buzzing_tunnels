@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://do5xd2dbuhupc"]
+[gd_scene load_steps=18 format=3 uid="uid://do5xd2dbuhupc"]
 
 [ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_opnwc"]
 [ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_ltghj"]
@@ -40,14 +40,6 @@ agent_radius = 0.07
 [sub_resource type="BoxShape3D" id="BoxShape3D_frhvw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bm42f"]
-
-[sub_resource type="Curve3D" id="Curve3D_frhvw"]
-closed = true
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 9.997, 0, -15.314, 0, 0, 0, 0, 0, 0, 9.856, 0, -10.455, 0, 0, 0, 0, 0, 0, 1.959, 0, -10.009, 0, 0, 0, 0, 0, 0, 1.781, 0, -15.13),
-"tilts": PackedFloat32Array(0, 0, 0, 0)
-}
-point_count = 4
 
 [sub_resource type="Resource" id="Resource_mv7bx"]
 script = ExtResource("9_fxg0b")
@@ -97,21 +89,15 @@ mesh = SubResource("BoxMesh_bm42f")
 
 [node name="Zero" parent="." instance=ExtResource("5_gd7fn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
-visible = false
 
-[node name="the_farmer" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("6_fxg0b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.098, 20.7512, -17.5711)
-walk_speed = 5.0
-patrol_path = NodePath("../Paths/Path3D")
+[node name="the_farmer" parent="." instance=ExtResource("6_fxg0b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.563, 20.7512, -17.5711)
 
 [node name="Paths" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
 
-[node name="Path3D" type="Path3D" parent="Paths"]
-curve = SubResource("Curve3D_frhvw")
-
 [node name="test_item_pickup" parent="." instance=ExtResource("7_6kqfr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.62688, 0.978117, -11.6773)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.098, 0.978, -17.571)
 slot_data = SubResource("Resource_mv7bx")
 
 [editable path="UI"]

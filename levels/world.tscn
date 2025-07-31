@@ -233,13 +233,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3431, 0.785997, -32.6084)
 inventory = SubResource("Resource_ualfp")
 
 [node name="test_enemy" parent="." instance=ExtResource("19_t258i")]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.99992, 15.8681)
 Name = "cube"
 inventory = SubResource("Resource_b0jxc")
 
 [node name="test_enemy2" parent="." instance=ExtResource("19_t258i")]
-process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.13724, 3.99992, 15.8681)
 Name = "cube"
 inventory = SubResource("Resource_gxu3i")
