@@ -97,7 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.563, 20.7512, -17.5711)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
 
 [node name="test_item_pickup" parent="." instance=ExtResource("7_6kqfr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.098, 0.978, -17.571)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.563, 0.978, -17.571)
 slot_data = SubResource("Resource_mv7bx")
 
 [editable path="UI"]

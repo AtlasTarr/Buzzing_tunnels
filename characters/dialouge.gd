@@ -256,7 +256,7 @@ func move_state_setter(delta):
 			for child in gun_container.get_children():
 				child.shoot(delta)
 		if object_of_intrest != null:
-			point_seek(object_of_intrest.global_transform.origin, delta, 5)
+			point_seek(object_of_intrest.global_transform.origin, delta, 2.02)
 		else:
 			move_state = 0
 			aggressive = false
