@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PlayerManager="*res://quest_library/player/Player_manager.gd"
 Console="*res://addons/console/console.gd"
 Enemymanager="res://enemies/enemymanager.gd"
+CinematicManager="*res://Cinematic/Cinematic_manager.gd"
 
 [debug]
 

@@ -1,5 +1,6 @@
 extends Area3D
-var active = false
+@export var active = false
+var useable: bool = true
 signal interact
 
 func _ready():
@@ -8,8 +9,9 @@ func _ready():
 
 func _process(delta):
 	if active == true:
-		if Input.is_action_just_pressed("interact"):
-			emit_signal("interact")
+		if useable == true:
+			if Input.is_action_just_pressed("interact"):
+				emit_signal("interact")
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):

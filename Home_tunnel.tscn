@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://do5xd2dbuhupc"]
+[gd_scene load_steps=23 format=3 uid="uid://do5xd2dbuhupc"]
 
 [ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_opnwc"]
 [ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_ltghj"]
+[ext_resource type="PackedScene" uid="uid://8grhibp55h2p" path="res://Cinematic/cinematic_controller.tscn" id="3_fxg0b"]
 [ext_resource type="PackedScene" uid="uid://d0xb5raoo3mwn" path="res://misc/UI.tscn" id="3_wojne"]
 [ext_resource type="PackedScene" uid="uid://ccsvsjofwq2k6" path="res://quest_library/player/player_transfer.tscn" id="4_6kqfr"]
 [ext_resource type="PackedScene" uid="uid://dxcuwc1g2pei4" path="res://characters/Zero/Zero.tscn" id="5_gd7fn"]
@@ -9,12 +10,98 @@
 [ext_resource type="PackedScene" uid="uid://iuv1bsukb86w" path="res://quest_library/Pickups/test_item_pickup.tscn" id="7_6kqfr"]
 [ext_resource type="Resource" uid="uid://cqaork61lfbqe" path="res://quest_library/item/items/item resources/test_gun.tres" id="8_gd7fn"]
 [ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="9_fxg0b"]
+[ext_resource type="PackedScene" uid="uid://d1ptnetbv3hfc" path="res://Cinematic/cinematic_trigger.tscn" id="11_mv7bx"]
 
 [sub_resource type="Resource" id="Resource_vyovo"]
 script = ExtResource("2_ltghj")
 static_list = {}
 player_location = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://dxki1qiqxw0l7"
+
+[sub_resource type="Animation" id="Animation_7yu18"]
+resource_name = "Test anim"
+length = 10.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("the_farmer:process_mode")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("the_farmer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.02, 10, 10.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-57.563, 20.7512, -17.5711), Vector3(-11.7959, 0.479234, -17.5711), Vector3(-11.7959, 0.479235, 9.07408), Vector3(-11.7959, 1.3992, 9.07408)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 10.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-3.7329, -0.135412, -3.45311), Vector3(-3.7329, 1.86265, -3.45311)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 10.2),
+"transitions": PackedFloat32Array(1, 1e-05),
+"update": 0,
+"values": [Vector3(0, 1.61225, 0), Vector3(0, 1.5708, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player/Pivot/Camera:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.31, 0.6, 0.81, 1.09, 1.49, 1.7, 1.86667, 2.26667, 2.47667, 2.63333, 3.03333, 3.24333, 3.4, 3.8, 4.01, 4.22333, 4.62333, 4.83333, 5.05667, 5.45667, 5.66667, 5.83333, 6.23333, 6.44333, 6.6, 7, 7.21, 7.36667, 7.76667, 7.97667, 8.19, 8.59, 8.8, 10, 10.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.0805409, 0.427817, 1.94189), Vector3(-0.0805411, 0.581318, 1.94189), Vector3(-0.0805411, 0.712413, 1.94189), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.0805411, 0.581318, 1.94189), Vector3(0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player/Pivot/Camera:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.31, 0.6, 10, 10.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.249398, 0.0013242, -0.010564), Vector3(-0.120963, -0.114645, -0.020256), Vector3(0.209957, 1.01944, 0.00505712), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ti24t"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5t36q"]
+_data = {
+&"RESET": SubResource("Animation_ti24t"),
+&"Test anim": SubResource("Animation_7yu18")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_frhvw"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -53,6 +140,11 @@ leve_data = SubResource("Resource_vyovo")
 scene_name = "Home_tunnel.tres"
 metadata/_custom_type_script = "uid://c3gq1fnmvdiix"
 
+[node name="cinematic controller" parent="." instance=ExtResource("3_fxg0b")]
+libraries = {
+&"": SubResource("AnimationLibrary_5t36q")
+}
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v0yx3")
 
@@ -63,7 +155,10 @@ shadow_enabled = true
 [node name="UI" parent="." instance=ExtResource("3_wojne")]
 
 [node name="player" parent="." instance=ExtResource("4_6kqfr")]
-transform = Transform3D(-0.0414396, 0, 0.999141, 0, 1, 0, -0.999141, 0, -0.0414396, 1.89113, 2.0183, 3.77759)
+transform = Transform3D(-0.0414396, 0, 0.999141, 0, 1, 0, -0.999141, 0, -0.0414396, 8.12632, 1.95309, -3.45311)
+
+[node name="Camera" parent="player/Pivot" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.282375, 0)
@@ -91,6 +186,7 @@ mesh = SubResource("BoxMesh_bm42f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
 
 [node name="the_farmer" parent="." instance=ExtResource("6_fxg0b")]
+process_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.563, 20.7512, -17.5711)
 
 [node name="Paths" type="Node3D" parent="."]
@@ -100,5 +196,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.563, 0.978, -17.571)
 slot_data = SubResource("Resource_mv7bx")
 
+[node name="cinematics" type="Node3D" parent="."]
+
+[node name="test cinematic" parent="cinematics" instance=ExtResource("11_mv7bx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27782, 0.388036, -5.36395)
+Cinematic = "Test anim"
+
 [editable path="UI"]
 [editable path="UI/questlog"]
+[editable path="player"]
