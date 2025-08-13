@@ -379,9 +379,6 @@ func _on_trigger_interact():
 		elif answered == true:
 			set_dialouge()
 			owner.can_save = false
-		
-
-		
 		elif active == true and dialouges[current_dialouge] == "[END]":
 			end_dialouge()
 			if continue_on_interact == true:

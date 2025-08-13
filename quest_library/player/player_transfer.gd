@@ -88,6 +88,12 @@ func _physics_process(delta):
 	inventory.slot_datas = _playerdata.inventory_data.slot_datas
 	camera_2.global_transform = camera.global_transform
 
+
+	if Input.is_action_just_pressed("crouch"):
+		self.scale.y = 0.5
+		self.global_transform.origin.y -= 0.5
+	if Input.is_action_just_released("crouch"):
+		self.scale.y = 1
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
 	
