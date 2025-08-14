@@ -1,0 +1,11 @@
+Model Information:
+* title:	Salt lamp
+* source:	https://sketchfab.com/3d-models/salt-lamp-800889f66f884f96b349a4542db00b2c
+* author:	Timothy Ahene (https://sketchfab.com/timothyahene)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Salt lamp" (https://sketchfab.com/3d-models/salt-lamp-800889f66f884f96b349a4542db00b2c) by Timothy Ahene (https://sketchfab.com/timothyahene) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

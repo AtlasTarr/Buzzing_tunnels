@@ -8,7 +8,7 @@
 script = ExtResource("1_p0d2h")
 calliber = "test"
 damage = 25.0
-cycle_length = 10.0
+cycle_length = 0.3
 muzzle_velocity = 100.0
 mag_size = 10
 added = false
@@ -16,5 +16,7 @@ veiw_model = ExtResource("3_h0l5g")
 current_ammo = 0
 name = "test_gun"
 description = "this is a test gun"
+quest_item = false
+quest_holder = ""
 stackable = false
 texture = ExtResource("2_784bp")

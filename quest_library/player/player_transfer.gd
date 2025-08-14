@@ -27,6 +27,7 @@ var air_speed
 
 var temp_hunger = 10.0
 var temp_thirst = 10.0
+var temp_scale = 1.0
 
 
 var start: bool = true
@@ -87,7 +88,7 @@ func _unhandled_input(event):
 func _physics_process(delta):
 	_playerdata.hunger = lerp(_playerdata.hunger, temp_hunger, delta)
 	_playerdata.thirst = lerp(_playerdata.thirst, temp_thirst, delta)
-	
+	self.scale.y = lerp(self.scale.y, temp_scale, delta * 3)
 	air_speed = _playerdata.air_speed
 	on_start()
 	inventory.slot_datas = _playerdata.inventory_data.slot_datas
@@ -95,10 +96,10 @@ func _physics_process(delta):
 
 
 	if Input.is_action_just_pressed("crouch"):
-		self.scale.y = 0.5
+		temp_scale = 0.5
 		self.global_transform.origin.y -= 0.5
 	if Input.is_action_just_released("crouch"):
-		self.scale.y = 1
+		temp_scale = 1.0
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
 	

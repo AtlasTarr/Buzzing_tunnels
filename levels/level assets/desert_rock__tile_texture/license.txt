@@ -1,0 +1,11 @@
+Model Information:
+* title:	Desert Rock | Tile Texture
+* source:	https://sketchfab.com/3d-models/desert-rock-tile-texture-2c4778b0ca1749c98f07a2f06ac91c77
+* author:	CATholic (https://sketchfab.com/CATholic)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Desert Rock | Tile Texture" (https://sketchfab.com/3d-models/desert-rock-tile-texture-2c4778b0ca1749c98f07a2f06ac91c77) by CATholic (https://sketchfab.com/CATholic) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

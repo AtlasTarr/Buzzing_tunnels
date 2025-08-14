@@ -1,12 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://do5xd2dbuhupc"]
+[gd_scene load_steps=18 format=3 uid="uid://do5xd2dbuhupc"]
 
 [ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_opnwc"]
 [ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_ltghj"]
-[ext_resource type="PackedScene" uid="uid://8grhibp55h2p" path="res://Cinematic/cinematic_controller.tscn" id="3_fxg0b"]
 [ext_resource type="PackedScene" uid="uid://d0xb5raoo3mwn" path="res://misc/UI.tscn" id="3_wojne"]
 [ext_resource type="PackedScene" uid="uid://ccsvsjofwq2k6" path="res://quest_library/player/player_transfer.tscn" id="4_6kqfr"]
 [ext_resource type="PackedScene" uid="uid://dxcuwc1g2pei4" path="res://characters/Zero/Zero.tscn" id="5_gd7fn"]
-[ext_resource type="PackedScene" uid="uid://54syw6afa8lg" path="res://enemies/the_farmer.tscn" id="6_fxg0b"]
 [ext_resource type="PackedScene" uid="uid://iuv1bsukb86w" path="res://quest_library/Pickups/test_item_pickup.tscn" id="7_6kqfr"]
 [ext_resource type="Resource" uid="uid://cqaork61lfbqe" path="res://quest_library/item/items/item resources/test_gun.tres" id="8_gd7fn"]
 [ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="9_fxg0b"]
@@ -17,91 +15,6 @@ script = ExtResource("2_ltghj")
 static_list = {}
 player_location = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://dxki1qiqxw0l7"
-
-[sub_resource type="Animation" id="Animation_ti24t"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_7yu18"]
-resource_name = "Test anim"
-length = 10.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("the_farmer:process_mode")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 10.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("the_farmer:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.02, 10, 10.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-57.563, 20.7512, -17.5711), Vector3(-11.7959, 0.479234, -17.5711), Vector3(-11.7959, 0.479235, 9.07408), Vector3(-11.7959, 1.3992, 9.07408)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("player:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 10.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-3.7329, -0.135412, -3.45311), Vector3(-3.7329, 1.86265, -3.45311)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("player:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 10.2),
-"transitions": PackedFloat32Array(1, 1e-05),
-"update": 0,
-"values": [Vector3(0, 1.61225, 0), Vector3(0, 1.5708, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("player/Pivot/Camera:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.31, 0.6, 0.81, 1.36667, 1.49, 1.7, 1.84333, 2, 2.22333, 2.4, 2.6, 2.61, 2.62333, 2.82333, 2.83333, 2.98999, 3.06667, 3.43333, 3.65667, 4.05667, 4.26667, 4.43333, 4.83333, 5.04333, 5.2, 5.59, 5.6, 5.81, 5.96667, 5.99, 6.2, 6.36667, 6.57667, 10, 10.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.0805409, 0.427817, 1.94189), Vector3(-0.0805411, 0.581318, 1.94189), Vector3(-0.0805411, 0.712413, 1.94189), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.299862, 0.559889, 1.93279), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.367447, 0.648066, 2.05092), Vector3(-0.11769, 0.908211, 2.15895), Vector3(-0.0805411, 0.581318, 1.94189), Vector3(0, 0, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("player/Pivot/Camera:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.31, 0.6, 10, 10.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.249398, 0.0013242, -0.010564), Vector3(-0.120963, -0.114645, -0.020256), Vector3(0.209957, 1.01944, 0.00505712), Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5t36q"]
-_data = {
-&"RESET": SubResource("Animation_ti24t"),
-&"Test anim": SubResource("Animation_7yu18")
-}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_frhvw"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -140,22 +53,13 @@ leve_data = SubResource("Resource_vyovo")
 scene_name = "Home_tunnel.tres"
 metadata/_custom_type_script = "uid://c3gq1fnmvdiix"
 
-[node name="cinematic controller" parent="." instance=ExtResource("3_fxg0b")]
-libraries = {
-&"": SubResource("AnimationLibrary_5t36q")
-}
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v0yx3")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
 
 [node name="UI" parent="." instance=ExtResource("3_wojne")]
 
 [node name="player" parent="." instance=ExtResource("4_6kqfr")]
-transform = Transform3D(-0.0414418, 0, 0.999141, 0, 1, 0, -0.999141, 0, -0.0414418, 0.307815, 1.05087, 15.3788)
+transform = Transform3D(-0.0414418, 0, 0.999141, 0, 1, 0, -0.999141, 0, -0.0414418, -0.443889, 1.05087, 14.2035)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.282375, 0)
@@ -171,7 +75,7 @@ shape = SubResource("BoxShape3D_frhvw")
 mesh = SubResource("BoxMesh_bm42f")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="NavigationRegion3D"]
-transform = Transform3D(1.2216, 0, 0, 0, 2.58236, 0, 0, 0, 1.97824, -0.381441, -0.496221, 4.35675)
+transform = Transform3D(1.2216, 0, 0, 0, 2.58236, 0, 0, 0, 1.97824, 18.6937, -0.496221, -1.62532)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D2"]
 shape = SubResource("BoxShape3D_frhvw")
@@ -179,36 +83,71 @@ shape = SubResource("BoxShape3D_frhvw")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D2"]
 mesh = SubResource("BoxMesh_bm42f")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="NavigationRegion3D"]
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/StaticBody3D3"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00157261, 0, -0.00101709)
 calculate_tangents = false
 use_collision = true
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="NavigationRegion3D/StaticBody3D3/CSGCombiner3D"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.965046, -0.0768793, -0.250552, -0.185572, 0.474629, -0.860401, 0.185066, 0.876822, 0.443772, 2.51477, 10.347, 15.5402)
+size = Vector3(1.14032, 1.34777, 15.006)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.124434, 16.535)
 use_collision = true
 radius = 8.119
 smooth_faces = false
 
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="NavigationRegion3D/StaticBody3D3/CSGCombiner3D"]
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.124434, 16.535)
 operation = 2
 use_collision = true
 radius = 7.34178
 smooth_faces = false
 
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D3/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032959, 0.88913, 8.86553)
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0133366, 0.197363, 0.337295)
+size = Vector3(2.15289, 1.38363, 17.3187)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.636832, 0, -0.771003, 0, 1, 0, 0.771003, 0, 0.636832, 6.69253, 0.197363, -12.6266)
+size = Vector3(2.15289, 1.38363, 16.609)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 20.709, 0.197363, -17.6672)
+size = Vector3(2.15289, 1.38363, 16.609)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.999999, 0.000517758, -0.00115136, -0.000512428, 0.999989, 0.00463094, 0.00115375, -0.00463034, 0.999989, 33.9654, 6.0451, 2.88118)
+size = Vector3(14.8071, 16.8907, 60.1052)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.637424, 0, -0.770513, 0, 1, 0, 0.770513, 0, 0.637424, 6.38878, 0.0732305, -12.3299)
 operation = 2
-size = Vector3(1.80518, 2.77826, 2.23291)
+size = Vector3(1.80518, 1.14646, 17.8204)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.4205, 0.0732305, -17.5323)
+operation = 2
+size = Vector3(1.80518, 1.14646, 17.8204)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8011, 5.90344, 1.42863)
+operation = 2
+size = Vector3(11.4301, 12.8069, 55.7423)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032959, 0.0732305, 1.13605)
+operation = 2
+size = Vector3(1.80518, 1.14646, 17.6919)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(0.965046, -0.0768793, -0.250552, -0.185572, 0.474629, -0.860401, 0.185066, 0.876822, 0.443772, 2.1706, 9.20906, 16.1587)
+operation = 2
+size = Vector3(0.808352, 1.14646, 17.6982)
 
 [node name="Zero" parent="." instance=ExtResource("5_gd7fn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
-
-[node name="the_farmer" parent="." instance=ExtResource("6_fxg0b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.3278, 19.8128, -18.0973)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.8371, 1.42158, -1.80662)
 
 [node name="Paths" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
@@ -222,6 +161,19 @@ slot_data = SubResource("Resource_mv7bx")
 [node name="test cinematic" parent="cinematics" instance=ExtResource("11_mv7bx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27782, 0.388036, -5.36395)
 Cinematic = "Test anim"
+
+[node name="lighting" type="Node" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+sky_mode = 2
+
+[node name="SpotLight3D" type="SpotLight3D" parent="lighting"]
+transform = Transform3D(0.96263, -0.14293, 0.23003, -0.270819, -0.508049, 0.817645, 0, -0.849387, -0.527771, 1.57464, 7.15289, 17.2404)
+spot_range = 14.8065
+spot_attenuation = 0.24
+spot_angle = 23.8714
 
 [editable path="UI"]
 [editable path="UI/questlog"]

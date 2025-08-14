@@ -1,0 +1,11 @@
+Model Information:
+* title:	Desert Cliff | Tile Texture
+* source:	https://sketchfab.com/3d-models/desert-cliff-tile-texture-211dd84bb4ff4636ac69dd0ee6dd7a31
+* author:	CATholic (https://sketchfab.com/CATholic)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Desert Cliff | Tile Texture" (https://sketchfab.com/3d-models/desert-cliff-tile-texture-211dd84bb4ff4636ac69dd0ee6dd7a31) by CATholic (https://sketchfab.com/CATholic) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
