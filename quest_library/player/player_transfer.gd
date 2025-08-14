@@ -25,6 +25,9 @@ var mouse_sensitivity = 0.002
 var speed
 var air_speed
 
+var temp_hunger = 10.0
+var temp_thirst = 10.0
+
 
 var start: bool = true
 
@@ -82,6 +85,8 @@ func _unhandled_input(event):
 		interact()
 
 func _physics_process(delta):
+	_playerdata.hunger = lerp(_playerdata.hunger, temp_hunger, delta)
+	_playerdata.thirst = lerp(_playerdata.thirst, temp_thirst, delta)
 	
 	air_speed = _playerdata.air_speed
 	on_start()
@@ -315,3 +320,11 @@ func update_body_stats():
 				for i in _playerdata.equip_body_data.slot_datas.size():
 					old_body_inventory.slot_datas[i] = _playerdata.equip_body_data.slot_datas[i]
 	_playerdata.equip_body_data.slot_datas = equip_body_data.slot_datas
+
+
+func on_hunger_timer_timeout() -> void:
+	temp_hunger = _playerdata.hunger - 0.1
+
+
+func on_thirst_timer_timeout() -> void:
+	temp_thirst = _playerdata.thirst - 0.15

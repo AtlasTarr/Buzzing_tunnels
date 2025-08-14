@@ -7,3 +7,5 @@ extends CanvasLayer
 @export var choice_container: Node
 @export var dialouge_holder_ui : Node
 @export var control_hints: Node
+@export var hunger_ui: Node
+@export var thirst_ui: Node

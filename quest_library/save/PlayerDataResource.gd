@@ -9,6 +9,8 @@ class_name PlayerData
 
 
 @export var health:int = 16
+@export var hunger: float = 10
+@export var thirst: float = 10
 @export var base_speed:float = 5
 @export var run_speed:float = 10
 @export var max_speed:Vector3 = Vector3(80,100000,80)

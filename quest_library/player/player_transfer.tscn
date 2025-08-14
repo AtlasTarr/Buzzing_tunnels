@@ -121,4 +121,14 @@ wait_time = 0.01
 one_shot = true
 autostart = true
 
+[node name="hunger_timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[node name="thirst_timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="hunger_timer" to="." method="on_hunger_timer_timeout"]
+[connection signal="timeout" from="thirst_timer" to="." method="on_thirst_timer_timeout"]

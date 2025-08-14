@@ -157,9 +157,6 @@ shadow_enabled = true
 [node name="player" parent="." instance=ExtResource("4_6kqfr")]
 transform = Transform3D(-0.0414418, 0, 0.999141, 0, 1, 0, -0.999141, 0, -0.0414418, 0.307815, 1.05087, 15.3788)
 
-[node name="Camera" parent="player/Pivot" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.282375, 0)
 navigation_mesh = SubResource("NavigationMesh_oa6d3")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0xb5raoo3mwn"]
+[gd_scene load_steps=18 format=3 uid="uid://d0xb5raoo3mwn"]
 
 [ext_resource type="Script" uid="uid://6scoxtqke5li" path="res://misc/UI.gd" id="1_1bvo6"]
 [ext_resource type="PackedScene" uid="uid://cy006mou4x4fq" path="res://quest_library/player/health_bits.tscn" id="1_ikj7r"]
@@ -11,6 +11,8 @@
 [ext_resource type="FontFile" uid="uid://c0u5hrye52s6a" path="res://fonts/Italics-Regular.ttf" id="8_v0kgt"]
 [ext_resource type="FontFile" uid="uid://b7yipnltairhb" path="res://fonts/BoldItalics-Regular.ttf" id="9_gw4hf"]
 [ext_resource type="PackedScene" uid="uid://dx2qkwyr6xqxu" path="res://misc/subtitle_label.tscn" id="11_wqmke"]
+[ext_resource type="PackedScene" uid="uid://cevapgjo0gu7f" path="res://quest_library/player/hunger_bar.tscn" id="12_c12gq"]
+[ext_resource type="PackedScene" uid="uid://ptw6jff6x2cs" path="res://quest_library/player/thirst_bar.tscn" id="13_qm4xn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jiufj"]
 texture = ExtResource("5_jtqya")
@@ -24,7 +26,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iwffl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("text_box", "dialouge_ui", "choice_containerx2", "choice_container", "dialouge_holder_ui", "control_hints")]
+[node name="UI" type="CanvasLayer" node_paths=PackedStringArray("text_box", "dialouge_ui", "choice_containerx2", "choice_container", "dialouge_holder_ui", "control_hints", "hunger_ui", "thirst_ui")]
 script = ExtResource("1_1bvo6")
 text_box = NodePath("Control/MarginContainer/MarginContainer/VBoxContainer/PanelContainer2/VBoxContainer/RichTextLabel")
 dialouge_ui = NodePath("Control")
@@ -32,6 +34,8 @@ choice_containerx2 = NodePath("Control/MarginContainer/MarginContainer/VBoxConta
 choice_container = NodePath("Control/MarginContainer/MarginContainer/VBoxContainer/PanelContainer/VBoxContainer/VBoxContainer")
 dialouge_holder_ui = NodePath("Control/MarginContainer/MarginContainer/VBoxContainer/MarginContainer3/VBoxContainer/RichTextLabel")
 control_hints = NodePath("control_hints")
+hunger_ui = NodePath("HungerBar")
+thirst_ui = NodePath("ThirstBar")
 
 [node name="health bits" parent="." instance=ExtResource("1_ikj7r")]
 offset_left = 829.0
@@ -193,5 +197,9 @@ quest journal-  J
 Sprint-  shift
 Save- F1
 Toggle hint- C"
+
+[node name="HungerBar" parent="." instance=ExtResource("12_c12gq")]
+
+[node name="ThirstBar" parent="." instance=ExtResource("13_qm4xn")]
 
 [editable path="questlog"]

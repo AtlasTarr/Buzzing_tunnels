@@ -243,6 +243,8 @@ func _process(delta):
 		dialouge_option_ui()
 	text_box.text = current_dialouge
 	print_orphan_nodes()
+	update_hungerbar_value()
+	update_thirstbar_value()
 
 ##updates the variables of static objects
 func update_static_list():
@@ -405,6 +407,12 @@ func toggle_player_details(external_inventory_owner = null):
 		inventory_interface.set_external_inventory_owner(external_inventory_owner)
 	else:
 		inventory_interface.clear_external_inventory_owner()
+
+func update_hungerbar_value():
+	UI.hunger_ui.bar.value = playerdata.hunger
+
+func update_thirstbar_value():
+	UI.thirst_ui.bar.value = playerdata.thirst
 
 func toggle_quest_log():
 	if not questlog.visible:
