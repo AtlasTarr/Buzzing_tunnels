@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b000ml6536o1u"]
+
+[ext_resource type="PackedScene" uid="uid://da2etff7sd5x3" path="res://levels/level assets/low_poly_rock_1/scene.gltf" id="1_5pmvt"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_5pmvt")]

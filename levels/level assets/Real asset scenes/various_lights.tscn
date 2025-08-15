@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dsno0kb0ukh3l"]
+
+[ext_resource type="PackedScene" uid="uid://cgbg6dfr2afef" path="res://levels/level assets/lamps/scene.gltf" id="1_d3gjc"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_d3gjc")]
+
+[node name="defaultMaterial36" parent="Sketchfab_model/Collada visual scene group/WallPart_low" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164744, -7.2012e-09)
+
+[node name="defaultMaterial37" parent="Sketchfab_model/Collada visual scene group/Glas2_low" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164744, -7.2012e-09)
+
+[node name="defaultMaterial38" parent="Sketchfab_model/Collada visual scene group/Stand_low" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164744, -7.2012e-09)
+
+[node name="defaultMaterial39" parent="Sketchfab_model/Collada visual scene group/Light2_low" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164744, -7.2012e-09)

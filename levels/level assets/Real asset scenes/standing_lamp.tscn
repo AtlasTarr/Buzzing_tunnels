@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://rowbrde56ouk"]
+
+[ext_resource type="PackedScene" uid="uid://bmp1g0wnrxmv5" path="res://levels/level assets/lamp/scene.gltf" id="1_a40wx"]
+
+[node name="Standing_lamp" instance=ExtResource("1_a40wx")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.423021, -0.110418)
+shadow_enabled = true
+shadow_transmittance_bias = 1.33

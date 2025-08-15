@@ -1,7 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://d0xb5raoo3mwn"]
+[gd_scene load_steps=17 format=3 uid="uid://d0xb5raoo3mwn"]
 
 [ext_resource type="Script" uid="uid://6scoxtqke5li" path="res://misc/UI.gd" id="1_1bvo6"]
-[ext_resource type="PackedScene" uid="uid://cy006mou4x4fq" path="res://quest_library/player/health_bits.tscn" id="1_ikj7r"]
 [ext_resource type="PackedScene" uid="uid://cfwtyx6wee72l" path="res://quest_library/misc/inventory_interact.tscn" id="2_drwsa"]
 [ext_resource type="PackedScene" uid="uid://u7tm1xrg3032" path="res://quest_library/inventory/hot_bar_inventory.tscn" id="3_33yx4"]
 [ext_resource type="PackedScene" uid="uid://dqs60fax5no7m" path="res://quest_library/misc/questlog.tscn" id="4_8ydw2"]
@@ -36,10 +35,6 @@ dialouge_holder_ui = NodePath("Control/MarginContainer/MarginContainer/VBoxConta
 control_hints = NodePath("control_hints")
 hunger_ui = NodePath("HungerBar")
 thirst_ui = NodePath("ThirstBar")
-
-[node name="health bits" parent="." instance=ExtResource("1_ikj7r")]
-offset_left = 829.0
-offset_right = 869.0
 
 [node name="inventory_interface" parent="." instance=ExtResource("2_drwsa")]
 

@@ -60,6 +60,7 @@ health = 16
 hunger = 10.0
 thirst = 10.0
 base_speed = 3.0
+crouch_speed = 1.0
 run_speed = 8.0
 max_speed = Vector3(80, 100000, 80)
 air_speed = 3.0

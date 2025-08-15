@@ -48,7 +48,6 @@ enum state {full, half, one_quarter, empty}
 @onready var playerdata = player._playerdata
 @onready var inventory_interface = $UI/inventory_interface
 @onready var hot_bar_inventory = $UI/Hot_bar_inventory
-@onready var health_bars_interface = $"UI/health bits"
 @onready var questlog = $UI/questlog
 @onready var questlog_containers = $UI/questlog/TextureRect/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/PanelContainer/GridContainer
 
@@ -165,7 +164,7 @@ func _ready():
 				child.connect("dialouge_toggle", dialouge_ui_toggle)
 
 	
-	update_value("all",4)
+	#update_value("all",4)
 	
 	## sets the mentioned inventory data
 	inventory_interface.set_player_inventory_data(player.inventory)
@@ -211,27 +210,27 @@ func _process(delta):
 		toggle_hints()
 	
 	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
-	for bit in health_bars_interface.get_children():
-		var index = bit.get_index()
-		var current_health = playerdata.health % 4
-		var bit_1  = range(12, 16)
-		var bit_2  = range(8, 12)
-		var bit_3  = range(0, 8)
-		if bit_1.has(playerdata.health):
-			if current_health >= 0:
-				update_value(0,current_health)
-			else:
-				update_value(0,4)
-		if bit_2.has(playerdata.health):
-			if current_health >= 0:
-				update_value(1,current_health)
-			else:
-				update_value(1,4)
-		if bit_3.has(playerdata.health):
-			if current_health >= 0:
-				update_value(2,current_health)
-			else:
-				update_value(2,4)
+	#for bit in health_bars_interface.get_children():
+		#var index = bit.get_index()
+		#var current_health = playerdata.health % 4
+		#var bit_1  = range(12, 16)
+		#var bit_2  = range(8, 12)
+		#var bit_3  = range(0, 8)
+		#if bit_1.has(playerdata.health):
+			#if current_health >= 0:
+				#update_value(0,current_health)
+			#else:
+				#update_value(0,4)
+		#if bit_2.has(playerdata.health):
+			#if current_health >= 0:
+				#update_value(1,current_health)
+			#else:
+				#update_value(1,4)
+		#if bit_3.has(playerdata.health):
+			#if current_health >= 0:
+				#update_value(2,current_health)
+			#else:
+				#update_value(2,4)
 	for child in children:
 		if child != null:
 			if child.is_in_group("DialougeHolder"):
@@ -379,13 +378,13 @@ func save():
 			ResourceSaver.save(leve_data, save_file_path + scene_name)
 
 ##handles the values of health bits
-func update_value(index,value):
-	for bar in health_bars_interface.get_child_count():
-		if index is String:
-			if index == "all":
-				health_bars_interface.get_child(bar).value = value
-		else:
-			health_bars_interface.get_child(index).value = value
+#func update_value(index,value):
+	#for bar in health_bars_interface.get_child_count():
+		#if index is String:
+			#if index == "all":
+				#health_bars_interface.get_child(bar).value = value
+		#else:
+			#health_bars_interface.get_child(index).value = value
 
 ##toggles the inventory visibilty
 func toggle_player_details(external_inventory_owner = null):
@@ -394,13 +393,11 @@ func toggle_player_details(external_inventory_owner = null):
 	if inventory_interface.visible:
 		player.UI_active = true
 		hot_bar_inventory.hide()
-		health_bars_interface.hide()
 		questlog.hide()
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else :
 		player.UI_active = false
 		hot_bar_inventory.show()
-		health_bars_interface.show()
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	if external_inventory_owner and inventory_interface.visible:
@@ -419,13 +416,11 @@ func toggle_quest_log():
 		quest_log_update()
 		hot_bar_inventory.visible = false
 		inventory_interface.visible = false
-		health_bars_interface.visible = false
 		player.UI_active = true
 		questlog.visible = true
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	else:
 		hot_bar_inventory.visible = true
-		health_bars_interface.visible = true
 		player.UI_active = false
 		questlog.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://p173udt3njiq"]
+
+[ext_resource type="PackedScene" uid="uid://1x868dmpoy18" path="res://levels/level assets/salt_lamp/scene.gltf" id="1_xb1da"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_xb1da")]
+
+[node name="lamp_base_low" parent="Sketchfab_model/Collada visual scene group" index="0"]
+transform = Transform3D(-0.007595, 0, -0.006914, 0, 0.009026, 0, 0.006914, 0, -0.007595, 0, 0, 0)

@@ -50,6 +50,7 @@ var gravity = 9.8 * mass
 
 func _ready():
 	PlayerManager.player = self
+	speed = _playerdata.base_speed
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func set_player_position(set_location: Vector3) -> void:
@@ -97,9 +98,13 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("crouch"):
 		temp_scale = 0.5
+		speed = _playerdata.crouch_speed
+		print(speed)
 		self.global_transform.origin.y -= 0.5
 	if Input.is_action_just_released("crouch"):
 		temp_scale = 1.0
+		speed = _playerdata.base_speed
+		print(speed)
 	if Input.is_action_just_pressed("inventory"):
 		toggle_inventory.emit()
 	
@@ -127,7 +132,7 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("sprint"):
 		speed = _playerdata.run_speed
-	else:
+	elif Input.is_action_just_released("sprint"):
 		speed = _playerdata.base_speed
 	
 	# Get the input direction and handle the movement/deceleration.

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4bfirpcv0fud"]
+
+[ext_resource type="PackedScene" uid="uid://bs21secexp1oc" path="res://levels/level assets/urban_lamp/scene.gltf" id="1_juxa2"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_juxa2")]
+
+[node name="RootNode" parent="Sketchfab_model/lamp_urban_low_fbx" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -58.475, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.422427, 0)
+shadow_enabled = true
+shadow_reverse_cull_face = true

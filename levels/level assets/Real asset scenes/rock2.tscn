@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cumw5c303hauo"]
+
+[ext_resource type="PackedScene" uid="uid://cm5qps3fh8ixe" path="res://levels/level assets/medium_sized_rock_for_game_engines/scene.gltf" id="1_fhm1l"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_fhm1l")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.29832, -5.74705, 0)
+
+[node name="6455bebf0168496581f4c8303cf179a7_obj_cleaner_materialmerger_gles" parent="Sketchfab_model" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
