@@ -5,8 +5,11 @@
 
 [resource]
 script = ExtResource("1_5q5xg")
-heal_amount = 5.0
+food = false
+satiate_amout = 1.0
 name = "test_consumable"
 description = ""
+quest_item = false
+quest_holder = ""
 stackable = true
 texture = ExtResource("2_uimht")

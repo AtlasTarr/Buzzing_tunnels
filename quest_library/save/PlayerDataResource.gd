@@ -1,6 +1,8 @@
 extends Resource
 class_name PlayerData
 
+@export var current_level: String = "Home_tunnel"
+
 @export var inventory_data: Inventory_Data
 @export var equip_helmet_data: Equip_Helmet_Data
 @export var equip_body_data: Equip_Body_Data

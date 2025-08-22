@@ -1,0 +1,6 @@
+Hmm...|
+Well that's ok, I've got some equipment here you might need|
+you're gonna need to fend for yourself if you're down here, so i recomend you take it but you know|
+it's your choice|[QUESTION]
+Uh sure... thanks I guess[OPTION]
+no offence bu i don't trust that[OPTION]

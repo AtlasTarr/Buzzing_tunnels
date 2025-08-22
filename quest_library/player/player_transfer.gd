@@ -76,6 +76,12 @@ func death_state_checker(damage_source: Object):
 func heal(heal_amount: int):
 	_playerdata.health += heal_amount
 
+func Satiate(food: bool, amount):
+	if food == true:
+		temp_hunger += amount
+	else :
+		temp_thirst += amount
+
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_sensitivity)

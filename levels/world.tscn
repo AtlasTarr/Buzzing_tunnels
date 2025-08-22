@@ -1,6 +1,7 @@
-[gd_scene load_steps=52 format=3 uid="uid://dwgen54oq7eli"]
+[gd_scene load_steps=54 format=3 uid="uid://dwgen54oq7eli"]
 
 [ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_8bpxh"]
+[ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_gyyqq"]
 [ext_resource type="PackedScene" uid="uid://d0xb5raoo3mwn" path="res://misc/UI.tscn" id="3_83ttw"]
 [ext_resource type="PackedScene" uid="uid://dr3t53tllf1iv" path="res://quest_library/quest_actual_scenes/slay_test_quest.tscn" id="6_jlf8k"]
 [ext_resource type="PackedScene" uid="uid://d1mf4kj5xhmfo" path="res://quest_library/quest_actual_scenes/fetch_test_quest.tscn" id="7_35fcy"]
@@ -21,6 +22,12 @@
 [ext_resource type="PackedScene" uid="uid://dypqgy42jwnyt" path="res://misc/level_transition_door.tscn" id="19_jlnkg"]
 [ext_resource type="PackedScene" uid="uid://b428871wpkq62" path="res://characters/dialouge_holder.tscn" id="19_t258i"]
 [ext_resource type="PackedScene" uid="uid://d20iy3kn6tq4e" path="res://levels/demo_hub_town_area.tscn" id="20_onyy4"]
+
+[sub_resource type="Resource" id="Resource_an2ju"]
+script = ExtResource("2_gyyqq")
+static_list = {}
+player_location = Vector3(0, 0, 0)
+metadata/_custom_type_script = "uid://dxki1qiqxw0l7"
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_syo6r"]
 vertices = PackedVector3Array(0.92, 0.0135075, -5.64, 0.92, 0.0135075, -5.48, 0.96, 0.0135075, -5.44, 9.93, 0.0135075, -9.93, -0.78, 0.0135075, -5.58, -0.78, 0.0135075, -5.5, 0.66, 0.0135075, -5.5, 0.67, 0.0135075, -5.66, 0.719999, 0.0135075, -5.7, 0.86, 0.0135075, -5.7, -0.820001, 0.0135075, -5.63, -0.98, 0.0135075, -5.64, -9.93, 0.0135075, -9.93, 0.96, 0.0135075, -5.3, 0.92, 0.0135075, -5.26, 0.91, 0.0135075, -3.09, 0.66, 0.0135075, -5.24, -0.78, 0.0135075, -5.24, -0.78, 0.0135075, -3.17, 0.66, 0.0135075, -3.11, 9.93, 0.0135075, 9.93, 0.86, 0.0135075, -3.05, 0.719999, 0.0135075, -3.05, -0.84, 0.0135075, -3.11, -0.98, 0.0135075, -3.11, -9.93, 0.0135075, 9.93, -1.05, 0.0135075, -5.44, -1.04, 0.0135075, -5.58, -1.04, 0.0135075, -3.17, -0.91, 0.273507, -5.4, -0.91, 0.273507, -5.34, -0.88, 0.273507, -5.36, 0.76, 0.273507, -5.38, 0.78, 0.273507, -5.34, 0.82, 0.273507, -5.36, 0.8, 0.273507, -5.4)
@@ -155,6 +162,8 @@ quantity = 1
 
 [node name="Node3D" type="Node3D" groups=["level"]]
 script = ExtResource("1_8bpxh")
+leve_data = SubResource("Resource_an2ju")
+scene_name = "world.tres"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)

@@ -1,8 +1,9 @@
 extends Item_Data
 class_name Consumable_Item_Data
 
-@export var heal_amount: float
+@export var food: bool = false
+@export var satiate_amout: float
 
 func use(target):
-	if heal_amount != 0:
-		target.heal(heal_amount)
+	if satiate_amout != 0:
+		target.satiate(food, satiate_amout)

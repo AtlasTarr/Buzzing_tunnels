@@ -29,7 +29,7 @@ const quest_block = preload("res://misc/quest_block.tscn")
 var can_save: bool = true
 var save_file_path = "user://saves/"
 var player_file_name = "playersave.tres"
-@export var scene_name = "placeholder.tres"
+@export var scene_name: String
 
 enum state {full, half, one_quarter, empty}
 
@@ -195,6 +195,7 @@ func _ready():
 	## connexts external inventory elements to the interface
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.connect("toggle_inventory", toggle_player_details)
+	playerdata.current_level = scene_name.replace(".tres", "")
 
 
 func _process(delta):

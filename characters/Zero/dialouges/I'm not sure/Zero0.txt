@@ -1,0 +1,5 @@
+Oh|
+Well|
+That is unusual...|
+Do you know why you're here?|[QUESTION]
+No i don't[OPTION]
