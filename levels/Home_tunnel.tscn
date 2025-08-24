@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://do5xd2dbuhupc"]
+[gd_scene load_steps=28 format=3 uid="uid://do5xd2dbuhupc"]
 
 [ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_mo5ov"]
 [ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_pu7s5"]
@@ -9,7 +9,6 @@
 [ext_resource type="Material" uid="uid://dov2ndutcbjk6" path="res://levels/level assets/Real asset scenes/Dirt.tres" id="7_ftavc"]
 [ext_resource type="PackedScene" uid="uid://dxcuwc1g2pei4" path="res://characters/Zero/Zero.tscn" id="8_t0xbd"]
 [ext_resource type="PackedScene" uid="uid://dypqgy42jwnyt" path="res://misc/level_transition_door.tscn" id="8_xgy1u"]
-[ext_resource type="PackedScene" uid="uid://dwgen54oq7eli" path="res://levels/world.tscn" id="9_7672x"]
 [ext_resource type="PackedScene" uid="uid://d1ptnetbv3hfc" path="res://Cinematic/cinematic_trigger.tscn" id="9_ipos1"]
 [ext_resource type="PackedScene" uid="uid://d4bfirpcv0fud" path="res://levels/level assets/Real asset scenes/lamp_hanging.tscn" id="10_25jyb"]
 [ext_resource type="PackedScene" uid="uid://rowbrde56ouk" path="res://levels/level assets/Real asset scenes/standing_lamp.tscn" id="11_sgy88"]
@@ -25,16 +24,125 @@ static_list = {}
 player_location = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://dxki1qiqxw0l7"
 
+[sub_resource type="Animation" id="Animation_pu7s5"]
+resource_name = "Opening cinematic"
+length = 4.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.236, 0.698838, 20.501), Vector3(-0.236, 0.93, 20.501)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player/Pivot/Camera:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.1, 2.02, 3, 4.3),
+"transitions": PackedFloat32Array(2.82843, 1.1487, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.671952, 0), Vector3(0, -0.663225, 0), Vector3(0.606781, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xgy1u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.614348, 2.18824, 21.1157)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.61225, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player/Pivot/Camera/SubViewportContainer/SubViewport/Camera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.552635, -0.509076)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player/Pivot/Camera/SubViewportContainer/SubViewport/Camera:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player/Pivot/Camera:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7672x"]
+_data = {
+&"Opening cinematic": SubResource("Animation_pu7s5"),
+&"RESET": SubResource("Animation_xgy1u")
+}
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_frhvw"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 
-[sub_resource type="Sky" id="Sky_bm42f"]
+[sub_resource type="Sky" id="Sky_pu7s5"]
 sky_material = SubResource("ProceduralSkyMaterial_frhvw")
 
 [sub_resource type="Environment" id="Environment_v0yx3"]
 background_mode = 2
-sky = SubResource("Sky_bm42f")
+sky = SubResource("Sky_pu7s5")
 ambient_light_source = 2
 ambient_light_color = Color(0.0110876, 0.0110876, 0.0110876, 1)
 ambient_light_energy = 16.0
@@ -67,13 +175,19 @@ leve_data = SubResource("Resource_vyovo")
 scene_name = "Home_tunnel.tres"
 metadata/_custom_type_script = "uid://c3gq1fnmvdiix"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+active = false
+libraries = {
+&"": SubResource("AnimationLibrary_7672x")
+}
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v0yx3")
 
 [node name="UI" parent="." instance=ExtResource("3_xgy1u")]
 
 [node name="player" parent="." instance=ExtResource("4_7672x")]
-transform = Transform3D(-0.0414418, 0, 0.999141, 0, 1, 0, -0.999141, 0, -0.0414418, 0.614348, 1.1661, 21.1157)
+transform = Transform3D(-0.0414418, 0, 0.999141, 0, 1, 0, -0.999141, 0, -0.0414418, 0.614348, 3.72333, 21.1157)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.282375, 0)
@@ -169,7 +283,7 @@ material = ExtResource("6_s36an")
 
 [node name="level_transition_door" parent="NavigationRegion3D" instance=ExtResource("8_xgy1u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8972, 1.01174, 29.0464)
-level = ExtResource("9_7672x")
+level = "monster_tunnel"
 
 [node name="Zero" parent="." instance=ExtResource("8_t0xbd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.227, 1.42158, -25.2494)
@@ -177,11 +291,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.227, 1.42158, -25.2494)
 [node name="Paths" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
 
-[node name="cinematics" type="Node3D" parent="."]
-
-[node name="test cinematic" parent="cinematics" instance=ExtResource("9_ipos1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.27782, 0.388036, -5.36395)
-Cinematic = "Test anim"
+[node name="cinematics" type="Node" parent="."]
 
 [node name="lighting" type="Node" parent="."]
 
@@ -464,6 +574,10 @@ transform = Transform3D(-0.868316, 2.56598, 4.09964, -2.99336, -2.13584, 0.26384
 
 [node name="Sketchfab_Scene36" parent="Decoration" instance=ExtResource("16_cw1pb")]
 transform = Transform3D(0.200472, 1.54941, 4.90023, -2.58804, 2.83103, -0.930165, -2.18992, -3.20388, 1.54785, -0.881793, 5.67916, 21.5408)
+
+[node name="Cinematic trigger" parent="." instance=ExtResource("9_ipos1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.527465, -0.357487, 20.9246)
+Cinematic = "Opening cinematic"
 
 [editable path="UI"]
 [editable path="UI/questlog"]

@@ -52,6 +52,7 @@ slot_datas = Array[ExtResource("2_gacnt")]([SubResource("Resource_ib8u5"), SubRe
 
 [resource]
 script = ExtResource("8_qbhtf")
+current_level = "Home_tunnel"
 inventory_data = SubResource("Resource_q0gln")
 equip_helmet_data = SubResource("Resource_6opmy")
 equip_body_data = SubResource("Resource_x2wpa")

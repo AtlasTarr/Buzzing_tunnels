@@ -5,7 +5,7 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_n0s7y"]
 
-[node name="Cinematic trigger" type="Node3D"]
+[node name="Cinematic trigger" type="Node3D" groups=["Cinematic_trigger", "static"]]
 script = ExtResource("1_8uydu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -14,4 +14,5 @@ mesh = SubResource("SphereMesh_n0s7y")
 [node name="trigger" parent="MeshInstance3D" instance=ExtResource("2_vmpr1")]
 transform = Transform3D(3.32, 0, 0, 0, 3.32, 0, 0, 0, 3.32, 0, 0, 0)
 
+[connection signal="body_entered" from="MeshInstance3D/trigger" to="." method="_on_trigger_body_entered"]
 [connection signal="interact" from="MeshInstance3D/trigger" to="." method="on_trigger_interact"]

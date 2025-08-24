@@ -67,6 +67,7 @@ func _ready():
 				var values = leve_data.static_list.get(key)
 				var object = instance_from_id(instance_id)
 				if "name" in object:
+					print(object.name)
 					object.name = values.name
 				if "state" in object:
 					object.state = values.state 
@@ -103,58 +104,63 @@ func _ready():
 					object.flee_target = values.flee_target
 				if "quest_index" in object:
 					object.quest_index = values.quest_index
+				if "useable" in object:
+					print("cinematic")
+					object.useable = values.useable
 			elif not children.has(instance_from_id(key)):
 				var values = leve_data.static_list.get(key)
 				var object_scene
-				print("instance id checked")
-				if "objecct_scene" in values:
-					object_scene = load(values.objecct_scene)
-				var object = object_scene.instantiate()
-				if "name" in object:
-					object.name = values.name
-				if "state" in object:
-					object.state = values.state 
-				if "inventory" in object:
-					object.inventory.slot_datas = values.inventory
-				if "current_weapon_data" in object:
-					object.current_weapon_data = values.current_weapon_data
-				if "slot_data" in object:
-					object.slot_data = values.slot_data
-					object.slot_data.item_data = values.item_data
-				if "position" in object:
-					object.position = values.position
-				if "rotation" in object:
-					object.rotation = values.rotation
-				if "health" in object:
-					object.health = values.health
-				if "body_spawned" in object:
-					object.body_spawned = values.body_spawned
-				if "current_choice_tree" in object:
-					object.current_choice_tree = values.current_choice_tree
-				if "current_dialouge_file" in object:
-					object.current_dialouge_file = values.current_dialouge_file
-				if "current_dialouge" in object:
-					object.current_dialouge = values.current_dialouge
-				if "navmesh" in object:
-					object.navmesh = values.navmesh
-				if "point_index" in object:
-					object.point_index = values.point_index
-				if "waiting" in object:
-					object.waiting = values.waiting
-				if "afraid" in object:
-					object.afraid = values.afraid
-				if "flee_target" in object:
-					object.flee_target = values.flee_target
-				if "quest_index" in object:
-					object.quest_index = values.quest_index
-				if not name_array.has(object.name):
-					add_child(object)
-					children = self.get_children(true)
-					for _child in children:
-						if not name_array.has(_child.name):
-							name_array.append(_child.name)
-				else :
-					object.queue_free()
+				if "object_scene" in values:
+					object_scene = load(values.object_scene)
+					var object = object_scene.instantiate()
+					if "name" in object:
+						object.name = values.name
+					if "state" in object:
+						object.state = values.state 
+					if "inventory" in object:
+						object.inventory.slot_datas = values.inventory
+					if "current_weapon_data" in object:
+						object.current_weapon_data = values.current_weapon_data
+					if "slot_data" in object:
+						object.slot_data = values.slot_data
+						object.slot_data.item_data = values.item_data
+					if "position" in object:
+						object.position = values.position
+					if "rotation" in object:
+						object.rotation = values.rotation
+					if "health" in object:
+						object.health = values.health
+					if "body_spawned" in object:
+						object.body_spawned = values.body_spawned
+					if "current_choice_tree" in object:
+						object.current_choice_tree = values.current_choice_tree
+					if "current_dialouge_file" in object:
+						object.current_dialouge_file = values.current_dialouge_file
+					if "current_dialouge" in object:
+						object.current_dialouge = values.current_dialouge
+					if "navmesh" in object:
+						object.navmesh = values.navmesh
+					if "point_index" in object:
+						object.point_index = values.point_index
+					if "waiting" in object:
+						object.waiting = values.waiting
+					if "afraid" in object:
+						object.afraid = values.afraid
+					if "flee_target" in object:
+						object.flee_target = values.flee_target
+					if "quest_index" in object:
+						object.quest_index = values.quest_index
+					if "useable" in object:
+						print("cinematic")
+						object.useable = values.useable
+					if not name_array.has(object.name):
+						add_child(object)
+						children = self.get_children(true)
+						for _child in children:
+							if not name_array.has(_child.name):
+								name_array.append(_child.name)
+					else :
+						object.queue_free()
 	
 	if UI.is_node_ready():
 		var choices = choice_container.get_children()
@@ -196,12 +202,13 @@ func _ready():
 	for node in get_tree().get_nodes_in_group("external_inventory"):
 		node.connect("toggle_inventory", toggle_player_details)
 	playerdata.current_level = scene_name.replace(".tres", "")
+	CinematicManager.call_deferred("set_player")
 
 
 func _process(delta):
 	update_static_list()
-	save()
-	
+	if Input.is_action_just_pressed("save"):
+		save()
 	#if Input.is_action_just_pressed("test button"):
 		#for child in get_children():
 			#if child is DialougeHolder:
@@ -211,27 +218,6 @@ func _process(delta):
 		toggle_hints()
 	
 	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
-	#for bit in health_bars_interface.get_children():
-		#var index = bit.get_index()
-		#var current_health = playerdata.health % 4
-		#var bit_1  = range(12, 16)
-		#var bit_2  = range(8, 12)
-		#var bit_3  = range(0, 8)
-		#if bit_1.has(playerdata.health):
-			#if current_health >= 0:
-				#update_value(0,current_health)
-			#else:
-				#update_value(0,4)
-		#if bit_2.has(playerdata.health):
-			#if current_health >= 0:
-				#update_value(1,current_health)
-			#else:
-				#update_value(1,4)
-		#if bit_3.has(playerdata.health):
-			#if current_health >= 0:
-				#update_value(2,current_health)
-			#else:
-				#update_value(2,4)
 	for child in children:
 		if child != null:
 			if child.is_in_group("DialougeHolder"):
@@ -255,14 +241,36 @@ func update_static_list():
 		if _child != null:
 			var instance_id = _child.get_instance_id()
 			
+
 			if _child.is_in_group("static"):
-
-
-				if "inventory" in _child && "current_weapon_data" in _child:
+				if _child.is_in_group("Cinematic_trigger"):
 					old_temp_list = {instance_id: null, "inventory": null}
 					if old_temp_list.has(instance_id):
 						temp_list = {instance_id: {"name": _child.name,
-						"objecct_scene": _child.object_scene,
+						"object_scene": _child.object_scene,
+						"state": null, 
+						"inventory": null, 
+						"current_weapon_data": null,
+						"position": _child.global_transform.origin, 
+						"rotation": _child.rotation,
+						"health": null,
+						"body_spawned": null, 
+						"current_dialouge": null, 
+						"current_dialouge_file": null, 
+						"current_choice_tree": null, 
+						"point_index": null, 
+						"afraid": null, 
+						"waiting": null, 
+						"flee_target": null,
+						"quest_index": null,
+						"useable": _child.useable}}
+						old_temp_list.merge(temp_list, false)
+
+				elif "inventory" in _child && "current_weapon_data" in _child:
+					old_temp_list = {instance_id: null, "inventory": null}
+					if old_temp_list.has(instance_id):
+						temp_list = {instance_id: {"name": _child.name,
+						"object_scene": _child.object_scene,
 						"state": _child.state,
 						"inventory": _child.inventory.slot_datas, 
 						"current_weapon_data": _child.current_weapon_data,
@@ -276,14 +284,15 @@ func update_static_list():
 						"afraid": null, 
 						"waiting": null, 
 						"flee_target": null,
-						"quest_index": null}}
+						"quest_index": null,
+						"useable": null}}
 						old_temp_list.merge(temp_list, false)
 
 				elif "inventory" in _child:
 					old_temp_list = {instance_id: null, "inventory": null}
 					if old_temp_list.has(instance_id):
 						temp_list = {instance_id: {"name": _child.name,
-						"objecct_scene": _child.object_scene,
+						"object_scene": _child.object_scene,
 						"state": _child.state,
 						"inventory": _child.inventory.slot_datas, 
 						"position": _child.global_transform.origin, 
@@ -297,13 +306,15 @@ func update_static_list():
 						"afraid": null, 
 						"waiting": null, 
 						"flee_target": null,
-						"quest_index": null}}
+						"quest_index": null,
+						"useable": null}}
 						old_temp_list.merge(temp_list, false)
+
 				else :
 					old_temp_list = {instance_id: null}
 					if old_temp_list.has(instance_id):
 						temp_list = {instance_id: {"name": _child.name,
-						"objecct_scene": _child.object_scene,
+						"object_scene": _child.object_scene,
 						"state": _child.state, 
 						"inventory": null, 
 						"slot_data": _child.slot_data,
@@ -317,13 +328,14 @@ func update_static_list():
 						"afraid": null, 
 						"waiting": null, 
 						"flee_target": null,
-						"quest_index": null}}
+						"quest_index": null,
+						"useable": null}}
 						old_temp_list.merge(temp_list, false)
 				if _child.is_in_group("DialougeHolder"):
 					old_temp_list = {instance_id: null, "inventory": null}
 					if old_temp_list.has(instance_id):
 						temp_list = {instance_id: {"name": _child.name,
-						"objecct_scene": _child.object_scene,
+						"object_scene": _child.object_scene,
 						"state": _child.state, 
 						"inventory": _child.inventory.slot_datas, 
 						"current_weapon_data": _child.current_weapon_data,
@@ -338,8 +350,10 @@ func update_static_list():
 						"afraid": _child.afraid, 
 						"waiting": _child.waiting, 
 						"flee_target": _child.flee_target,
-						"quest_index": _child.quest_index}}
+						"quest_index": _child.quest_index,
+						"useable": null}}
 						old_temp_list.merge(temp_list, false)
+
 				test_temp_list.merge(temp_list, true)
 	leve_data.static_list.merge(test_temp_list, true)
 	for child in get_tree().get_nodes_in_group("external_inventory"):
@@ -350,7 +364,7 @@ func update_static_list():
 ##verifies that the save directory exists
 func verify_save_directory(path: String):
 	DirAccess.make_dir_absolute(path)
-	print(path)
+
 
 func create_folder(path: String):
 	var folder = DirAccess.make_dir_recursive_absolute(path)
@@ -372,11 +386,9 @@ func load_level_data():
 ##overwrites the save playerdata with the current playerdata
 func save():
 	if can_save:
-		if Input.is_action_just_pressed("save"):
-			print("saved")
-			ResourceSaver.save(playerdata, save_file_path + player_file_name)
-			leve_data.player_location = player.global_transform.origin
-			ResourceSaver.save(leve_data, save_file_path + scene_name)
+		ResourceSaver.save(playerdata, save_file_path + player_file_name)
+		leve_data.player_location = player.global_transform.origin
+		ResourceSaver.save(leve_data, save_file_path + scene_name)
 
 ##handles the values of health bits
 #func update_value(index,value):
@@ -427,7 +439,6 @@ func toggle_quest_log():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func toggle_hints():
-	print("test")
 	if UI.control_hints.visible:
 		UI.control_hints.visible = false
 	else:
@@ -494,7 +505,6 @@ func update_dialouge_tree(tree_name: String):
 	var File_path = "".join(["res://characters/", current_dialouge_holder, "/dialouges/", tree_name, "/", current_dialouge_holder, "0", ".txt"])
 	var file_path_exists = FileAccess.file_exists(File_path)
 	if file_path_exists:
-		print(File_path)
 		dialouge_holder_object.current_choice_tree = tree_name
 		dialouge_holder_object.current_dialouge = 0
 		dialouge_holder_object.current_dialouge_file = 0
