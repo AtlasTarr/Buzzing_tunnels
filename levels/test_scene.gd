@@ -38,6 +38,7 @@ enum state {full, half, one_quarter, empty}
 @export var temp_list: Dictionary
 @export var test_temp_list: Dictionary
 
+
 @export var test_array: Array
 
 @onready var children = self.get_children(true)
@@ -60,12 +61,11 @@ func _ready():
 			name_array.append(child.name)
 			print(name_array)
 	for child in children:
-		var instance_id = child.get_instance_id()
+		var instance_id = child.name
 		for key in leve_data.static_list.keys():
-			
+			var values = leve_data.static_list.get(key)
 			if instance_id == key :
-				var values = leve_data.static_list.get(key)
-				var object = instance_from_id(instance_id)
+				var object = child
 				if "name" in object:
 					print(object.name)
 					object.name = values.name
@@ -105,62 +105,62 @@ func _ready():
 				if "quest_index" in object:
 					object.quest_index = values.quest_index
 				if "useable" in object:
-					print("cinematic")
-					object.useable = values.useable
-			elif not children.has(instance_from_id(key)):
-				var values = leve_data.static_list.get(key)
-				var object_scene
-				if "object_scene" in values:
-					object_scene = load(values.object_scene)
-					var object = object_scene.instantiate()
-					if "name" in object:
-						object.name = values.name
-					if "state" in object:
-						object.state = values.state 
-					if "inventory" in object:
-						object.inventory.slot_datas = values.inventory
-					if "current_weapon_data" in object:
-						object.current_weapon_data = values.current_weapon_data
-					if "slot_data" in object:
-						object.slot_data = values.slot_data
-						object.slot_data.item_data = values.item_data
-					if "position" in object:
-						object.position = values.position
-					if "rotation" in object:
-						object.rotation = values.rotation
-					if "health" in object:
-						object.health = values.health
-					if "body_spawned" in object:
-						object.body_spawned = values.body_spawned
-					if "current_choice_tree" in object:
-						object.current_choice_tree = values.current_choice_tree
-					if "current_dialouge_file" in object:
-						object.current_dialouge_file = values.current_dialouge_file
-					if "current_dialouge" in object:
-						object.current_dialouge = values.current_dialouge
-					if "navmesh" in object:
-						object.navmesh = values.navmesh
-					if "point_index" in object:
-						object.point_index = values.point_index
-					if "waiting" in object:
-						object.waiting = values.waiting
-					if "afraid" in object:
-						object.afraid = values.afraid
-					if "flee_target" in object:
-						object.flee_target = values.flee_target
-					if "quest_index" in object:
-						object.quest_index = values.quest_index
-					if "useable" in object:
+					if values.useable != null:
 						print("cinematic")
 						object.useable = values.useable
-					if not name_array.has(object.name):
-						add_child(object)
-						children = self.get_children(true)
-						for _child in children:
-							if not name_array.has(_child.name):
-								name_array.append(_child.name)
-					else :
-						object.queue_free()
+			elif not children.has(values.name):
+				var object_scene
+				object_scene = load(values.object_scene)
+				var object = object_scene.instantiate()
+				if "name" in object:
+					object.name = values.name
+				if "state" in object:
+					object.state = values.state 
+				if "inventory" in object:
+					object.inventory.slot_datas = values.inventory
+				if "current_weapon_data" in object:
+					object.current_weapon_data = values.current_weapon_data
+				if "slot_data" in object:
+					object.slot_data = values.slot_data
+					object.slot_data.item_data = values.item_data
+				if "position" in object:
+					object.position = values.position
+				if "rotation" in object:
+					object.rotation = values.rotation
+				if "health" in object:
+					object.health = values.health
+				if "body_spawned" in object:
+					object.body_spawned = values.body_spawned
+				if "current_choice_tree" in object:
+					object.current_choice_tree = values.current_choice_tree
+				if "current_dialouge_file" in object:
+					object.current_dialouge_file = values.current_dialouge_file
+				if "current_dialouge" in object:
+					object.current_dialouge = values.current_dialouge
+				if "navmesh" in object:
+					object.navmesh = values.navmesh
+				if "point_index" in object:
+					object.point_index = values.point_index
+				if "waiting" in object:
+					object.waiting = values.waiting
+				if "afraid" in object:
+					object.afraid = values.afraid
+				if "flee_target" in object:
+					object.flee_target = values.flee_target
+				if "quest_index" in object:
+					object.quest_index = values.quest_index
+				if "useable" in object:
+					if values.useable != null:
+						print(object.name)
+						object.useable = values.useable
+				if not name_array.has(object.name):
+					add_child(object)
+					children = self.get_children(true)
+					for _child in children:
+						if not name_array.has(_child.name):
+							name_array.append(_child.name)
+				else :
+					object.queue_free()
 	
 	if UI.is_node_ready():
 		var choices = choice_container.get_children()
@@ -234,128 +234,146 @@ func _process(delta):
 
 ##updates the variables of static objects
 func update_static_list():
+	var update: bool = false
 	children = self.get_children(true)
+	var child_name_array: PackedStringArray
+	var appended: int = 0
+	while appended < children.size():
+		for child in children:
+			child_name_array.append(child.name)
+			appended += 1 
+	if appended >= children.size():
+		update = true
+	
+	if update == true:
+		for child in children:
+			var _child = child
+			if _child != null:
+				var instance_id = _child.name
+				
 
-	for child in children:
-		var _child = child
-		if _child != null:
-			var instance_id = _child.get_instance_id()
-			
+				if _child.is_in_group("static"):
+					if _child.is_in_group("Cinematic_trigger"):
+						old_temp_list = {instance_id: null, "inventory": null}
+						if old_temp_list.has(instance_id):
+							temp_list = {instance_id: {"name": _child.name,
+							"object_scene": _child.object_scene,
+							"state": null, 
+							"inventory": null, 
+							"current_weapon_data": null,
+							"position": _child.global_transform.origin, 
+							"rotation": _child.rotation,
+							"health": null,
+							"body_spawned": null, 
+							"current_dialouge": null, 
+							"current_dialouge_file": null, 
+							"current_choice_tree": null, 
+							"point_index": null, 
+							"afraid": null, 
+							"waiting": null, 
+							"flee_target": null,
+							"quest_index": null,
+							"useable": _child.useable}}
+							old_temp_list.merge(temp_list, false)
 
-			if _child.is_in_group("static"):
-				if _child.is_in_group("Cinematic_trigger"):
-					old_temp_list = {instance_id: null, "inventory": null}
-					if old_temp_list.has(instance_id):
-						temp_list = {instance_id: {"name": _child.name,
-						"object_scene": _child.object_scene,
-						"state": null, 
-						"inventory": null, 
-						"current_weapon_data": null,
-						"position": _child.global_transform.origin, 
-						"rotation": _child.rotation,
-						"health": null,
-						"body_spawned": null, 
-						"current_dialouge": null, 
-						"current_dialouge_file": null, 
-						"current_choice_tree": null, 
-						"point_index": null, 
-						"afraid": null, 
-						"waiting": null, 
-						"flee_target": null,
-						"quest_index": null,
-						"useable": _child.useable}}
-						old_temp_list.merge(temp_list, false)
+					elif "inventory" in _child && "current_weapon_data" in _child:
+						old_temp_list = {instance_id: null, "inventory": null}
+						if old_temp_list.has(instance_id):
+							temp_list = {instance_id: {"name": _child.name,
+							"object_scene": _child.object_scene,
+							"state": _child.state,
+							"inventory": _child.inventory.slot_datas, 
+							"current_weapon_data": _child.current_weapon_data,
+							"position": _child.global_transform.origin, 
+							"rotation": _child.rotation,
+							"health": _child.health, 
+							"current_dialouge": null, 
+							"current_dialouge_file": null, 
+							"current_choice_tree": null , 
+							"point_index": null, 
+							"afraid": null, 
+							"waiting": null, 
+							"flee_target": null,
+							"quest_index": null,
+							"useable": null}}
+							old_temp_list.merge(temp_list, false)
 
-				elif "inventory" in _child && "current_weapon_data" in _child:
-					old_temp_list = {instance_id: null, "inventory": null}
-					if old_temp_list.has(instance_id):
-						temp_list = {instance_id: {"name": _child.name,
-						"object_scene": _child.object_scene,
-						"state": _child.state,
-						"inventory": _child.inventory.slot_datas, 
-						"current_weapon_data": _child.current_weapon_data,
-						"position": _child.global_transform.origin, 
-						"rotation": _child.rotation,
-						"health": _child.health, 
-						"current_dialouge": null, 
-						"current_dialouge_file": null, 
-						"current_choice_tree": null , 
-						"point_index": null, 
-						"afraid": null, 
-						"waiting": null, 
-						"flee_target": null,
-						"quest_index": null,
-						"useable": null}}
-						old_temp_list.merge(temp_list, false)
+					elif "inventory" in _child:
+						old_temp_list = {instance_id: null, "inventory": null}
+						if old_temp_list.has(instance_id):
+							temp_list = {instance_id: {"name": _child.name,
+							"object_scene": _child.object_scene,
+							"state": _child.state,
+							"inventory": _child.inventory.slot_datas, 
+							"position": _child.global_transform.origin, 
+							"rotation": _child.rotation,
+							"health": _child.health,
+							"weapon_uses": null, 
+							"current_dialouge": null, 
+							"current_dialouge_file": null, 
+							"current_choice_tree": null , 
+							"point_index": null, 
+							"afraid": null, 
+							"waiting": null, 
+							"flee_target": null,
+							"quest_index": null,
+							"useable": null}}
+							old_temp_list.merge(temp_list, false)
 
-				elif "inventory" in _child:
-					old_temp_list = {instance_id: null, "inventory": null}
-					if old_temp_list.has(instance_id):
-						temp_list = {instance_id: {"name": _child.name,
-						"object_scene": _child.object_scene,
-						"state": _child.state,
-						"inventory": _child.inventory.slot_datas, 
-						"position": _child.global_transform.origin, 
-						"rotation": _child.rotation,
-						"health": _child.health,
-						"weapon_uses": null, 
-						"current_dialouge": null, 
-						"current_dialouge_file": null, 
-						"current_choice_tree": null , 
-						"point_index": null, 
-						"afraid": null, 
-						"waiting": null, 
-						"flee_target": null,
-						"quest_index": null,
-						"useable": null}}
-						old_temp_list.merge(temp_list, false)
-
-				else :
-					old_temp_list = {instance_id: null}
-					if old_temp_list.has(instance_id):
-						temp_list = {instance_id: {"name": _child.name,
-						"object_scene": _child.object_scene,
-						"state": _child.state, 
-						"inventory": null, 
-						"slot_data": _child.slot_data,
-						"item_data": _child.slot_data.item_data,
-						"position": _child.global_transform.origin, 
-						"rotation": _child.rotation, 
-						"current_dialouge": null, 
-						"current_dialouge_file": null, 
-						"current_choice_tree": null, 
-						"point_index": null, 
-						"afraid": null, 
-						"waiting": null, 
-						"flee_target": null,
-						"quest_index": null,
-						"useable": null}}
-						old_temp_list.merge(temp_list, false)
-				if _child.is_in_group("DialougeHolder"):
-					old_temp_list = {instance_id: null, "inventory": null}
-					if old_temp_list.has(instance_id):
-						temp_list = {instance_id: {"name": _child.name,
-						"object_scene": _child.object_scene,
-						"state": _child.state, 
-						"inventory": _child.inventory.slot_datas, 
-						"current_weapon_data": _child.current_weapon_data,
-						"position": _child.global_transform.origin, 
-						"rotation": _child.rotation,
-						"health": _child.health,
-						"body_spawned": _child.body_spawned, 
-						"current_dialouge": _child.current_dialouge, 
-						"current_dialouge_file": _child.current_dialouge_file, 
-						"current_choice_tree": _child.current_choice_tree, 
-						"point_index": _child.point_index, 
-						"afraid": _child.afraid, 
-						"waiting": _child.waiting, 
-						"flee_target": _child.flee_target,
-						"quest_index": _child.quest_index,
-						"useable": null}}
-						old_temp_list.merge(temp_list, false)
+					else :
+						old_temp_list = {instance_id: null}
+						if old_temp_list.has(instance_id):
+							temp_list = {instance_id: {"name": _child.name,
+							"object_scene": _child.object_scene,
+							"state": _child.state, 
+							"inventory": null, 
+							"slot_data": _child.slot_data,
+							"item_data": _child.slot_data.item_data,
+							"position": _child.global_transform.origin, 
+							"rotation": _child.rotation, 
+							"current_dialouge": null, 
+							"current_dialouge_file": null, 
+							"current_choice_tree": null, 
+							"point_index": null, 
+							"afraid": null, 
+							"waiting": null, 
+							"flee_target": null,
+							"quest_index": null,
+							"useable": null}}
+							old_temp_list.merge(temp_list, false)
+					if _child.is_in_group("DialougeHolder"):
+						old_temp_list = {instance_id: null, "inventory": null}
+						if old_temp_list.has(instance_id):
+							temp_list = {instance_id: {"name": _child.name,
+							"object_scene": _child.object_scene,
+							"state": _child.state, 
+							"inventory": _child.inventory.slot_datas, 
+							"current_weapon_data": _child.current_weapon_data,
+							"position": _child.global_transform.origin, 
+							"rotation": _child.rotation,
+							"health": _child.health,
+							"body_spawned": _child.body_spawned, 
+							"current_dialouge": _child.current_dialouge, 
+							"current_dialouge_file": _child.current_dialouge_file, 
+							"current_choice_tree": _child.current_choice_tree, 
+							"point_index": _child.point_index, 
+							"afraid": _child.afraid, 
+							"waiting": _child.waiting, 
+							"flee_target": _child.flee_target,
+							"quest_index": _child.quest_index,
+							"useable": null}}
+							old_temp_list.merge(temp_list, false)
+				var remove = false
+				for key in leve_data.static_list.keys():
+					if not child_name_array.has(key):
+							remove = true
+					if remove == true:
+						leve_data.static_list.erase(key)
 
 				test_temp_list.merge(temp_list, true)
 	leve_data.static_list.merge(test_temp_list, true)
+	
+	
 	for child in get_tree().get_nodes_in_group("external_inventory"):
 		if child.has_signal("toggle_inventory"):
 			if child.get_signal_connection_list("toggle_inventory").size() == 0:
