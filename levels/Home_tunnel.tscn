@@ -304,7 +304,7 @@ sky_mode = 2
 transform = Transform3D(0.96263, -0.14293, 0.23003, -0.270819, -0.508049, 0.817645, 0, -0.849387, -0.527771, 1.57464, 7.15289, 17.2404)
 light_color = Color(0.518653, 0.510588, 0.516749, 1)
 spot_range = 14.8065
-spot_attenuation = 0.24
+spot_attenuation = -0.71
 spot_angle = 23.8714
 
 [node name="hanging_lamp" parent="lighting" instance=ExtResource("10_25jyb")]
