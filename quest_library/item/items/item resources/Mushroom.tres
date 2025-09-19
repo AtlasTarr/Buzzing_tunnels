@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Consumable_Item_Data" load_steps=3 format=3 uid="uid://7yewg732ves"]
+
+[ext_resource type="Script" uid="uid://btcjqiwy8ti7f" path="res://quest_library/item/consumable_item_data.gd" id="1_5uh8y"]
+[ext_resource type="Texture2D" uid="uid://dgaba00fu0vts" path="res://quest_library/item/mr incredible.PNG" id="2_j2rxy"]
+
+[resource]
+script = ExtResource("1_5uh8y")
+food = true
+satiate_amout = 3.0
+name = "Mushroom"
+description = "a mushroom"
+quest_item = false
+quest_holder = ""
+stackable = false
+texture = ExtResource("2_j2rxy")
+metadata/_custom_type_script = "uid://btcjqiwy8ti7f"

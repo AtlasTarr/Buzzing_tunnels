@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Consumable_Item_Data" load_steps=3 format=3 uid="uid://bxgi4fhm2vlpj"]
+
+[ext_resource type="Script" uid="uid://btcjqiwy8ti7f" path="res://quest_library/item/consumable_item_data.gd" id="1_s5mdy"]
+[ext_resource type="Texture2D" uid="uid://dgaba00fu0vts" path="res://quest_library/item/mr incredible.PNG" id="2_lpnt7"]
+
+[resource]
+script = ExtResource("1_s5mdy")
+food = false
+satiate_amout = 3.0
+name = "water bottle"
+description = "a bottle of flavoured pump water"
+quest_item = false
+quest_holder = ""
+stackable = false
+texture = ExtResource("2_lpnt7")
+metadata/_custom_type_script = "uid://btcjqiwy8ti7f"

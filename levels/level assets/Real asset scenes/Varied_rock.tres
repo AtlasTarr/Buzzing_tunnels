@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dbwk54lxp7tc3" path="res://levels/level assets/pbr-rock_material/textures/Material_metallicRoughness.png" id="3_jikyv"]
 
 [resource]
+render_priority = 1
 albedo_texture = ExtResource("1_cptqs")
 orm_texture = ExtResource("3_jikyv")
 normal_enabled = true

@@ -76,7 +76,7 @@ func death_state_checker(damage_source: Object):
 func heal(heal_amount: int):
 	_playerdata.health += heal_amount
 
-func Satiate(food: bool, amount):
+func satiate(food: bool, amount):
 	if food == true:
 		temp_hunger += amount
 	else :

@@ -2,6 +2,7 @@ extends Node3D
 class_name Level
 
 var paused = false
+var update_static: bool = false
 
 var current_dialouge: String = "test"
 var current_dialouge_holder: String = "test"
@@ -208,6 +209,7 @@ func _ready():
 func _process(delta):
 	update_static_list()
 	if Input.is_action_just_pressed("save"):
+		print("save")
 		save()
 	#if Input.is_action_just_pressed("test button"):
 		#for child in get_children():
@@ -234,7 +236,6 @@ func _process(delta):
 
 ##updates the variables of static objects
 func update_static_list():
-	var update: bool = false
 	children = self.get_children(true)
 	var child_name_array: PackedStringArray
 	var appended: int = 0
@@ -243,9 +244,9 @@ func update_static_list():
 			child_name_array.append(child.name)
 			appended += 1 
 	if appended >= children.size():
-		update = true
+		update_static = true
 	
-	if update == true:
+	if update_static == true:
 		for child in children:
 			var _child = child
 			if _child != null:
@@ -372,7 +373,6 @@ func update_static_list():
 
 				test_temp_list.merge(temp_list, true)
 	leve_data.static_list.merge(test_temp_list, true)
-	
 	
 	for child in get_tree().get_nodes_in_group("external_inventory"):
 		if child.has_signal("toggle_inventory"):

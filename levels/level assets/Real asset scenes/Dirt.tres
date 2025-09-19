@@ -5,12 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://kntsjltvrdnk" path="res://levels/level assets/desert_rock__tile_texture/textures/Material_metallicRoughness.png" id="3_abx1r"]
 
 [resource]
+render_priority = 1
+albedo_color = Color(1, 1, 1, 0.721569)
 albedo_texture = ExtResource("1_fwllu")
 orm_texture = ExtResource("3_abx1r")
 normal_enabled = true
+normal_scale = 16.0
 normal_texture = ExtResource("2_xn6fd")
-uv1_scale = Vector3(0.225, 0.225, 0.225)
+detail_enabled = true
+detail_mask = ExtResource("3_abx1r")
+detail_uv_layer = 1
+detail_albedo = ExtResource("1_fwllu")
+detail_normal = ExtResource("2_xn6fd")
+uv1_scale = Vector3(0.635, 0.635, 0.635)
 uv1_offset = Vector3(0.32, -0.465, -0.595)
 uv1_triplanar = true
-uv1_triplanar_sharpness = 5.97451
-uv1_world_triplanar = true
+uv1_triplanar_sharpness = 1.5463
+uv2_scale = Vector3(1.37, 1.37, 1.37)
+uv2_triplanar = true
+uv2_triplanar_sharpness = 0.353553

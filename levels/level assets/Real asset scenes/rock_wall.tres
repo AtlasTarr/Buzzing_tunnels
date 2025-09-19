@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://pgpc3pb6no34" path="res://levels/level assets/desert_cliff__tile_texture/textures/Material_normal.png" id="3_i7s6h"]
 
 [resource]
+render_priority = 1
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.811765)
 albedo_texture = ExtResource("1_0d6qk")
 orm_texture = ExtResource("2_0loqj")
 normal_enabled = true

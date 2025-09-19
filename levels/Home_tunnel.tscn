@@ -1,12 +1,15 @@
-[gd_scene load_steps=28 format=3 uid="uid://do5xd2dbuhupc"]
+[gd_scene load_steps=33 format=3 uid="uid://do5xd2dbuhupc"]
 
 [ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_mo5ov"]
 [ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_pu7s5"]
 [ext_resource type="PackedScene" uid="uid://d0xb5raoo3mwn" path="res://misc/UI.tscn" id="3_xgy1u"]
 [ext_resource type="PackedScene" uid="uid://ccsvsjofwq2k6" path="res://quest_library/player/player_transfer.tscn" id="4_7672x"]
 [ext_resource type="Material" uid="uid://fpf72dsi2abi" path="res://levels/level assets/Real asset scenes/loose_rocks.tres" id="5_118tg"]
+[ext_resource type="Texture2D" uid="uid://bj7kgvfb0jatb" path="res://levels/level assets/desert_cliff__tile_texture/textures/Material_baseColor.png" id="6_118tg"]
 [ext_resource type="Material" uid="uid://em3b1hsvd6lh" path="res://levels/level assets/Real asset scenes/rock_wall.tres" id="6_s36an"]
 [ext_resource type="Material" uid="uid://dov2ndutcbjk6" path="res://levels/level assets/Real asset scenes/Dirt.tres" id="7_ftavc"]
+[ext_resource type="Texture2D" uid="uid://7eqnrkkvdup3" path="res://levels/level assets/desert_cliff__tile_texture/textures/Material_metallicRoughness.png" id="7_s36an"]
+[ext_resource type="Texture2D" uid="uid://pgpc3pb6no34" path="res://levels/level assets/desert_cliff__tile_texture/textures/Material_normal.png" id="8_ftavc"]
 [ext_resource type="PackedScene" uid="uid://dxcuwc1g2pei4" path="res://characters/Zero/Zero.tscn" id="8_t0xbd"]
 [ext_resource type="PackedScene" uid="uid://dypqgy42jwnyt" path="res://misc/level_transition_door.tscn" id="8_xgy1u"]
 [ext_resource type="PackedScene" uid="uid://d1ptnetbv3hfc" path="res://Cinematic/cinematic_trigger.tscn" id="9_ipos1"]
@@ -169,6 +172,60 @@ agent_radius = 0.07
 
 [sub_resource type="BoxMesh" id="BoxMesh_bm42f"]
 
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_t0xbd"]
+render_priority = 1
+albedo_color = Color(1, 1, 1, 0.811765)
+albedo_texture = ExtResource("6_118tg")
+orm_texture = ExtResource("7_s36an")
+normal_enabled = true
+normal_texture = ExtResource("8_ftavc")
+clearcoat = 0.0
+clearcoat_roughness = 1.0
+clearcoat_texture = ExtResource("7_s36an")
+heightmap_enabled = true
+heightmap_scale = -5.049
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("8_ftavc")
+subsurf_scatter_texture = ExtResource("7_s36an")
+detail_enabled = true
+detail_mask = ExtResource("7_s36an")
+detail_albedo = ExtResource("6_118tg")
+detail_normal = ExtResource("8_ftavc")
+uv1_scale = Vector3(0.06, 0.06, 0.06)
+uv1_offset = Vector3(-0.8, 1.695, 0.105)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.277392
+uv1_world_triplanar = true
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_ipos1"]
+render_priority = 1
+albedo_color = Color(1, 1, 1, 0.811765)
+albedo_texture = ExtResource("6_118tg")
+orm_texture = ExtResource("7_s36an")
+normal_enabled = true
+normal_texture = ExtResource("8_ftavc")
+clearcoat = 0.0
+clearcoat_roughness = 1.0
+clearcoat_texture = ExtResource("7_s36an")
+heightmap_enabled = true
+heightmap_scale = -5.049
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("8_ftavc")
+subsurf_scatter_texture = ExtResource("7_s36an")
+detail_enabled = true
+detail_mask = ExtResource("7_s36an")
+detail_albedo = ExtResource("6_118tg")
+detail_normal = ExtResource("8_ftavc")
+uv1_scale = Vector3(0.06, 0.06, 0.06)
+uv1_offset = Vector3(-0.8, 1.695, 0.105)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.277392
+uv1_world_triplanar = true
+
 [node name="HomeTunnel" type="Node3D" groups=["level"]]
 script = ExtResource("1_mo5ov")
 leve_data = SubResource("Resource_vyovo")
@@ -233,7 +290,7 @@ operation = 2
 use_collision = true
 radius = 7.34178
 smooth_faces = false
-material = ExtResource("6_s36an")
+material = SubResource("ORMMaterial3D_t0xbd")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0228034, 0.219131, 0.337295)
@@ -267,7 +324,7 @@ material = ExtResource("7_ftavc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.8011, 2.10012, 1.42863)
 operation = 2
 size = Vector3(11.4301, 5.20026, 55.7423)
-material = ExtResource("6_s36an")
+material = SubResource("ORMMaterial3D_ipos1")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109451, 0.178156, 1.13605)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item_Data" load_steps=3 format=3 uid="uid://c71yhxhiqyphm"]
+
+[ext_resource type="Script" uid="uid://biqlbcpxx10g3" path="res://quest_library/item/item_data.gd" id="1_502iq"]
+[ext_resource type="Texture2D" uid="uid://ccxx0njluaw2t" path="res://quest_library/item/unnamed.jpg" id="2_7q5if"]
+
+[resource]
+script = ExtResource("1_502iq")
+name = "Journal page"
+description = "a burnt journal page reading: 
+
+-'s been saying we can get rid of the machines in the back of the shop, but he won't tell me what about any of the other details. Im a bit concerned about him."
+quest_item = false
+quest_holder = ""
+stackable = false
+texture = ExtResource("2_7q5if")
+metadata/_custom_type_script = "uid://biqlbcpxx10g3"
