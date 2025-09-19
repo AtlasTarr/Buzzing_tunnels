@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://mpktnhchob5t"]
+[gd_scene load_steps=29 format=3 uid="uid://mpktnhchob5t"]
 
 [ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_j1wgd"]
 [ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_gofxd"]
@@ -13,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://dhi7tcxncyv0e" path="res://levels/level assets/seamless_pbr_texture_rock_01/textures/Texture_metallicRoughness.png" id="9_dit7t"]
 [ext_resource type="Texture2D" uid="uid://ck58r824bi6s6" path="res://levels/level assets/seamless_pbr_texture_rock_01/textures/Texture_normal.png" id="10_b1ml1"]
 [ext_resource type="PackedScene" uid="uid://d4bfirpcv0fud" path="res://levels/level assets/Real asset scenes/lamp_hanging.tscn" id="13_dit7t"]
+[ext_resource type="PackedScene" uid="uid://d1ptnetbv3hfc" path="res://Cinematic/cinematic_trigger.tscn" id="13_vrpii"]
 [ext_resource type="PackedScene" uid="uid://54syw6afa8lg" path="res://enemies/the_farmer.tscn" id="14_b1ml1"]
+[ext_resource type="PackedScene" uid="uid://rowbrde56ouk" path="res://levels/level assets/Real asset scenes/standing_lamp.tscn" id="15_nomoo"]
 [ext_resource type="PackedScene" uid="uid://b000ml6536o1u" path="res://levels/level assets/Real asset scenes/rock1.tscn" id="15_vrpii"]
 
 [sub_resource type="Resource" id="Resource_gxnwl"]
@@ -21,6 +23,91 @@ script = ExtResource("2_gofxd")
 static_list = {}
 player_location = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://dxki1qiqxw0l7"
+
+[sub_resource type="Animation" id="Animation_duybe"]
+resource_name = "Monster_introduction"
+length = 4.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("the_farmer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.66667, 2.7, 3.14, 3.64, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(3.64609, -0.497447, -19.2523), Vector3(1.85289, -0.756716, -19.3054), Vector3(0.657413, -0.376857, -19.1528), Vector3(-0.701, -0.437, -19.423), Vector3(-1.425, -0.479, -18.884), Vector3(-1.926, -0.016, -20.107), Vector3(-9.5041, 1.17907, -23.4264)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.66, 0.8, 0.966667, 2.65, 3.63333, 3.9, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1, 0.615572, 1.51572, 0.732043, 4, 3.605),
+"update": 0,
+"values": [Vector3(0, -0.407361, -10.3462), Vector3(-0.821719, -0.64202, -11.2005), Vector3(-0.821719, -0.64202, -11.2005), Vector3(-0.821719, -1.03822, -11.2005), Vector3(-0.821719, -1.03822, -11.2005), Vector3(-0.422, -1.038, -11.201), Vector3(-0.422, -1.038, -11.201), Vector3(-0.422, -0.423, -11.201)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.68, 2.65, 3.63333, 4.4),
+"transitions": PackedFloat32Array(1, 1, 1.41421, 3.13834, 0.554785),
+"update": 0,
+"values": [Vector3(0, -0.0243646, 0), Vector3(0, -0.169105, 0), Vector3(0, -0.169105, 0), Vector3(0, 0.240855, -0.200713), Vector3(0, -0.0576305, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gs1gk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("the_farmer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(15.0941, 0.00616276, -19.3145)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.0243646, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcctn"]
+_data = {
+&"Monster_introduction": SubResource("Animation_duybe"),
+&"RESET": SubResource("Animation_gs1gk")
+}
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pip3u"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -127,13 +214,18 @@ leve_data = SubResource("Resource_gxnwl")
 scene_name = "Monster_tunnel"
 metadata/_custom_type_script = "uid://c3gq1fnmvdiix"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xcctn")
+}
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_uue2n")
 
 [node name="UI" parent="." instance=ExtResource("4_65cby")]
 
 [node name="player" parent="." instance=ExtResource("5_jo08q")]
-transform = Transform3D(0.999703, 0, -0.0243622, 0, 1, 0, 0.0243622, 0, 0.999703, 0, -0.407361, 2.16761)
+transform = Transform3D(0.999703, 0, -0.0243622, 0, 1, 0, 0.0243622, 0, 0.999703, 0, 0, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.282375, 0)
@@ -202,8 +294,10 @@ shape = SubResource("BoxShape3D_dit7t")
 
 [node name="cinematics" type="Node" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="cinematics"]
-root_node = NodePath("../..")
+[node name="Monster_intro_trigger" parent="cinematics" instance=ExtResource("13_vrpii")]
+transform = Transform3D(4.63033, 0, 0, 0, 1.68191, 0, 0, 0, 1, 0, -1.30655, -11.175)
+visible = false
+Cinematic = "Monster_introduction"
 
 [node name="Lighting" type="Node" parent="."]
 
@@ -218,12 +312,41 @@ shadow_reverse_cull_face = false
 shadow_blur = 1.88
 omni_range = 10.0
 
+[node name="Standing_lamp" parent="Lighting" instance=ExtResource("15_nomoo")]
+transform = Transform3D(0.632814, -0.521426, 0.572418, -2.91778e-09, 0.739267, 0.673413, -0.774305, -0.426144, 0.467818, 15.8212, -0.65292, -18.757)
+
+[node name="1" parent="Lighting/Standing_lamp/Sketchfab_model/91f0948a0e054097915bed3c9d9b85d4_fbx/RootNode/Lamp" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.34202, -0.798739, 0, 0.939693, 0.290717, 0, 12.1247, -3.51874)
+
+[node name="3" parent="Lighting/Standing_lamp/Sketchfab_model/91f0948a0e054097915bed3c9d9b85d4_fbx/RootNode/Lamp" index="2"]
+transform = Transform3D(1, 4.63695e-16, -7.45058e-09, -1.13134e-09, 1, 3.6133e-09, 7.45058e-09, -3.72529e-09, 1, 0, -4.78975, 2.63763)
+
+[node name="OmniLight3D" parent="Lighting/Standing_lamp" index="1"]
+light_color = Color(0.82156, 0.757921, 0.661286, 1)
+light_energy = 0.232
+
+[node name="Standing_lamp2" parent="Lighting" instance=ExtResource("15_nomoo")]
+transform = Transform3D(0.172187, -0.499543, 0.849004, 0, 0.861877, 0.507117, -0.985065, -0.0873189, 0.148404, 2.19084, -1.2359, -18.7042)
+
+[node name="1" parent="Lighting/Standing_lamp2/Sketchfab_model/91f0948a0e054097915bed3c9d9b85d4_fbx/RootNode/Lamp" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.34202, -0.798739, 0, 0.939693, 0.290717, 0, 12.1247, -3.51874)
+
+[node name="3" parent="Lighting/Standing_lamp2/Sketchfab_model/91f0948a0e054097915bed3c9d9b85d4_fbx/RootNode/Lamp" index="2"]
+transform = Transform3D(1, 4.63695e-16, -7.45058e-09, -1.13134e-09, 1, 3.6133e-09, 7.45058e-09, -3.72529e-09, 1, 0, -4.78975, 2.63763)
+
+[node name="OmniLight3D" parent="Lighting/Standing_lamp2" index="1"]
+light_color = Color(0.82156, 0.757921, 0.661286, 1)
+light_energy = 0.232
+
 [node name="the_farmer" parent="." instance=ExtResource("14_b1ml1")]
-transform = Transform3D(0.421701, 0, -0.906735, 0, 1, 0, 0.906735, 0, 0.421701, 6.06154, -0.355024, -19.016)
+transform = Transform3D(0.421701, 0, -0.906735, 0, 1, 0, 0.906735, 0, 0.421701, 15.0941, 0.00616276, -19.3145)
 
 [node name="Decorations" type="Node" parent="."]
 
 [node name="Sketchfab_Scene" parent="Decorations" instance=ExtResource("15_vrpii")]
 transform = Transform3D(-0.960185, 1.26734, 0, -1.26734, -0.960185, 0, 0, 0, 1.59, -1.24493, -1.26404, -12.7054)
 
+[editable path="player"]
 [editable path="Lighting/hanging_lamp"]
+[editable path="Lighting/Standing_lamp"]
+[editable path="Lighting/Standing_lamp2"]
