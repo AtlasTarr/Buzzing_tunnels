@@ -31,13 +31,11 @@ quantity = 3
 [sub_resource type="Resource" id="Resource_e5yeo"]
 script = ExtResource("2_gacnt")
 item_data = ExtResource("7_gacnt")
-quantity = 1
 metadata/_custom_type_script = "uid://cmggf10ug5sb1"
 
 [sub_resource type="Resource" id="Resource_2ln8w"]
 script = ExtResource("2_gacnt")
 item_data = ExtResource("8_e5yeo")
-quantity = 1
 metadata/_custom_type_script = "uid://cmggf10ug5sb1"
 
 [sub_resource type="Resource" id="Resource_xvuaf"]
@@ -52,20 +50,12 @@ slot_datas = Array[ExtResource("2_gacnt")]([SubResource("Resource_ib8u5"), SubRe
 
 [resource]
 script = ExtResource("8_qbhtf")
-current_level = "Home_tunnel"
 inventory_data = SubResource("Resource_q0gln")
 equip_helmet_data = SubResource("Resource_6opmy")
 equip_body_data = SubResource("Resource_x2wpa")
 equip_weapon_data = SubResource("Resource_kxpe3")
-health = 16
-hunger = 10.0
-thirst = 10.0
 base_speed = 3.0
-crouch_speed = 1.0
 run_speed = 8.0
-max_speed = Vector3(80, 100000, 80)
 air_speed = 3.0
 jump = 5.0
 rotation = Vector3(0, 92.4, 0)
-camera_rotation = Vector3(0, 0, 0)
-quest_value_list = {}

@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://sfbpehpd67sr"
+path="res://.godot/imported/Monster_tunnel_test.map-56c53cb072545e951972db3ed01d481c.tres"
+
+[deps]
+
+source_file="res://levels/trenchbroom/maps/Monster_tunnel_test.map"
+dest_files=["res://.godot/imported/Monster_tunnel_test.map-56c53cb072545e951972db3ed01d481c.tres"]
+
+[params]
+

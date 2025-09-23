@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://mpktnhchob5t"]
+[gd_scene load_steps=62 format=4 uid="uid://mpktnhchob5t"]
 
 [ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_j1wgd"]
 [ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="2_gofxd"]
@@ -32,11 +32,12 @@
 [ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="22_68ib0"]
 [ext_resource type="Resource" uid="uid://7yewg732ves" path="res://quest_library/item/items/item resources/Mushroom.tres" id="23_yf74m"]
 [ext_resource type="Resource" uid="uid://bxgi4fhm2vlpj" path="res://quest_library/item/items/item resources/water_bottle.tres" id="24_68ib0"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="33_412rq"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="34_ek0e2"]
+[ext_resource type="Texture2D" uid="uid://cyg2snr1w5xw5" path="res://addons/func_godot/textures/default_texture.png" id="35_nfhf7"]
 
 [sub_resource type="Resource" id="Resource_gxnwl"]
 script = ExtResource("2_gofxd")
-static_list = {}
-player_location = Vector3(0, 0, 0)
 metadata/_custom_type_script = "uid://dxki1qiqxw0l7"
 
 [sub_resource type="Animation" id="Animation_duybe"]
@@ -136,8 +137,7 @@ background_mode = 2
 sky = SubResource("Sky_bm42f")
 ambient_light_source = 2
 ambient_light_color = Color(0.0117647, 0.0117647, 0.0117647, 1)
-ambient_light_energy = 16.0
-reflected_light_source = 2
+ambient_light_energy = 6.0
 tonemap_white = 3.47
 ssao_enabled = true
 ssao_intensity = 2.13
@@ -393,25 +393,45 @@ size = Vector3(1.40137, 1.48938, 1.68416)
 [sub_resource type="Resource" id="Resource_25b7k"]
 script = ExtResource("20_dgqbh")
 item_data = ExtResource("19_xcctn")
-quantity = 1
 metadata/_custom_type_script = "uid://cmggf10ug5sb1"
 
 [sub_resource type="Resource" id="Resource_c6ffx"]
 script = ExtResource("20_dgqbh")
 item_data = ExtResource("23_yf74m")
-quantity = 1
 metadata/_custom_type_script = "uid://cmggf10ug5sb1"
 
 [sub_resource type="Resource" id="Resource_yf74m"]
 script = ExtResource("20_dgqbh")
 item_data = ExtResource("24_68ib0")
-quantity = 1
 metadata/_custom_type_script = "uid://cmggf10ug5sb1"
 
 [sub_resource type="Resource" id="Resource_hh0w0"]
 script = ExtResource("22_68ib0")
 slot_datas = Array[ExtResource("20_dgqbh")]([SubResource("Resource_c6ffx"), SubResource("Resource_yf74m")])
 metadata/_custom_type_script = "uid://bhm3yrdex0vjq"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6drcc"]
+albedo_texture = ExtResource("35_nfhf7")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hhado"]
+_surfaces = [{
+"aabb": AABB(-2.000122, -0.5001221, -2.000122, 4.000122, 1.0001221, 5.000122),
+"attribute_data": PackedByteArray("AACAvwAAgL4AAoA/AACAvgACgD8ACIA+AACAvwAIgD4AAMA/AAiAPjMDAL8ACIA+MwMAvwAAgL4AAMA/AACAvgAAwL8AAoA/AADAvwAAgL8zAwA/AACAvzMDAD8AAoA/AADAPwACgD8zAwC/AAKAPzMDAL8AAIC/AADAPwAAgL8AAMC/AACAvjMDAD8AAIC+MwMAPwAIgD4AAMC/AAiAPgAAgD8ACIA+AAKAvwAIgD4AAoC/AACAvgAAgD8AAIC+"),
+"format": 34359742487,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcA"),
+"material": SubResource("StandardMaterial3D_6drcc"),
+"name": "__TB_empty",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAQAAAAD8AAADAAAIAwAAAAD8AAADAAAIAwAAIAL8AAADAAAAAQAAIAL8AAADAAAAAwAAIAL8AAEBAAAAAwAAIAL8AAgDAAAAAwAAAAD8AAgDAAAAAwAAAAD8AAEBAAAIAwAAAAL8AAEBAAAAAQAAAAL8AAEBAAAAAQAAAAL8AAgDAAAIAwAAAAL8AAgDAAAIAwAAAAD8AAEBAAAIAwAAAAD8AAgDAAAAAQAAAAD8AAgDAAAAAQAAAAD8AAEBAAAAAQAAAAD8AAEBAAAAAQAAAAD8AAgDAAAAAQAAIAL8AAgDAAAAAQAAIAL8AAEBAAAAAQAAIAL8AAEBAAAIAwAAIAL8AAEBAAAIAwAAAAD8AAEBAAAAAQAAAAD8AAEBA/////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_750g0"]
+points = PackedVector3Array(2, 0.5, 3, 2, -0.5, 3, -2, 0.5, 3, -2, -0.5, 3, 2, 0.5, -2, 2, -0.5, -2, -2, 0.5, -2, -2, -0.5, -2)
 
 [node name="Monster_tunnel" type="Node3D" groups=["level"]]
 script = ExtResource("1_j1wgd")
@@ -430,7 +450,7 @@ environment = SubResource("Environment_uue2n")
 [node name="UI" parent="." instance=ExtResource("4_65cby")]
 
 [node name="player" parent="." instance=ExtResource("5_jo08q")]
-transform = Transform3D(0.999703, 0, -0.0243622, 0, 1, 0, 0.0243622, 0, 0.999703, 0, 0, 0)
+transform = Transform3D(0.9997029, 0, -0.024362182, 0, 1, 0, 0.024362182, 0, 0.9997029, 0, 0, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.282375, 0)
@@ -507,6 +527,10 @@ transform = Transform3D(0.944703, 0, -0.327927, 0, 1, 0, 0.327927, 0, 0.944703, 
 operation = 2
 size = Vector3(3.64944, 2.04993, 2.87378)
 material = ExtResource("7_t2cce")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.49224, 0, -56.3577)
+size = Vector3(2.635, 1, 27.5491)
 
 [node name="level_transition_door" parent="NavigationRegion3D" instance=ExtResource("6_jo08q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.432765, 2.81288)
@@ -627,6 +651,22 @@ inventory = SubResource("Resource_hh0w0")
 transform = Transform3D(4.63033, 0, 0, 0, 1.68191, 0, 0, 0, 1, 0, -1.30655, -11.175)
 visible = false
 Cinematic = "Monster_introduction"
+
+[node name="FuncGodotMap" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.44883, 0, 0)
+script = ExtResource("33_412rq")
+local_map_file = "uid://sfbpehpd67sr"
+map_settings = ExtResource("34_ek0e2")
+metadata/_custom_type_script = "uid://cwu5cf7a0awcd"
+
+[node name="entity_0_worldspawn" type="StaticBody3D" parent="FuncGodotMap"]
+collision_mask = 0
+
+[node name="entity_0_mesh_instance" type="MeshInstance3D" parent="FuncGodotMap/entity_0_worldspawn"]
+mesh = SubResource("ArrayMesh_hhado")
+
+[node name="entity_0_brush_0_collision_shape" type="CollisionShape3D" parent="FuncGodotMap/entity_0_worldspawn"]
+shape = SubResource("ConvexPolygonShape3D_750g0")
 
 [editable path="player"]
 [editable path="Lighting/hanging_lamp"]

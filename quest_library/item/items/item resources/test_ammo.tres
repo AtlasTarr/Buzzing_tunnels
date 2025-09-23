@@ -6,15 +6,13 @@
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2o5f5"]
 generate_mipmaps = false
-normalize = false
 noise = SubResource("FastNoiseLite_6yenl")
+normalize = false
 
 [resource]
 script = ExtResource("1_us6ft")
 calliber = "test"
 name = "test ammo"
 description = "ammo for the test gun"
-quest_item = false
-quest_holder = ""
 stackable = true
 texture = SubResource("NoiseTexture2D_2o5f5")

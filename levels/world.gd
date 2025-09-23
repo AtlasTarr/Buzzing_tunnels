@@ -15,7 +15,7 @@ var choosing: bool = false
 @onready var dialouge_holder_ui = $Control/MarginContainer3/RichTextLabel
 @onready var player = $player
 
-const button = preload("res://custom_button.tscn")
+const button = preload("res://misc/custom_button.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
