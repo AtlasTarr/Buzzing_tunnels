@@ -17,3 +17,7 @@ func _on_button_pressed() -> void:
 	var level_string: String
 	level_string = level_string.join(["res://levels/",current_level,".tscn"])
 	get_tree().change_scene_to_file(level_string)
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().quit()
