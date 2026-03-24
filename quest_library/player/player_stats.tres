@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="PlayerData" load_steps=19 format=3 uid="uid://bo23kj8a61rqo"]
+[gd_resource type="Resource" script_class="PlayerData" format=3 uid="uid://bo23kj8a61rqo"]
 
 [ext_resource type="Script" uid="uid://2dvo687s7t66" path="res://quest_library/inventory/equip_body_data.gd" id="1_e4chv"]
 [ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="2_gacnt"]

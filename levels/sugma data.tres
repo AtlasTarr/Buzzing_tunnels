@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Level_data" format=3 uid="uid://cst1acmku8rv5"]
+
+[ext_resource type="Script" uid="uid://dxki1qiqxw0l7" path="res://quest_library/save/leveldata.gd" id="1_fsp2s"]
+
+[resource]
+script = ExtResource("1_fsp2s")
+metadata/_custom_type_script = "uid://dxki1qiqxw0l7"

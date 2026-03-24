@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item_Data" format=3 uid="uid://cas5clwa7wnnv"]
+
+[ext_resource type="Script" uid="uid://biqlbcpxx10g3" path="res://quest_library/item/item_data.gd" id="1_u6cjb"]
+[ext_resource type="Texture2D" uid="uid://dgaba00fu0vts" path="res://quest_library/item/mr incredible.PNG" id="2_pgesh"]
+
+[resource]
+script = ExtResource("1_u6cjb")
+name = "page tester"
+description = "argh me mateys
+"
+texture = ExtResource("2_pgesh")
+metadata/_custom_type_script = "uid://biqlbcpxx10g3"

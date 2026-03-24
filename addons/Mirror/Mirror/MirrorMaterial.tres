@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cp471l6edt4ab"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cp471l6edt4ab"]
 
 [ext_resource type="Shader" uid="uid://dtglwco3q15ns" path="res://addons/Mirror/Mirror/Mirror.gdshader" id="1"]
 

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://s7iklsfbjp23"]
+
+[ext_resource type="Script" uid="uid://c3gq1fnmvdiix" path="res://levels/test_scene.gd" id="1_2q7e8"]
+[ext_resource type="Resource" uid="uid://cst1acmku8rv5" path="res://levels/sugma data.tres" id="2_wlsne"]
+[ext_resource type="PackedScene" uid="uid://d0xb5raoo3mwn" path="res://misc/UI.tscn" id="3_3rnxl"]
+[ext_resource type="PackedScene" uid="uid://ccsvsjofwq2k6" path="res://quest_library/player/player_transfer.tscn" id="4_nyb23"]
+[ext_resource type="PackedScene" uid="uid://iuv1bsukb86w" path="res://quest_library/Pickups/test_item_pickup.tscn" id="5_3enrc"]
+[ext_resource type="Resource" uid="uid://cas5clwa7wnnv" path="res://quest_library/item/items/item resources/test_item_roxie.tres" id="6_5tk7p"]
+[ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="7_dikfd"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_uc3h0"]
+
+[sub_resource type="Resource" id="Resource_1stvt"]
+script = ExtResource("7_dikfd")
+item_data = ExtResource("6_5tk7p")
+metadata/_custom_type_script = "uid://cmggf10ug5sb1"
+
+[node name="sugma" type="Node3D" unique_id=656311797]
+script = ExtResource("1_2q7e8")
+leve_data = ExtResource("2_wlsne")
+scene_name = "sugma.tres"
+metadata/_custom_type_script = "uid://c3gq1fnmvdiix"
+
+[node name="UI" parent="." unique_id=1218395875 instance=ExtResource("3_3rnxl")]
+
+[node name="player" parent="UI" unique_id=620985016 instance=ExtResource("4_nyb23")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=1634953974]
+navigation_mesh = SubResource("NavigationMesh_uc3h0")
+
+[node name="test_item_pickup" parent="." unique_id=123811191 instance=ExtResource("5_3enrc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.452155, 0, 0)
+slot_data = SubResource("Resource_1stvt")

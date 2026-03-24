@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Ammo_Item_Data" load_steps=4 format=3 uid="uid://dxlxohcqm575q"]
+[gd_resource type="Resource" script_class="Ammo_Item_Data" format=3 uid="uid://dxlxohcqm575q"]
 
 [ext_resource type="Script" uid="uid://di4yd2feef70w" path="res://quest_library/item/ammo_item_data.gd" id="1_us6ft"]
 

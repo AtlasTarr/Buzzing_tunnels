@@ -1,4 +1,4 @@
-[gd_resource type="ArrayMesh" load_steps=6 format=4 uid="uid://byvkgjqmad8qm"]
+[gd_resource type="ArrayMesh" format=4 uid="uid://byvkgjqmad8qm"]
 
 [ext_resource type="Texture2D" uid="uid://em21qydi36tl" path="res://levels/level assets/rock_2/textures/lambert1_baseColor.jpeg" id="1_illnl"]
 [ext_resource type="Texture2D" uid="uid://fbl2vkub0ml3" path="res://levels/level assets/rock_2/textures/lambert1_metallicRoughness.png" id="2_uyvbv"]

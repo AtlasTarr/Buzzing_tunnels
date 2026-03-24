@@ -1,4 +1,4 @@
-[gd_resource type="ORMMaterial3D" load_steps=8 format=3 uid="uid://em3b1hsvd6lh"]
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://em3b1hsvd6lh"]
 
 [ext_resource type="Texture2D" uid="uid://bj7kgvfb0jatb" path="res://levels/level assets/desert_cliff__tile_texture/textures/Material_baseColor.png" id="1_0d6qk"]
 [ext_resource type="Texture2D" uid="uid://7eqnrkkvdup3" path="res://levels/level assets/desert_cliff__tile_texture/textures/Material_metallicRoughness.png" id="2_0loqj"]

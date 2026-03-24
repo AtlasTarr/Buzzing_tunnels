@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://clk8wxvujc85v"]
+[gd_scene format=3 uid="uid://clk8wxvujc85v"]
 
 [ext_resource type="Script" uid="uid://5fxpea32g5jm" path="res://misc/main_menu.gd" id="1_u6exu"]
 [ext_resource type="Texture2D" uid="uid://ftu1el8108cd" path="res://misc/Cool Text - Buzzing 502103019764716.png" id="2_owya5"]
@@ -95,16 +95,20 @@ material = SubResource("StandardMaterial3D_e4nm5")
 radius = 0.01
 height = 0.1
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=1468715952]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -166.0
+offset_top = 18.0
+offset_right = -166.0
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6exu")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1382431815]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -119,10 +123,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_e4nm5")
 
-[node name="Panel" type="Panel" parent="PanelContainer"]
+[node name="Panel" type="Panel" parent="PanelContainer" unique_id=1998430140]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/Panel" unique_id=464534912]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,80 +136,80 @@ grow_vertical = 2
 theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Button" type="Button" parent="PanelContainer/Panel/VBoxContainer"]
+[node name="Button" type="Button" parent="PanelContainer/Panel/VBoxContainer" unique_id=1272393764]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 25
 text = "Load game"
 
-[node name="Button2" type="Button" parent="PanelContainer/Panel/VBoxContainer"]
+[node name="Button2" type="Button" parent="PanelContainer/Panel/VBoxContainer" unique_id=1184208920]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 25
 text = "Exit Game"
 
-[node name="CoolTextBuzzing502103019764716" type="Sprite2D" parent="."]
+[node name="CoolTextBuzzing502103019764716" type="Sprite2D" parent="." unique_id=436532104]
 position = Vector2(960, 123)
 texture = ExtResource("2_owya5")
 
-[node name="Cooltext502103047565831" type="Sprite2D" parent="."]
+[node name="Cooltext502103047565831" type="Sprite2D" parent="." unique_id=1966773852]
 position = Vector2(960, 244)
 texture = ExtResource("3_vqutr")
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="Node3D" type="Node3D" parent="." unique_id=1671863140]
 
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
+[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=276917028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, -0.226)
 current = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D" unique_id=1762255879]
 transform = Transform3D(19.48, 0, 0, 0, -8.514978e-07, 19.48, 0, -19.48, -8.514978e-07, 0, -0.17869234, -0.45264864)
 mesh = SubResource("QuadMesh_1833o")
 surface_material_override/0 = SubResource("ORMMaterial3D_8dg6v")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Node3D" unique_id=1619638745]
 environment = ExtResource("10_js6j4")
 
-[node name="Standing_lamp" parent="Node3D" instance=ExtResource("11_l4mvt")]
+[node name="Standing_lamp" parent="Node3D" unique_id=592711560 instance=ExtResource("11_l4mvt")]
 transform = Transform3D(-0.58070296, 0.4552476, -0.67493236, 0, 0.8290376, 0.5591929, 0.8141155, 0.32472497, -0.4814246, -1.325, -0.049831025, -2.615)
 
-[node name="1" parent="Node3D/Standing_lamp/Sketchfab_model/91f0948a0e054097915bed3c9d9b85d4_fbx/RootNode/Lamp" index="0"]
+[node name="1" parent="Node3D/Standing_lamp/Sketchfab_model/91f0948a0e054097915bed3c9d9b85d4_fbx/RootNode/Lamp" parent_id_path=PackedInt32Array(592711560, 815739599) index="0" unique_id=1532153155]
 transform = Transform3D(1, 0, 0, 0, 0.34202, -0.798739, 0, 0.939693, 0.290717, 0, 12.1247, -3.51874)
 
-[node name="3" parent="Node3D/Standing_lamp/Sketchfab_model/91f0948a0e054097915bed3c9d9b85d4_fbx/RootNode/Lamp" index="2"]
+[node name="3" parent="Node3D/Standing_lamp/Sketchfab_model/91f0948a0e054097915bed3c9d9b85d4_fbx/RootNode/Lamp" parent_id_path=PackedInt32Array(592711560, 815739599) index="2" unique_id=1898206042]
 transform = Transform3D(1, 4.63695e-16, -7.45058e-09, -1.13134e-09, 1, 3.6133e-09, 7.45058e-09, -3.72529e-09, 1, 0, -4.78975, 2.63763)
 
 [node name="OmniLight3D" parent="Node3D/Standing_lamp" index="1"]
 light_color = Color(0.82156, 0.757921, 0.661286, 1)
 light_energy = 0.705
 
-[node name="Sketchfab_Scene" parent="Node3D" instance=ExtResource("12_r2yyt")]
+[node name="Sketchfab_Scene" parent="Node3D" unique_id=1551381789 instance=ExtResource("12_r2yyt")]
 transform = Transform3D(1.9428015, 0, 0, 0, 1.199285, 0, 0, 0, 1.1597662, 0.709, -0.565, -4.105)
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D"]
+[node name="CSGMesh3D" type="CSGMesh3D" parent="Node3D" unique_id=1276784958]
 transform = Transform3D(13.065, 0, 0, 0, 16.7, 0, 0, 0, 4.935, 5.155, 0, -2.302)
 flip_faces = true
 mesh = SubResource("BoxMesh_b0ldm")
 material = ExtResource("13_7w05j")
 
-[node name="Sketchfab_Scene3" parent="Node3D" instance=ExtResource("14_xee5a")]
+[node name="Sketchfab_Scene3" parent="Node3D" unique_id=2007713738 instance=ExtResource("14_xee5a")]
 transform = Transform3D(0.457092, 0.11232585, 0, -0.15294084, 0.3357066, 0, 0, 0, 0.197, 2.0228148, 0.6986078, -4.339447)
 
-[node name="Sketchfab_Scene6" parent="Node3D" instance=ExtResource("14_xee5a")]
+[node name="Sketchfab_Scene6" parent="Node3D" unique_id=130387133 instance=ExtResource("14_xee5a")]
 transform = Transform3D(0.024127798, 0.0071283444, 0.09137729, 0.18231057, 0.09346187, -0.010414695, -0.12789337, 0.13457365, 0.0023928026, -1.436, 0.19456244, -0.527)
 
-[node name="Sketchfab_Scene4" parent="Node3D" instance=ExtResource("15_k3v2l")]
+[node name="Sketchfab_Scene4" parent="Node3D" unique_id=488127234 instance=ExtResource("15_k3v2l")]
 transform = Transform3D(0.04325945, 0.02447502, -0.16257182, -0.083712004, 0.14796047, 0, 0.1414953, 0.080054194, 0.049703185, -1.52, -0.11, -1.734)
 
-[node name="Sketchfab_Scene5" parent="Node3D" instance=ExtResource("16_o48wt")]
+[node name="Sketchfab_Scene5" parent="Node3D" unique_id=1324695547 instance=ExtResource("16_o48wt")]
 transform = Transform3D(2.0377772, 0, 1.5078759, 0, 2.535, 0, -1.5078759, 0, 2.0377772, -1.1638889, 1.7001507, -4.0188813)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D" unique_id=592865989]
 transform = Transform3D(-0.0009850323, 0.0002614989, -0.00038340891, 0.00030166228, 0.00085388497, 0.00011741746, 0.0004180229, 0, -0.0009882002, 0.5915532, -0.2627625, -1.0644091)
 mesh = ExtResource("18_vxl78")
 skeleton = NodePath("")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D" unique_id=326679191]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.705, 1.798, -1.046)
 lifetime = 7.04
 randomness = 0.59
@@ -213,7 +217,7 @@ process_material = SubResource("ParticleProcessMaterial_vt1c3")
 draw_pass_1 = SubResource("CapsuleMesh_vbwn1")
 
 [connection signal="pressed" from="PanelContainer/Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="PanelContainer/Panel/VBoxContainer/Button2" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PanelContainer/Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/VBoxContainer/Button2" to="." method="_on_button_pressed"]
 
 [editable path="Node3D/Standing_lamp"]
