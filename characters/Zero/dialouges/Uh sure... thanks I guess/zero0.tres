@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialouge_resource" format=3 uid="uid://bo4m0b6xdliwf"]
+
+[ext_resource type="Script" uid="uid://cesnpiv0v8usw" path="res://characters/Dialouge_resource.gd" id="1_b5st2"]
+[ext_resource type="TextFile" path="res://characters/Zero/dialouges/Uh sure... thanks I guess/Zero0.txt" id="2_cyp5r"]
+
+[resource]
+script = ExtResource("1_b5st2")
+text = ExtResource("2_cyp5r")
+variable_to_change = 1
+metadata/_custom_type_script = "uid://cesnpiv0v8usw"

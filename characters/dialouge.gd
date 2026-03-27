@@ -9,6 +9,8 @@ signal toggle_talk_anim
 const corpse = preload("res://quest_library/interactables/chest.tscn")
 const object_scene = "res://characters/bean/bean.tscn"
 
+var dialouge_set: bool = false
+
 @export var Name: String
 @export var max_health: float = 100
 @export var defence: float = 0
@@ -73,6 +75,21 @@ var current_quest
 @export var move_state = range(4)
 
 var quest_instance
+
+func character_dialouge():
+	print("test func")
+	var path = str("res://characters/",Name,"/",Name,".tres")
+	var characters_resource: character_resource = ResourceLoader.load(path)
+	print(path)
+	print(characters_resource)
+	
+	var branch = characters_resource.Current_branch
+	for _name in characters_resource.Dialouge_branchs:
+		if _name.Branch_name == characters_resource.Current_branch:
+			var current_branch = _name
+			var _file = current_branch.Dialouges[current_dialouge_file].text
+			print(_file)
+	dialouge_set = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -178,7 +195,6 @@ func flee_dict_update(target: Vector3):
 			var temp := {ray_name: {"distance": ray_distance, "colliding": ray_colliding, "target": ray_target}}
 			ray_datas.merge(temp, true)
 			ray_datas_size = ray_datas.size()
-
 func flee_from_target(delta, target: Vector3):
 	var final_distance: = 0.0
 	var final_colliding: = false
@@ -243,7 +259,6 @@ func agression_controller(object_of_agreesion:Object):
 
 func move_state_setter(delta):
 	
-	
 	if move_state == 0:
 		if patrol_path != null:
 			set_patrol_point()
@@ -299,7 +314,9 @@ func _process(delta):
 	if dialouges.size() > 0:
 		if dialouges[current_dialouge].contains("[QUESTION]"):
 			answered = true
-	format_dialouge_array()
+			
+	if ! dialouge_set:
+		character_dialouge()
 
 func damage(damage: float, source: Object):
 	waiting = false
@@ -406,7 +423,8 @@ func option_update():
 		for line in text.count("[OPTION]", 0, 0):
 			var current_line: String= file.get_line()
 			choices.append(current_line.replace("[OPTION]", ""))
-	owner.choice_array = choices
+	if owner:
+		owner.choice_array = choices
 	file.close()
 
 func check_quest_status():

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="character_resource" format=3 uid="uid://dcntlqt5kl6f3"]
+
+[ext_resource type="Script" uid="uid://fpqkt75sqcrh" path="res://characters/Dialouge_branch.gd" id="1_tjym6"]
+[ext_resource type="Script" uid="uid://cesnpiv0v8usw" path="res://characters/Dialouge_resource.gd" id="2_rksdn"]
+[ext_resource type="Script" uid="uid://wxak0xqluxmm" path="res://characters/Character_resource.gd" id="2_tnbun"]
+[ext_resource type="TextFile" path="res://characters/Zero/dialouges/default/Zero0.txt" id="3_rksdn"]
+
+[sub_resource type="Resource" id="Resource_tnbun"]
+script = ExtResource("2_rksdn")
+text = ExtResource("3_rksdn")
+metadata/_custom_type_script = "uid://cesnpiv0v8usw"
+
+[sub_resource type="Resource" id="Resource_vuods"]
+script = ExtResource("1_tjym6")
+Branch_name = "Default"
+Dialouges = Array[ExtResource("2_rksdn")]([SubResource("Resource_tnbun")])
+metadata/_custom_type_script = "uid://fpqkt75sqcrh"
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_tnbun")
+character_name = "Zero"
+Dialouge_branchs = Array[ExtResource("1_tjym6")]([SubResource("Resource_vuods")])
+metadata/_custom_type_script = "uid://wxak0xqluxmm"

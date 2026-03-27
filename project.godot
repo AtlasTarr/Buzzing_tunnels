@@ -67,10 +67,6 @@ folder_colors={
 "res://quest_library/quest_actual_scenes/": "green"
 }
 
-[filesystem]
-
-import/blender/enabled=false
-
 [input]
 
 forward={

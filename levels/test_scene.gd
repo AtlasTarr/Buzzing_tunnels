@@ -1,6 +1,7 @@
 extends Node3D
 class_name Level
 
+
 var paused = false
 var update_static: bool = false
 
@@ -31,6 +32,9 @@ var can_save: bool = true
 var save_file_path = "user://saves/"
 var player_file_name = "playersave.tres"
 @export var scene_name: String
+const GAME_STATE = preload("res://levels/game_state.tres")
+var game_state = GAME_STATE.duplicate()
+
 
 enum state {full, half, one_quarter, empty}
 
@@ -205,6 +209,8 @@ func _ready():
 	playerdata.current_level = scene_name.replace(".tres", "")
 	CinematicManager.call_deferred("set_player")
 
+func update_game_state():
+	ResourceSaver.save(game_state, "res://levels/game_state.tres")
 
 func _process(delta):
 	update_static_list()
@@ -382,7 +388,6 @@ func update_static_list():
 ##verifies that the save directory exists
 func verify_save_directory(path: String):
 	DirAccess.make_dir_absolute(path)
-
 
 func create_folder(path: String):
 	var folder = DirAccess.make_dir_recursive_absolute(path)
