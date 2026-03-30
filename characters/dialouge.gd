@@ -12,6 +12,8 @@ const object_scene = "res://characters/bean/bean.tscn"
 var dialouge_set: bool = false
 
 @export var Name: String
+@export var characters_resource: character_resource
+@export var real_dialouge = null
 @export var max_health: float = 100
 @export var defence: float = 0
 var health: float = max_health
@@ -52,6 +54,7 @@ var ray_datas_size
 @export var waiting: = false
 
 @export var dialouges: PackedStringArray
+@export var unformated_dialouges: PackedStringArray
 @export var choices: PackedStringArray
 @export var continue_on_interact := true
 @export var current_choice_tree: String = "default"
@@ -77,38 +80,32 @@ var current_quest
 var quest_instance
 
 func character_dialouge():
-	print("test func")
-	var path = str("res://characters/",Name,"/",Name,".tres")
-	var characters_resource: character_resource = ResourceLoader.load(path)
-	print(path)
-	print(characters_resource)
 	
 	var branch = characters_resource.Current_branch
 	for _name in characters_resource.Dialouge_branchs:
 		if _name.Branch_name == characters_resource.Current_branch:
 			var current_branch = _name
-			var _file = current_branch.Dialouges[current_dialouge_file].text
-			print(_file)
+			var _file= current_branch.Dialouges[current_dialouge_file].text
+			var text = FileAccess.open(_file, FileAccess.READ).get_as_text()
+			real_dialouge = text
+			print("raw text: ",text)
+	if real_dialouge != null:
+		var text: String = real_dialouge
+		for line in text.count("|", 0, 0):
+			dialouges.append(text.get_slice("|",line))
+		unformated_dialouges = dialouges
+		format_dialouge_array()
+		option_update()
+		dialouges.append("[END]")
+	print("text as array: ", dialouges)
 	dialouge_set = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	move_state = 0
-	var dialouges_resource: String  = "res://characters/"
-	var real_dialouges_resource := ("".join([dialouges_resource, self.name, "/", "dialouges/", current_choice_tree, "/", self.name, var_to_str(current_dialouge_file), ".txt"]))
-	file = FileAccess.open(real_dialouges_resource, FileAccess.READ)
-	if file != null:
-		var text: String = file.get_as_text()
-		for line in text.count("|", 0, 0):
-			var current_line: String= file.get_line()
-			dialouges.append(current_line.replace("|", ""))
-		format_dialouge_array()
-		option_update()
-		dialouges.append("[END]")
-		file.close()
 	better_gear_checker()
 	death_state_checker(null)
-	print(current_dialouge_file)
+
 
 func _on_start_timer_timeout() -> void:
 	if current_weapon_data != null:
@@ -195,6 +192,7 @@ func flee_dict_update(target: Vector3):
 			var temp := {ray_name: {"distance": ray_distance, "colliding": ray_colliding, "target": ray_target}}
 			ray_datas.merge(temp, true)
 			ray_datas_size = ray_datas.size()
+
 func flee_from_target(delta, target: Vector3):
 	var final_distance: = 0.0
 	var final_colliding: = false
@@ -313,6 +311,8 @@ func _process(delta):
 		can_access_inventory = false
 	if dialouges.size() > 0:
 		if dialouges[current_dialouge].contains("[QUESTION]"):
+			increment_dialouge(1)
+			option_update()
 			answered = true
 			
 	if ! dialouge_set:
@@ -379,24 +379,28 @@ func toggle_continue():
 func _on_trigger_interact():
 	if not aggressive:
 		current_dialouge = clamp(current_dialouge, 0, dialouges.size() -1)
-		
 
 		if active != true and dialouges[current_dialouge] == "[HALT CONTINUE]":
+			print("halt case")
 			continue_on_interact = false
 			increment_dialouge(1)
 			initialise_dialouge()
 		
 		elif active != true:
+			print("initialise case")
 			initialise_dialouge()
 		
 		if active == true and dialouges[current_dialouge] != "[END]" and answered == false:
+			print("incriment case")
 			set_dialouge()
 			increment_dialouge(1)
 		
 		elif answered == true:
+			print("change path case")
 			set_dialouge()
 			owner.can_save = false
 		elif active == true and dialouges[current_dialouge] == "[END]":
+			print("end dialouge case")
 			end_dialouge()
 			if continue_on_interact == true:
 				increment_dialouge_file(1)
@@ -410,13 +414,14 @@ func end_dialouge():
 	owner.can_save = true
 
 func option_update():
+	var file 
 	choices.clear()
-	var dialouges_resource: String  = "res://characters/"
-	var file_dialouges_resource := ("".join([dialouges_resource, self.name, "/dialouges/", current_choice_tree, "/", self.name, var_to_str(current_dialouge_file), ".txt"]))
-	file = FileAccess.open(file_dialouges_resource, FileAccess.READ)
-	if FileAccess.file_exists(file_dialouges_resource):
+	var branch = characters_resource.Current_branch
+	for _name in characters_resource.Dialouge_branchs:
+		if _name.Branch_name == characters_resource.Current_branch:
+			file = FileAccess.open(_name.Dialouges[_name.current_index].text, FileAccess.READ)
 		var dialouge_end_character: int
-		var text: String = file.get_as_text()
+		var text = real_dialouge
 		dialouge_end_character = dialouge_as_string.length()
 		file.seek(dialouge_end_character)
 		file.get_line()
@@ -440,7 +445,6 @@ func check_quest_status():
 					has_quest = true
 					quest_instance = e
 	if quest_instance != null:
-		print(quest_instance.quest_name)
 		if quest_instance.state == 1:
 			continue_on_interact = false
 		if quest_instance.state == 2:
@@ -456,38 +460,25 @@ func initialise_dialouge():
 	emit_signal("toggle_talk_anim")
 	check_quest_status()
 	dialouges.clear()
-	var dialouges_resource: String  = "res://characters/"
-	var file_dialouges_resource = ("".join([dialouges_resource, self.name, "/dialouges/", current_choice_tree, "/", self.name, var_to_str(current_dialouge_file), ".txt"]))
-	file = FileAccess.open(file_dialouges_resource, FileAccess.READ)
-	if FileAccess.file_exists(file_dialouges_resource):
-		var dialouge_end_character
-		var text = file.get_as_text()
-		for line in text.count("|", 0,0):
-			var current_line = file.get_line()
-			dialouge_end_character = dialouge_as_string.length() + 2
-			dialouges.append(current_line.replace("|", ""))
-		dialouges.append("[END]")
-		active = true
-		emit_signal("dialouge_toggle")
-		emit_signal("choice_update")
-	if file != null:
-		file.close()
+	character_dialouge()
+	set_dialouge()
+	active = true
+	emit_signal("dialouge_toggle")
+	emit_signal("choice_update")
 
 func increment_dialouge_file(value: int):
-	var dialouges_resource: String  = "res://characters/"
-	var file_dialouges_resource = ("".join([dialouges_resource, self.name, "/", "dialouges/", current_choice_tree, "/", self.name, var_to_str(current_dialouge_file + value), ".txt"]))
-	if FileAccess.file_exists(file_dialouges_resource):
-		file = FileAccess.open(file_dialouges_resource, FileAccess.READ)
-		current_dialouge_file += value
-		file.close()
-	print("test")
+	for branchs in characters_resource.Dialouge_branchs:
+		if branchs.Branch_name == characters_resource.Current_branch:
+			branchs.current_index += value
 
 func set_dialouge():
-	owner.current_dialouge = dialouges[current_dialouge]
+	print("current dialouge: ",dialouges[current_dialouge])
+	owner.current_dialouge = dialouges[current_dialouge-1]
 
 func increment_dialouge(value: int):
 	current_dialouge += value
 	current_dialouge = clamp(current_dialouge, 0, dialouges.size() -1)
+	set_dialouge()
 
 func give_quest():
 	continue_on_interact = false
@@ -588,7 +579,6 @@ func check_slot_datas():
 			inventory.use_slot_data(slot)
 
 func refresh_weapon():
-	print("test1")
 	var missing_ammo: int = 0
 	var reload_amount: int = 0
 	var gun: Object

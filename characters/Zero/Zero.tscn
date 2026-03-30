@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkk3uwfryysa1" path="res://characters/dialouge.gd" id="1_6da0h"]
 [ext_resource type="Script" uid="uid://bhm3yrdex0vjq" path="res://quest_library/inventory/inventory_data.gd" id="2_6g8m7"]
+[ext_resource type="Resource" uid="uid://dcntlqt5kl6f3" path="res://characters/Zero/zero.tres" id="2_827b8"]
 [ext_resource type="Script" uid="uid://cmggf10ug5sb1" path="res://quest_library/inventory/slot_data.gd" id="3_vk7vj"]
 [ext_resource type="PackedScene" uid="uid://brj4lfbi78pgk" path="res://misc/trigger.tscn" id="4_5n8rv"]
 [ext_resource type="PackedScene" uid="uid://rbgbwd0ifbe" path="res://3D assets/Characters/Zero/Model/zero_head.tscn" id="5_t377w"]
@@ -20,6 +21,7 @@ collision_mask = 3
 axis_lock_angular_y = true
 script = ExtResource("1_6da0h")
 Name = "Zero"
+characters_resource = ExtResource("2_827b8")
 inventory = SubResource("Resource_2vvxl")
 can_access_inventory = false
 move_state = []
