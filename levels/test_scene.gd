@@ -8,7 +8,7 @@ var update_static: bool = false
 var current_dialouge: String = "test"
 var current_dialouge_holder: String = "test"
 
-var choice_array: PackedStringArray
+var choice_array: Array[Option_resource]
 
 var choosing: bool = false
 
@@ -494,6 +494,33 @@ func dialouge_option_ui():
 
 func no_dialouge_option_ui():
 	choice_containerx2.visible = false
+
+func option_update_new():
+	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
+	var choices = choice_array.size()
+	var button_text_array: PackedStringArray
+	for choice in choices:
+		var new_button = button.instantiate()
+		new_button.text = choice.text
+		button_text_array.append(choice.text)
+		if new_button.text.contains("[QUEST]"):
+			new_button.connect("pressed", button_pressed.bind(choice.branch_to_switch.branch_name))
+			new_button.pressed.connect(Callable(dialouge_holder_object.increment_dialouge.bind(1)))
+			new_button.pressed.connect(Callable(dialouge_holder_object.give_quest))
+			new_button.connect("pressed", clear_options)
+		else:
+			new_button.connect("pressed", button_pressed.bind(choice.branch_to_switch.branch_name))
+			new_button.pressed.connect(Callable(dialouge_holder_object.increment_dialouge.bind(1)))
+			new_button.connect("pressed", clear_options)
+			choice_container.add_child(new_button)
+
+func button_pressed(new_branch: String):
+	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
+	dialouge_holder_object.characters_resource.current_branch = new_branch
+
+func clear_options():
+	for child in choice_container.get_children:
+		child.queue_free()
 
 func option_update():
 	@warning_ignore("unused_variable")

@@ -304,7 +304,6 @@ func move_state_mover(delta, target: Vector3, move_threshhold: float, look_at_de
 	else :
 		look_at_point(target* Vector3.MODEL_FRONT, delta)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta):
 	if trigger.active == true:
@@ -334,7 +333,6 @@ func damage(damage: float, source: Object):
 	var temp_speed = health/100 * speed
 
 	speed = temp_speed
-	
 
 func death_state_checker(damage_source: Object) -> void:
 	if health <= 0:
@@ -413,7 +411,15 @@ func end_dialouge():
 	current_dialouge = 0
 	owner.can_save = true
 
+func option_update_new():
+	for branch in characters_resource.Dialouge_branchs:
+		if branch.Branch_name == characters_resource.Current_branch:
+			var dialouge_file = branch.Dialouges.get(branch.current_index)
+			if dialouge_file.has_options:
+				dialouge_file.options
+
 func option_update():
+	print("Option update")
 	var file 
 	choices.clear()
 	var branch = characters_resource.Current_branch
@@ -476,8 +482,9 @@ func set_dialouge():
 	owner.current_dialouge = dialouges[current_dialouge-1]
 
 func increment_dialouge(value: int):
-	current_dialouge += value
-	current_dialouge = clamp(current_dialouge, 0, dialouges.size() -1)
+	for branchs in characters_resource.Dialouge_branchs:
+		if branchs.Branch_name == characters_resource.Current_branch:
+			branchs.current_index += value
 	set_dialouge()
 
 func give_quest():

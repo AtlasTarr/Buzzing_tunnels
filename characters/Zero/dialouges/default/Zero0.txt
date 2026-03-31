@@ -1,4 +1,0 @@
-Oh another one|
-...|
-right what's your name?[QUESTION]|
-I'm not sure[OPTION]|
