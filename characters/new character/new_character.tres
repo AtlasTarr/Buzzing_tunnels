@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="character_resource" format=3 uid="uid://b00px5nfx7tpo"]
+
+[ext_resource type="Script" uid="uid://fpqkt75sqcrh" path="res://characters/Dialouge_branch.gd" id="1_56sj5"]
+[ext_resource type="Script" uid="uid://cesnpiv0v8usw" path="res://characters/Dialouge_resource.gd" id="2_5iiew"]
+[ext_resource type="Script" uid="uid://wxak0xqluxmm" path="res://characters/Character_resource.gd" id="3_8ku3b"]
+
+[sub_resource type="Resource" id="Resource_nxa7d"]
+script = ExtResource("1_56sj5")
+Branch_name = "Deafault"
+metadata/_custom_type_script = "uid://fpqkt75sqcrh"
+
+[resource]
+script = ExtResource("3_8ku3b")
+Dialouge_branchs = Array[ExtResource("1_56sj5")]([SubResource("Resource_nxa7d")])
+metadata/_custom_type_script = "uid://wxak0xqluxmm"

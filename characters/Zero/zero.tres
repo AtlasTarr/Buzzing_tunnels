@@ -2,60 +2,11 @@
 
 [ext_resource type="Script" uid="uid://fpqkt75sqcrh" path="res://characters/Dialouge_branch.gd" id="1_85xnx"]
 [ext_resource type="Script" uid="uid://wxak0xqluxmm" path="res://characters/Character_resource.gd" id="2_a1vog"]
-[ext_resource type="Script" uid="uid://cesnpiv0v8usw" path="res://characters/Dialouge_resource.gd" id="2_mhnh2"]
 [ext_resource type="Resource" uid="uid://bttbyipw46bm6" path="res://characters/Zero/dialouge branches/default.tres" id="2_oxp42"]
-[ext_resource type="Script" uid="uid://o4f001ayiu7a" path="res://characters/Option_resource.gd" id="3_mhnh2"]
-
-[sub_resource type="Resource" id="Resource_ahor0"]
-script = ExtResource("2_mhnh2")
-text = "Oh..."
-metadata/_custom_type_script = "uid://cesnpiv0v8usw"
-
-[sub_resource type="Resource" id="Resource_2kppb"]
-script = ExtResource("2_mhnh2")
-text = "well."
-metadata/_custom_type_script = "uid://cesnpiv0v8usw"
-
-[sub_resource type="Resource" id="Resource_35jg0"]
-script = ExtResource("2_mhnh2")
-text = "that is strange."
-metadata/_custom_type_script = "uid://cesnpiv0v8usw"
-
-[sub_resource type="Resource" id="Resource_1002b"]
-script = ExtResource("2_mhnh2")
-text = "well i have some stuff i can give you if you want"
-metadata/_custom_type_script = "uid://cesnpiv0v8usw"
-
-[sub_resource type="Resource" id="Resource_y5mk2"]
-script = ExtResource("2_mhnh2")
-text = "you can take it"
-metadata/_custom_type_script = "uid://cesnpiv0v8usw"
-
-[sub_resource type="Resource" id="Resource_tqkee"]
-script = ExtResource("2_mhnh2")
-text = "or not"
-metadata/_custom_type_script = "uid://cesnpiv0v8usw"
-
-[sub_resource type="Resource" id="Resource_ntrj0"]
-script = ExtResource("2_mhnh2")
-text = "I don't know"
-metadata/_custom_type_script = "uid://cesnpiv0v8usw"
-
-[sub_resource type="Resource" id="Resource_027b6"]
-script = ExtResource("2_mhnh2")
-text = "I'm not your dad"
-has_options = true
-options = Array[ExtResource("3_mhnh2")]([null, null])
-metadata/_custom_type_script = "uid://cesnpiv0v8usw"
-
-[sub_resource type="Resource" id="Resource_y6spu"]
-script = ExtResource("1_85xnx")
-Branch_name = "name exchange"
-Dialouges = Array[ExtResource("2_mhnh2")]([SubResource("Resource_ahor0"), SubResource("Resource_2kppb"), SubResource("Resource_35jg0"), SubResource("Resource_1002b"), SubResource("Resource_y5mk2"), SubResource("Resource_tqkee"), SubResource("Resource_ntrj0"), SubResource("Resource_027b6")])
-metadata/_custom_type_script = "uid://fpqkt75sqcrh"
+[ext_resource type="Resource" uid="uid://cdmn321pw7fbg" path="res://characters/Zero/dialouge branches/name exchange.tres" id="3_mhnh2"]
 
 [resource]
 script = ExtResource("2_a1vog")
 character_name = "Zero"
-Dialouge_branchs = Array[ExtResource("1_85xnx")]([ExtResource("2_oxp42"), SubResource("Resource_y6spu")])
+Dialouge_branchs = Array[ExtResource("1_85xnx")]([ExtResource("2_oxp42"), ExtResource("3_mhnh2")])
 metadata/_custom_type_script = "uid://wxak0xqluxmm"

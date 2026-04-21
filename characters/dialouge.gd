@@ -55,7 +55,7 @@ var ray_datas_size
 
 @export var dialouges: PackedStringArray
 @export var unformated_dialouges: PackedStringArray
-@export var choices: PackedStringArray
+@export var choices: Array[Option_resource]
 @export var continue_on_interact := true
 @export var current_choice_tree: String = "default"
 @export var current_dialouge_file:int = 0
@@ -73,6 +73,7 @@ var aggressive: bool = false
 
 @export var quest_references: Array
 @export var quest_index := 0
+@export var branch_to_change_to: String
 var current_quest
 
 @export var move_state = range(4)
@@ -80,32 +81,25 @@ var current_quest
 var quest_instance
 
 func character_dialouge():
-	
 	var branch = characters_resource.Current_branch
 	for _name in characters_resource.Dialouge_branchs:
 		if _name.Branch_name == characters_resource.Current_branch:
 			var current_branch = _name
-			var _file= current_branch.Dialouges[current_dialouge_file].text
-			var text = FileAccess.open(_file, FileAccess.READ).get_as_text()
-			real_dialouge = text
-			print("raw text: ",text)
-	if real_dialouge != null:
-		var text: String = real_dialouge
-		for line in text.count("|", 0, 0):
-			dialouges.append(text.get_slice("|",line))
-		unformated_dialouges = dialouges
-		format_dialouge_array()
-		option_update()
-		dialouges.append("[END]")
-	print("text as array: ", dialouges)
+			var current_index = _name.current_index
+			for _resource in current_branch.Dialouges.size():
+				dialouges.append(_name.Dialouges[_resource].text)
+			dialouges.append("[END]")
 	dialouge_set = true
+
+func change_branch(branch:String):
+	characters_resource.Current_branch = branch
+	character_dialouge()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	move_state = 0
 	better_gear_checker()
 	death_state_checker(null)
-
 
 func _on_start_timer_timeout() -> void:
 	if current_weapon_data != null:
@@ -256,7 +250,6 @@ func agression_controller(object_of_agreesion:Object):
 					can_access_inventory = false
 
 func move_state_setter(delta):
-	
 	if move_state == 0:
 		if patrol_path != null:
 			set_patrol_point()
@@ -310,8 +303,7 @@ func _process(delta):
 		can_access_inventory = false
 	if dialouges.size() > 0:
 		if dialouges[current_dialouge].contains("[QUESTION]"):
-			increment_dialouge(1)
-			option_update()
+			option_update_new()
 			answered = true
 			
 	if ! dialouge_set:
@@ -386,6 +378,7 @@ func _on_trigger_interact():
 		
 		elif active != true:
 			print("initialise case")
+			set_dialouge()
 			initialise_dialouge()
 		
 		if active == true and dialouges[current_dialouge] != "[END]" and answered == false:
@@ -396,6 +389,7 @@ func _on_trigger_interact():
 		elif answered == true:
 			print("change path case")
 			set_dialouge()
+			option_update_new()
 			owner.can_save = false
 		elif active == true and dialouges[current_dialouge] == "[END]":
 			print("end dialouge case")
@@ -414,29 +408,11 @@ func end_dialouge():
 func option_update_new():
 	for branch in characters_resource.Dialouge_branchs:
 		if branch.Branch_name == characters_resource.Current_branch:
-			var dialouge_file = branch.Dialouges.get(branch.current_index)
+			var dialouge_file = branch.Dialouges.get(current_dialouge)
 			if dialouge_file.has_options:
-				dialouge_file.options
-
-func option_update():
-	print("Option update")
-	var file 
-	choices.clear()
-	var branch = characters_resource.Current_branch
-	for _name in characters_resource.Dialouge_branchs:
-		if _name.Branch_name == characters_resource.Current_branch:
-			file = FileAccess.open(_name.Dialouges[_name.current_index].text, FileAccess.READ)
-		var dialouge_end_character: int
-		var text = real_dialouge
-		dialouge_end_character = dialouge_as_string.length()
-		file.seek(dialouge_end_character)
-		file.get_line()
-		for line in text.count("[OPTION]", 0, 0):
-			var current_line: String= file.get_line()
-			choices.append(current_line.replace("[OPTION]", ""))
-	if owner:
-		owner.choice_array = choices
-	file.close()
+				for option in dialouge_file.options.size():
+					choices.append(dialouge_file.options[option])
+	owner.choice_array = choices
 
 func check_quest_status():
 	for i in owner.get_children(true):
@@ -467,7 +443,6 @@ func initialise_dialouge():
 	check_quest_status()
 	dialouges.clear()
 	character_dialouge()
-	set_dialouge()
 	active = true
 	emit_signal("dialouge_toggle")
 	emit_signal("choice_update")
@@ -479,13 +454,10 @@ func increment_dialouge_file(value: int):
 
 func set_dialouge():
 	print("current dialouge: ",dialouges[current_dialouge])
-	owner.current_dialouge = dialouges[current_dialouge-1]
+	owner.current_dialouge = dialouges[current_dialouge]
 
 func increment_dialouge(value: int):
-	for branchs in characters_resource.Dialouge_branchs:
-		if branchs.Branch_name == characters_resource.Current_branch:
-			branchs.current_index += value
-	set_dialouge()
+	current_dialouge += value
 
 func give_quest():
 	continue_on_interact = false

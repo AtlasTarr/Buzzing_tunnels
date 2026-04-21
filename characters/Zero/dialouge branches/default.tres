@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cesnpiv0v8usw" path="res://characters/Dialouge_resource.gd" id="1_d4frq"]
 [ext_resource type="Script" uid="uid://o4f001ayiu7a" path="res://characters/Option_resource.gd" id="2_84ag0"]
+[ext_resource type="Resource" uid="uid://cdmn321pw7fbg" path="res://characters/Zero/dialouge branches/name exchange.tres" id="3_84ag0"]
 [ext_resource type="Script" uid="uid://fpqkt75sqcrh" path="res://characters/Dialouge_branch.gd" id="3_jj5yj"]
 
 [sub_resource type="Resource" id="Resource_oxp42"]
@@ -17,11 +18,12 @@ metadata/_custom_type_script = "uid://cesnpiv0v8usw"
 [sub_resource type="Resource" id="Resource_n2loh"]
 script = ExtResource("2_84ag0")
 text = "I'm not sure"
+Branch_to_switch = ExtResource("3_84ag0")
 metadata/_custom_type_script = "uid://o4f001ayiu7a"
 
 [sub_resource type="Resource" id="Resource_3okan"]
 script = ExtResource("1_d4frq")
-text = "Right whats your name."
+text = "Right whats your name.[QUESTION]"
 has_options = true
 options = Array[ExtResource("2_84ag0")]([SubResource("Resource_n2loh")])
 metadata/_custom_type_script = "uid://cesnpiv0v8usw"
