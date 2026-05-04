@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ccsvsjofwq2k6"]
+[gd_scene format=3 uid="uid://ccsvsjofwq2k6"]
 
 [ext_resource type="Script" uid="uid://ybcsh43nrheh" path="res://quest_library/player/player_transfer.gd" id="1_dhpt7"]
 [ext_resource type="Resource" uid="uid://bo23kj8a61rqo" path="res://quest_library/player/player_stats.tres" id="2_kn42j"]
@@ -41,7 +41,7 @@ slot_datas = Array[ExtResource("3_xofl5")]([null])
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_phy4h"]
 
-[node name="player" type="CharacterBody3D" groups=["actor", "player"]]
+[node name="player" type="CharacterBody3D" unique_id=1811905029 groups=["actor", "player"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 collision_layer = 2
 safe_margin = 0.01
@@ -55,53 +55,53 @@ equip_helmet_data = SubResource("Resource_t4iyv")
 equip_body_data = SubResource("Resource_adu3j")
 equip_weapon_data = SubResource("Resource_ircls")
 
-[node name="look_target" parent="." instance=ExtResource("6_clk7w")]
+[node name="look_target" parent="." unique_id=2134792113 instance=ExtResource("6_clk7w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0533988, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=775919802]
 visible = false
 shape = SubResource("CapsuleShape3D_n4ek1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=862861846]
 layers = 2
 mesh = SubResource("CapsuleMesh_phy4h")
 
-[node name="Pivot" type="Node3D" parent="."]
+[node name="Pivot" type="Node3D" parent="." unique_id=452251928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.553, -0.498)
 
-[node name="gun_container" type="Node3D" parent="Pivot"]
+[node name="gun_container" type="Node3D" parent="Pivot" unique_id=1267505150]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.629326, -0.262489, -0.896693)
 
-[node name="Camera" type="Camera3D" parent="Pivot"]
+[node name="Camera" type="Camera3D" parent="Pivot" unique_id=1721234971]
 cull_mask = 3
 current = true
 fov = 77.1708
 near = 0.001
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Pivot/Camera"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Pivot/Camera" unique_id=149374659]
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="SubViewport" type="SubViewport" parent="Pivot/Camera/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Pivot/Camera/SubViewportContainer" unique_id=1748659910]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
 
-[node name="Camera" type="Camera3D" parent="Pivot/Camera/SubViewportContainer/SubViewport"]
+[node name="Camera" type="Camera3D" parent="Pivot/Camera/SubViewportContainer/SubViewport" unique_id=846050754]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.552635, -0.509076)
 visible = false
 cull_mask = 1048572
 fov = 77.1708
 near = 0.001
 
-[node name="interact_ray" type="RayCast3D" parent="Pivot/Camera"]
+[node name="interact_ray" type="RayCast3D" parent="Pivot/Camera" unique_id=1661367739]
 target_position = Vector3(0, 0, -2)
 collision_mask = 5
 
-[node name="quest_container" type="Node" parent="."]
+[node name="quest_container" type="Node" parent="." unique_id=391729952]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1786671821]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -116,16 +116,16 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 0.894118, 0.87451, 0.501961)
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=282329230]
 wait_time = 0.01
 one_shot = true
 autostart = true
 
-[node name="hunger_timer" type="Timer" parent="."]
+[node name="hunger_timer" type="Timer" parent="." unique_id=1489549985]
 wait_time = 8.0
 autostart = true
 
-[node name="thirst_timer" type="Timer" parent="."]
+[node name="thirst_timer" type="Timer" parent="." unique_id=494080031]
 wait_time = 8.0
 autostart = true
 

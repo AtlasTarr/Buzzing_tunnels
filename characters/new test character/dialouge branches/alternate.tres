@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Dialouge_branch" format=3 uid="uid://c0qtwidhh6equ"]
+
+[ext_resource type="Script" uid="uid://cesnpiv0v8usw" path="res://characters/Dialouge_resource.gd" id="1_pfhae"]
+[ext_resource type="Script" uid="uid://fpqkt75sqcrh" path="res://characters/Dialouge_branch.gd" id="2_dd4se"]
+[ext_resource type="Script" uid="uid://o4f001ayiu7a" path="res://characters/Option_resource.gd" id="2_taa7m"]
+
+[sub_resource type="Resource" id="Resource_v3stc"]
+script = ExtResource("2_taa7m")
+text = "yes"
+Branch_to_switch = "Default"
+metadata/_custom_type_script = "uid://o4f001ayiu7a"
+
+[sub_resource type="Resource" id="Resource_ps4dj"]
+script = ExtResource("2_taa7m")
+text = "no"
+Branch_to_switch = "alternate"
+metadata/_custom_type_script = "uid://o4f001ayiu7a"
+
+[sub_resource type="Resource" id="Resource_qloj8"]
+script = ExtResource("1_pfhae")
+text = "would you like to change back[QUESTION]"
+has_options = true
+options = Array[ExtResource("2_taa7m")]([SubResource("Resource_v3stc"), SubResource("Resource_ps4dj")])
+metadata/_custom_type_script = "uid://cesnpiv0v8usw"
+
+[resource]
+script = ExtResource("2_dd4se")
+Branch_name = "alternate"
+Dialouges = Array[ExtResource("1_pfhae")]([SubResource("Resource_qloj8")])
+metadata/_custom_type_script = "uid://fpqkt75sqcrh"

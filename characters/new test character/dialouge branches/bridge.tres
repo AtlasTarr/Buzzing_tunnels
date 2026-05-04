@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Dialouge_branch" format=3 uid="uid://c8tfboa15hw6d"]
+
+[ext_resource type="Script" uid="uid://cesnpiv0v8usw" path="res://characters/Dialouge_resource.gd" id="1_o158v"]
+[ext_resource type="Script" uid="uid://fpqkt75sqcrh" path="res://characters/Dialouge_branch.gd" id="2_gm6bt"]
+[ext_resource type="Script" uid="uid://o4f001ayiu7a" path="res://characters/Option_resource.gd" id="2_qvwtr"]
+
+[sub_resource type="Resource" id="Resource_7q8r4"]
+script = ExtResource("2_qvwtr")
+text = "confirm"
+metadata/_custom_type_script = "uid://o4f001ayiu7a"
+
+[sub_resource type="Resource" id="Resource_dky5t"]
+script = ExtResource("1_o158v")
+text = "switch branch"
+has_options = true
+options = Array[ExtResource("2_qvwtr")]([SubResource("Resource_7q8r4")])
+metadata/_custom_type_script = "uid://cesnpiv0v8usw"
+
+[resource]
+script = ExtResource("2_gm6bt")
+Branch_name = "bridge"
+Dialouges = Array[ExtResource("1_o158v")]([SubResource("Resource_dky5t")])
+metadata/_custom_type_script = "uid://fpqkt75sqcrh"

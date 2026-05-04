@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="character_resource" format=3 uid="uid://dy5duwgxykwsj"]
+
+[ext_resource type="Script" uid="uid://fpqkt75sqcrh" path="res://characters/Dialouge_branch.gd" id="1_jblxk"]
+[ext_resource type="Resource" uid="uid://cbcflww6puf37" path="res://characters/new test character/dialouge branches/Default.tres" id="2_ogkp7"]
+[ext_resource type="Script" uid="uid://wxak0xqluxmm" path="res://characters/Character_resource.gd" id="2_ukf5f"]
+[ext_resource type="Resource" uid="uid://c0qtwidhh6equ" path="res://characters/new test character/dialouge branches/alternate.tres" id="3_ogkp7"]
+
+[resource]
+script = ExtResource("2_ukf5f")
+character_name = "new test character"
+Dialouge_branchs = Array[ExtResource("1_jblxk")]([ExtResource("2_ogkp7"), ExtResource("3_ogkp7")])
+metadata/_custom_type_script = "uid://wxak0xqluxmm"

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://boouchtfcjwsn"]
+
+[ext_resource type="PackedScene" uid="uid://b0av1v3udjay6" path="res://characters/new character/new character.tscn" id="1_857qa"]
+[ext_resource type="Resource" uid="uid://dy5duwgxykwsj" path="res://characters/new test character/new test character.tres" id="2_wpsr3"]
+
+[node name="New character" unique_id=728157537 instance=ExtResource("1_857qa")]
+Name = "new test character"
+characters_resource = ExtResource("2_wpsr3")
+
+[node name="Camera3D" parent="." index="13"]
+current = false

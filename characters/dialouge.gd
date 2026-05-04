@@ -54,8 +54,7 @@ var ray_datas_size
 @export var waiting: = false
 
 @export var dialouges: PackedStringArray
-@export var unformated_dialouges: PackedStringArray
-@export var choices: Array[Option_resource]
+@export var choices: Dictionary = {"text": "", "branch_to_switch_to": ""}
 @export var continue_on_interact := true
 @export var current_choice_tree: String = "default"
 @export var current_dialouge_file:int = 0
@@ -305,6 +304,7 @@ func _process(delta):
 		if dialouges[current_dialouge].contains("[QUESTION]"):
 			option_update_new()
 			answered = true
+			print("detecting question")
 			
 	if ! dialouge_set:
 		character_dialouge()
@@ -378,8 +378,8 @@ func _on_trigger_interact():
 		
 		elif active != true:
 			print("initialise case")
-			set_dialouge()
 			initialise_dialouge()
+			set_dialouge()
 		
 		if active == true and dialouges[current_dialouge] != "[END]" and answered == false:
 			print("incriment case")
@@ -389,11 +389,14 @@ func _on_trigger_interact():
 		elif answered == true:
 			print("change path case")
 			set_dialouge()
-			option_update_new()
+			character_dialouge()
+			set_choices()
 			owner.can_save = false
+	
 		elif active == true and dialouges[current_dialouge] == "[END]":
 			print("end dialouge case")
 			end_dialouge()
+			character_dialouge()
 			if continue_on_interact == true:
 				increment_dialouge_file(1)
 
@@ -409,10 +412,17 @@ func option_update_new():
 	for branch in characters_resource.Dialouge_branchs:
 		if branch.Branch_name == characters_resource.Current_branch:
 			var dialouge_file = branch.Dialouges.get(current_dialouge)
+			print("option update")
 			if dialouge_file.has_options:
 				for option in dialouge_file.options.size():
-					choices.append(dialouge_file.options[option])
-	owner.choice_array = choices
+					var temp_c_dict = choices.duplicate()
+					temp_c_dict.set("text", dialouge_file.options[option].text)
+					temp_c_dict.set("branch_to_switch_to", dialouge_file.options[option].Branch_to_switch)
+					choices.merge(temp_c_dict, true)
+	set_choices()
+
+func set_choices():
+	owner.choice_array.merge(choices, true)
 
 func check_quest_status():
 	for i in owner.get_children(true):

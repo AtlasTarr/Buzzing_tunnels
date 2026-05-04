@@ -8,7 +8,7 @@ var update_static: bool = false
 var current_dialouge: String = "test"
 var current_dialouge_holder: String = "test"
 
-var choice_array: Array[Option_resource]
+var choice_array: Dictionary = {"text": "", "branch_to_switch_to": ""}
 
 var choosing: bool = false
 
@@ -171,7 +171,7 @@ func _ready():
 		var choices = choice_container.get_children()
 		for child in children:
 			if child.is_in_group("DialougeHolder"):
-				child.connect("choice_update", option_update_new)
+				child.connect("option_update_new", option_update_new)
 				child.connect("dialouge_toggle", dialouge_ui_toggle)
 
 	
@@ -501,14 +501,16 @@ func option_update_new():
 	var button_text_array: PackedStringArray
 	for choice in choices:
 		var new_button = button.instantiate()
-		new_button.text = choice_array[choice].text
+		new_button.text = choice_array.text
+		print("branch is:",choice_array.branch_to_switch_to)
 		if new_button.text.contains("[QUEST]"):
 			new_button.connect("pressed", button_pressed.bind(choice.branch_to_switch.branch_name))
 			new_button.pressed.connect(Callable(dialouge_holder_object.increment_dialouge.bind(1)))
 			new_button.pressed.connect(Callable(dialouge_holder_object.give_quest))
 			new_button.connect("pressed", clear_options)
 		else:
-			new_button.connect("pressed", button_pressed.bind(choice_array[choice].Branch_to_switch.Branch_name))
+			print("non-quest button add")
+			new_button.connect("pressed", button_pressed.bind(choice_array.branch_to_switch_to))
 			new_button.pressed.connect(Callable(dialouge_holder_object.increment_dialouge.bind(1)))
 			new_button.connect("pressed", clear_options)
 			choice_container.add_child(new_button)
@@ -516,41 +518,12 @@ func option_update_new():
 func button_pressed(new_branch: String):
 	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
 	dialouge_holder_object.characters_resource.Current_branch = new_branch
-	dialouge_holder_object._on_trigger_interact()
-	dialouge_holder_object._on_trigger_interact()
 	dialouge_holder_object.answered = false
 	
 
 func clear_options():
 	for child in choice_container.get_children():
 		child.queue_free()
-
-#func option_update():
-	#@warning_ignore("unused_variable")
-	#var choices = choice_container.get_children()
-	#var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
-	#if choice_array.size()> 0:
-		#if dialouge_holder_object != null:
-			#for choice in choice_array:
-				#var choice_container_children = choice_container.get_children()
-				#var button_text_array: Array
-				#for child in choice_container_children:
-					#button_text_array.append(child.text)
-				#var new_button = button.instantiate()
-				#new_button.text = choice
-				#if not button_text_array.has(new_button.text):
-					#
-					#if new_button.text.contains("[QUEST]"):
-						#new_button.pressed.connect(Callable(update_dialouge_tree.bind(new_button.text)))
-						#new_button.pressed.connect(Callable(dialouge_holder_object.increment_dialouge.bind(1)))
-						#new_button.pressed.connect(Callable(dialouge_holder_object.give_quest))
-					#else:
-						#new_button.pressed.connect(Callable(update_dialouge_tree.bind(new_button.text)))
-						#new_button.pressed.connect(Callable(dialouge_holder_object.increment_dialouge.bind(1)))
-					#choice_container.add_child(new_button)
-				#else:
-					#add_child(new_button)
-					#new_button.queue_free()
 
 func update_dialouge_tree(tree_name: String):
 	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)

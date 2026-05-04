@@ -333,10 +333,8 @@ func update_body_stats():
 					old_body_inventory.slot_datas[i] = _playerdata.equip_body_data.slot_datas[i]
 	_playerdata.equip_body_data.slot_datas = equip_body_data.slot_datas
 
-
 func on_hunger_timer_timeout() -> void:
 	temp_hunger = _playerdata.hunger - 0.1
-
 
 func on_thirst_timer_timeout() -> void:
 	temp_thirst = _playerdata.thirst - 0.15
