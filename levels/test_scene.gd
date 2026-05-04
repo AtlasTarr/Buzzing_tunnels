@@ -1,7 +1,6 @@
 extends Node3D
 class_name Level
 
-
 var paused = false
 var update_static: bool = false
 
@@ -35,20 +34,16 @@ var player_file_name = "playersave.tres"
 const GAME_STATE = preload("res://levels/game_state.tres")
 var game_state = GAME_STATE.duplicate()
 
-
 enum state {full, half, one_quarter, empty}
-
 
 @export var old_temp_list: Dictionary
 @export var temp_list: Dictionary
 @export var test_temp_list: Dictionary
 
-
 @export var test_array: Array
 
 @onready var children = self.get_children(true)
 @onready var name_array: PackedStringArray
-
 
 @onready var player = find_child("player")
 @onready var playerdata = player._playerdata
@@ -56,7 +51,6 @@ enum state {full, half, one_quarter, empty}
 @onready var hot_bar_inventory = $UI/Hot_bar_inventory
 @onready var questlog = $UI/questlog
 @onready var questlog_containers = $UI/questlog/TextureRect/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/PanelContainer/GridContainer
-
 
 func _ready():
 	var name_array: PackedStringArray
@@ -518,8 +512,7 @@ func option_update_new():
 func button_pressed(new_branch: String):
 	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
 	dialouge_holder_object.characters_resource.Current_branch = new_branch
-	dialouge_holder_object.answered = false
-	
+	dialouge_holder_object.answer()
 
 func clear_options():
 	for child in choice_container.get_children():
@@ -527,7 +520,6 @@ func clear_options():
 
 func update_dialouge_tree(tree_name: String):
 	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
-	dialouge_holder_object.answer()
 	var File_path = "".join(["res://characters/", current_dialouge_holder, "/dialouges/", tree_name, "/", current_dialouge_holder, "0", ".txt"])
 	var file_path_exists = FileAccess.file_exists(File_path)
 	if file_path_exists:

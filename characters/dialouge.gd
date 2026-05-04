@@ -60,6 +60,7 @@ var ray_datas_size
 @export var current_dialouge_file:int = 0
 @export var current_dialouge: int = 0
 var answered: bool = false
+var button_added: bool = false
 var file
 var dialouge_as_string
 @onready var trigger = $trigger
@@ -302,10 +303,9 @@ func _process(delta):
 		can_access_inventory = false
 	if dialouges.size() > 0:
 		if dialouges[current_dialouge].contains("[QUESTION]"):
-			option_update_new()
 			answered = true
 			print("detecting question")
-			
+
 	if ! dialouge_set:
 		character_dialouge()
 
@@ -362,6 +362,7 @@ func patrol(delta):
 
 func answer():
 	answered = false
+	button_added = false
 
 func toggle_continue():
 	continue_on_interact = !continue_on_interact
@@ -388,10 +389,12 @@ func _on_trigger_interact():
 		
 		elif answered == true:
 			print("change path case")
-			set_dialouge()
-			character_dialouge()
-			set_choices()
-			owner.can_save = false
+			if ! button_added:
+				button_added = true
+				set_dialouge()
+				character_dialouge()
+				option_update_new()
+				owner.can_save = false
 	
 		elif active == true and dialouges[current_dialouge] == "[END]":
 			print("end dialouge case")
