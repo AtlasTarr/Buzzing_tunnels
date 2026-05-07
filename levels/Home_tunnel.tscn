@@ -324,24 +324,6 @@ level = "monster_tunnel"
 
 [node name="Zero" parent="." unique_id=360384746 instance=ExtResource("8_t0xbd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.227, 1.42158, -25.2494)
-max_health = null
-defence = null
-walk_speed = null
-run_speed = null
-body_spawned = null
-point_index = null
-flee_target = null
-afraid = null
-waiting = null
-dialouges = null
-choices = null
-continue_on_interact = null
-current_choice_tree = null
-current_dialouge_file = null
-current_dialouge = null
-quest_references = null
-quest_index = null
-branch_to_change_to = null
 
 [node name="Paths" type="Node3D" parent="." unique_id=871505713]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.238102, 1.42158, 4.17545)
@@ -636,25 +618,6 @@ Cinematic = "Opening cinematic"
 
 [node name="New character" parent="." unique_id=728157537 instance=ExtResource("22_ftavc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.10569, 0.888036, -20.7052)
-max_health = null
-defence = null
-walk_speed = null
-run_speed = null
-body_spawned = null
-can_access_inventory = null
-point_index = null
-flee_target = null
-afraid = null
-waiting = null
-dialouges = null
-choices = null
-continue_on_interact = null
-current_choice_tree = null
-current_dialouge_file = null
-current_dialouge = null
-quest_references = null
-quest_index = null
-branch_to_change_to = null
 
 [editable path="UI"]
 [editable path="UI/questlog"]

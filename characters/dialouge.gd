@@ -54,7 +54,7 @@ var ray_datas_size
 @export var waiting: = false
 
 @export var dialouges: PackedStringArray
-@export var choices: Dictionary = {"text": "", "branch_to_switch_to": ""}
+@export var choices: Dictionary = {"text": [], "branch_to_switch_to": []}
 @export var continue_on_interact := true
 @export var current_choice_tree: String = "default"
 @export var current_dialouge_file:int = 0
@@ -412,6 +412,8 @@ func end_dialouge():
 	owner.can_save = true
 
 func option_update_new():
+	choices.text.clear()
+	choices.branch_to_switch_to.clear()
 	for branch in characters_resource.Dialouge_branchs:
 		if branch.Branch_name == characters_resource.Current_branch:
 			var dialouge_file = branch.Dialouges.get(current_dialouge)
@@ -419,12 +421,13 @@ func option_update_new():
 			if dialouge_file.has_options:
 				for option in dialouge_file.options.size():
 					var temp_c_dict = choices.duplicate()
-					temp_c_dict.set("text", dialouge_file.options[option].text)
-					temp_c_dict.set("branch_to_switch_to", dialouge_file.options[option].Branch_to_switch)
+					temp_c_dict.text.append(dialouge_file.options[option].text)
+					temp_c_dict.branch_to_switch_to.append(dialouge_file.options[option].Branch_to_switch)
 					choices.merge(temp_c_dict, true)
 	set_choices()
 
 func set_choices():
+	owner.choice_array.clear()
 	owner.choice_array.merge(choices, true)
 
 func check_quest_status():

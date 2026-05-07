@@ -7,7 +7,7 @@ var update_static: bool = false
 var current_dialouge: String = "test"
 var current_dialouge_holder: String = "test"
 
-var choice_array: Dictionary = {"text": "", "branch_to_switch_to": ""}
+var choice_array: Dictionary = {"text": [], "branch_to_switch_to": []}
 
 var choosing: bool = false
 
@@ -491,23 +491,23 @@ func no_dialouge_option_ui():
 
 func option_update_new():
 	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
-	var choices = choice_array.size()
+	var choices = choice_array.text.size()
 	var button_text_array: PackedStringArray
 	for choice in choices:
 		var new_button = button.instantiate()
-		new_button.text = choice_array.text
-		print("branch is:",choice_array.branch_to_switch_to)
+		new_button.text = choice_array.text[choice]
+		print(choice_array)
 		if new_button.text.contains("[QUEST]"):
-			new_button.connect("pressed", button_pressed.bind(choice.branch_to_switch.branch_name))
+			new_button.connect("pressed", button_pressed.bind(choice.branch_to_switch_to[choice]))
 			new_button.pressed.connect(Callable(dialouge_holder_object.increment_dialouge.bind(1)))
 			new_button.pressed.connect(Callable(dialouge_holder_object.give_quest))
 			new_button.connect("pressed", clear_options)
 		else:
 			print("non-quest button add")
-			new_button.connect("pressed", button_pressed.bind(choice_array.branch_to_switch_to))
+			new_button.connect("pressed", button_pressed.bind(choice_array.branch_to_switch_to[choice]))
 			new_button.pressed.connect(Callable(dialouge_holder_object.increment_dialouge.bind(1)))
 			new_button.connect("pressed", clear_options)
-			choice_container.add_child(new_button)
+		choice_container.add_child(new_button)
 
 func button_pressed(new_branch: String):
 	var dialouge_holder_object = self.find_child(current_dialouge_holder,true, false)
