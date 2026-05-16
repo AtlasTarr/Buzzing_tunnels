@@ -461,7 +461,6 @@ func initialise_dialouge():
 	character_dialouge()
 	active = true
 	emit_signal("dialouge_toggle")
-	emit_signal("choice_update")
 
 func increment_dialouge_file(value: int):
 	for branchs in characters_resource.Dialouge_branchs:
